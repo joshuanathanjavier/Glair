@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://buvcsifrb12ac"]
+
+[ext_resource type="PackedScene" uid="uid://bwulnxf4nwswc" path="res://pause_menu.tscn" id="1_bpebn"]
+[ext_resource type="PackedScene" uid="uid://c4pvfm215jx22" path="res://player.tscn" id="1_iuwxl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wgf7k"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xg6wp"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l60eg"]
+size = Vector3(10, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m1kfr"]
+size = Vector3(10, 2, 1)
+
+[sub_resource type="Environment" id="Environment_nx50e"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_cj3gt"]
+
+[node name="Map" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_wgf7k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_xg6wp")
+
+[node name="wall1" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20)
+shape = SubResource("BoxShape3D_l60eg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20)
+mesh = SubResource("BoxMesh_m1kfr")
+
+[node name="wall2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
+shape = SubResource("BoxShape3D_l60eg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
+mesh = SubResource("BoxMesh_m1kfr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.785997, 0.61823, 0, -0.61823, 0.785997, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nx50e")
+camera_attributes = SubResource("CameraAttributesPractical_cj3gt")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("1_bpebn")]
+
+[node name="Player" parent="." instance=ExtResource("1_iuwxl")]
