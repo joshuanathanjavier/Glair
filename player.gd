@@ -31,8 +31,8 @@ var max_flashlight_battery: float = 100.0
 @onready var camera: Camera3D = $Camera3D
 @onready var flashlight = $Camera3D/Flashlight
 @onready var pause_menu = $"../UI/PauseMenu"
-@onready var stamina_bar: TextureProgressBar = $UI/HUD/MarginContainer/VBoxContainer/StaminaBar
-@onready var flashlight_bar: TextureProgressBar = $UI/HUD/MarginContainer/VBoxContainer/FlashlightBar
+@onready var stamina_bar: ProgressBar = $UI/HUD/MarginContainer/VBoxContainer/StaminaBar
+@onready var flashlight_bar: ProgressBar = $UI/HUD/MarginContainer/VBoxContainer/FlashlightBar
 
 # --- Initialization ---
 func _ready() -> void:
@@ -54,13 +54,22 @@ func _physics_process(delta: float) -> void:
 	var right = transform.basis.x
 	
 	# Update UI bars
-	stamina_bar.value = stamina / max_stamina * 100.0
-	flashlight_bar.value = flashlight_battery / max_flashlight_battery * 100.0
+	if stamina_bar:
+		stamina_bar.value = stamina / max_stamina * 100.0
+	if flashlight_bar:
+		flashlight_bar.value = flashlight_battery / max_flashlight_battery * 100.0
 
 	# Flashlight Input
 	if Input.is_action_just_pressed("flashlight_toggle"):
 		flashlight_on = !flashlight_on
 		flashlight.visible = flashlight_on
+
+	# Flashlight battery drain
+	if flashlight_on:
+		flashlight_battery = max(0.0, flashlight_battery - delta * 5.0) # drains at 5 units per second
+		if flashlight_battery == 0.0:
+			flashlight_on = false
+			flashlight.visible = false
 
 	# Movement input
 	if Input.is_action_pressed("move_forward"):
@@ -92,7 +101,7 @@ func _physics_process(delta: float) -> void:
 	camera.position.y = lerp(camera.position.y, target_camera_y, 10 * delta)
 
 	# Sprint and stamina logic
-	is_sprinting = Input.is_action_pressed("run") and not is_crouching and stamina > 0.1
+	is_sprinting = Input.is_action_pressed("run") and not is_crouching and stamina > 0.0 and direction != Vector3.ZERO
 
 	var speed = move_speed
 	if is_crouching:
@@ -100,7 +109,7 @@ func _physics_process(delta: float) -> void:
 	if is_sprinting:
 		speed *= sprint_multiplier
 		stamina = max(0.0, stamina - stamina_depletion_rate * delta)
-	else:
+	elif not Input.is_action_pressed("run"):
 		stamina = min(max_stamina, stamina + stamina_recovery_rate * delta)
 
 	# Apply movement
