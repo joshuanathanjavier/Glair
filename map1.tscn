@@ -1,21 +1,103 @@
-[gd_scene load_steps=9 format=3 uid="uid://buvcsifrb12ac"]
+[gd_scene load_steps=20 format=3 uid="uid://buvcsifrb12ac"]
 
 [ext_resource type="PackedScene" uid="uid://bwulnxf4nwswc" path="res://pause_menu.tscn" id="1_bpebn"]
 [ext_resource type="PackedScene" uid="uid://c4pvfm215jx22" path="res://player.tscn" id="1_iuwxl"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wgf7k"]
-size = Vector3(50, 1, 50)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(200, 1, 200)
 
-[sub_resource type="BoxMesh" id="BoxMesh_xg6wp"]
-size = Vector3(50, 1, 50)
+[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
+size = Vector2(200, 200)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l60eg"]
-size = Vector3(10, 2, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_forest_floor"]
+diffuse_mode = 1
+albedo_color = Color(0.35, 0.25, 0.18, 1)
+roughness = 0.9
 
-[sub_resource type="BoxMesh" id="BoxMesh_m1kfr"]
-size = Vector3(10, 2, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tree"]
+height = 12.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_trunk"]
+top_radius = 0.8
+bottom_radius = 1.2
+height = 12.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bark"]
+diffuse_mode = 1
+albedo_color = Color(0.45, 0.35, 0.25, 1)
+roughness = 0.9
+
+[sub_resource type="SphereMesh" id="SphereMesh_foliage"]
+radius = 4.0
+height = 6.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_leaves"]
+diffuse_mode = 1
+albedo_color = Color(0.3, 0.4, 0.2, 1)
+roughness = 0.8
+
+[sub_resource type="Animation" id="Animation_sway"]
+resource_name = "sway"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sway"]
+_data = {
+"sway": SubResource("Animation_sway")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rock"]
+size = Vector3(3, 2, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rock"]
+size = Vector3(3, 2, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rock"]
+diffuse_mode = 1
+albedo_color = Color(0.4, 0.35, 0.3, 1)
+roughness = 0.95
+
+[sub_resource type="Animation" id="Animation_eerie_flicker"]
+resource_name = "eerie_flicker"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.2, 2, 2.8, 3.5, 4.2, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.05, 0.3, 0.02, 0.4, 0.08, 0.25, 0.01, 0.05]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eerie"]
+_data = {
+"eerie_flicker": SubResource("Animation_eerie_flicker")
+}
 
 [sub_resource type="Environment" id="Environment_nx50e"]
+background_mode = 1
+background_color = Color(0.15, 0.18, 0.2, 1)
+ambient_light_color = Color(0.4, 0.45, 0.5, 1)
+ambient_light_energy = 0.3
+fog_enabled = true
+fog_light_color = Color(0.3, 0.35, 0.4, 1)
+fog_light_energy = 0.2
+fog_sun_scatter = 0.1
+fog_density = 0.008
+fog_height = 3.0
+fog_height_density = 0.1
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_cj3gt"]
 
@@ -24,37 +106,346 @@ size = Vector3(10, 2, 1)
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("BoxShape3D_wgf7k")
+shape = SubResource("BoxShape3D_ground")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-mesh = SubResource("BoxMesh_xg6wp")
+mesh = SubResource("PlaneMesh_ground")
+surface_material_override/0 = SubResource("StandardMaterial3D_forest_floor")
 
-[node name="wall1" type="StaticBody3D" parent="."]
+[node name="Trees" type="Node3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20)
-shape = SubResource("BoxShape3D_l60eg")
+[node name="DeadTree1" type="StaticBody3D" parent="Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="wall1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20)
-mesh = SubResource("BoxMesh_m1kfr")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
 
-[node name="wall2" type="StaticBody3D" parent="."]
+[node name="Trunk" type="MeshInstance3D" parent="Trees/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
-shape = SubResource("BoxShape3D_l60eg")
+[node name="Foliage" type="MeshInstance3D" parent="Trees/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="wall2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
-mesh = SubResource("BoxMesh_m1kfr")
+[node name="Branch1" type="MeshInstance3D" parent="Trees/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.785997, 0.61823, 0, -0.61823, 0.785997, 0, 0, 0)
+[node name="Branch2" type="MeshInstance3D" parent="Trees/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/DeadTree1"]
+libraries = {
+"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/TwistedTree2"]
+libraries = {
+"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/GnarledTree3"]
+libraries = {
+"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/SpookyTree4"]
+libraries = {
+"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/AncientTree5"]
+libraries = {
+"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/PineTree6"]
+libraries = {
+"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/OakTree7"]
+libraries = {
+"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/WillowTree8"]
+libraries = {
+"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="ForestDebris" type="Node3D" parent="."]
+
+[node name="MossyRock1" type="StaticBody3D" parent="ForestDebris"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, -10, 0, -15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestDebris/MossyRock1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_rock")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ForestDebris/MossyRock1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_rock")
+surface_material_override/0 = SubResource("StandardMaterial3D_rock")
+
+[node name="WeatheredRock2" type="StaticBody3D" parent="ForestDebris"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestDebris/WeatheredRock2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_rock")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ForestDebris/WeatheredRock2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_rock")
+surface_material_override/0 = SubResource("StandardMaterial3D_rock")
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="MoonlightBeam" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 25, 0)
+light_color = Color(0.95, 0.98, 1, 1)
+light_energy = 1.5
+light_volumetric_fog_energy = 1.5
+spot_range = 80.0
+spot_angle = 70.0
+
+[node name="EerieGlow1" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 4, -30)
+light_color = Color(0.8, 0.9, 0.7, 1)
+light_energy = 0.4
+omni_range = 12.0
+omni_attenuation = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lighting/EerieGlow1"]
+libraries = {
+"": SubResource("AnimationLibrary_eerie")
+}
+autoplay = "eerie_flicker"
+
+[node name="GhostlyLight2" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 5, -20)
+light_color = Color(0.85, 0.88, 0.95, 1)
+light_energy = 0.3
+omni_range = 15.0
+omni_attenuation = 1.8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lighting/GhostlyLight2"]
+libraries = {
+"": SubResource("AnimationLibrary_eerie")
+}
+autoplay = "eerie_flicker"
+
+[node name="WispLight3" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 3, 35)
+light_color = Color(1, 0.95, 0.8, 1)
+light_energy = 0.25
+omni_range = 10.0
+omni_attenuation = 2.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lighting/WispLight3"]
+libraries = {
+"": SubResource("AnimationLibrary_eerie")
+}
+autoplay = "eerie_flicker"
+
+[node name="FlashlightHelper" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_color = Color(1, 0.98, 0.9, 1)
+light_energy = 0.8
+light_volumetric_fog_energy = 2.0
+spot_range = 25.0
+spot_attenuation = 0.8
+spot_angle = 35.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nx50e")
 camera_attributes = SubResource("CameraAttributesPractical_cj3gt")
+
+[node name="HorrorAmbience" type="Node3D" parent="."]
+
+[node name="ForestAmbient" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+volume_db = -8.0
+
+[node name="OwlHoots" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 8, -25)
+volume_db = -15.0
+
+[node name="WolfHowl" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 5, 40)
+volume_db = -18.0
+
+[node name="RustlingLeaves" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 10, -35)
+volume_db = -12.0
+
+[node name="CreakingBranches" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 12, 30)
+volume_db = -20.0
+
+[node name="DistantFootsteps" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 1, -60)
+volume_db = -25.0
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -65,3 +456,4 @@ offset_bottom = 40.0
 [node name="PauseMenu" parent="UI" instance=ExtResource("1_bpebn")]
 
 [node name="Player" parent="." instance=ExtResource("1_iuwxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
