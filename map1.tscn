@@ -50,7 +50,7 @@ tracks/0/keys = PackedFloat32Array()
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sway"]
 _data = {
-"sway": SubResource("Animation_sway")
+&"sway": SubResource("Animation_sway")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rock"]
@@ -83,7 +83,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eerie"]
 _data = {
-"eerie_flicker": SubResource("Animation_eerie_flicker")
+&"eerie_flicker": SubResource("Animation_eerie_flicker")
 }
 
 [sub_resource type="Environment" id="Environment_nx50e"]
@@ -143,7 +143,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_bark")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/DeadTree1"]
 libraries = {
-"": SubResource("AnimationLibrary_sway")
+&"": SubResource("AnimationLibrary_sway")
 }
 autoplay = "sway"
 
@@ -171,7 +171,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/TwistedTree2"]
 libraries = {
-"": SubResource("AnimationLibrary_sway")
+&"": SubResource("AnimationLibrary_sway")
 }
 autoplay = "sway"
 
@@ -194,7 +194,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/GnarledTree3"]
 libraries = {
-"": SubResource("AnimationLibrary_sway")
+&"": SubResource("AnimationLibrary_sway")
 }
 autoplay = "sway"
 
@@ -217,7 +217,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/SpookyTree4"]
 libraries = {
-"": SubResource("AnimationLibrary_sway")
+&"": SubResource("AnimationLibrary_sway")
 }
 autoplay = "sway"
 
@@ -240,7 +240,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/AncientTree5"]
 libraries = {
-"": SubResource("AnimationLibrary_sway")
+&"": SubResource("AnimationLibrary_sway")
 }
 autoplay = "sway"
 
@@ -273,7 +273,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/PineTree6"]
 libraries = {
-"": SubResource("AnimationLibrary_sway")
+&"": SubResource("AnimationLibrary_sway")
 }
 autoplay = "sway"
 
@@ -296,7 +296,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/OakTree7"]
 libraries = {
-"": SubResource("AnimationLibrary_sway")
+&"": SubResource("AnimationLibrary_sway")
 }
 autoplay = "sway"
 
@@ -329,7 +329,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Trees/WillowTree8"]
 libraries = {
-"": SubResource("AnimationLibrary_sway")
+&"": SubResource("AnimationLibrary_sway")
 }
 autoplay = "sway"
 
@@ -378,7 +378,7 @@ omni_attenuation = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lighting/EerieGlow1"]
 libraries = {
-"": SubResource("AnimationLibrary_eerie")
+&"": SubResource("AnimationLibrary_eerie")
 }
 autoplay = "eerie_flicker"
 
@@ -391,7 +391,7 @@ omni_attenuation = 1.8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lighting/GhostlyLight2"]
 libraries = {
-"": SubResource("AnimationLibrary_eerie")
+&"": SubResource("AnimationLibrary_eerie")
 }
 autoplay = "eerie_flicker"
 
@@ -404,7 +404,7 @@ omni_attenuation = 2.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lighting/WispLight3"]
 libraries = {
-"": SubResource("AnimationLibrary_eerie")
+&"": SubResource("AnimationLibrary_eerie")
 }
 autoplay = "eerie_flicker"
 
