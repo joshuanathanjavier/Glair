@@ -1,0 +1,239 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkjg8r2v3n1m5"]
+
+[ext_resource type="Script" uid="uid://c0mg8h1ykfred" path="res://scripts/settings.gd" id="1_settings"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_settings")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15, 0.15, 0.15, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsVBox" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="AudioSection" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AudioLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="MasterVolumeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection"]
+layout_mode = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MasterVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume:"
+vertical_alignment = 1
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MasterVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 100.0
+
+[node name="MasterVolumeValue" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MasterVolumeContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(40, 0)
+text = "100%"
+vertical_alignment = 1
+
+[node name="MusicVolumeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection"]
+layout_mode = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MusicVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music Volume:"
+vertical_alignment = 1
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MusicVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 100.0
+
+[node name="MusicVolumeValue" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MusicVolumeContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(40, 0)
+text = "100%"
+vertical_alignment = 1
+
+[node name="SFXVolumeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection"]
+layout_mode = 2
+
+[node name="SFXVolumeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/SFXVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX Volume:"
+vertical_alignment = 1
+
+[node name="SFXVolumeSlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/SFXVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 100.0
+
+[node name="SFXVolumeValue" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/SFXVolumeContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(40, 0)
+text = "100%"
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+
+[node name="GraphicsSection" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GraphicsLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Graphics"
+horizontal_alignment = 1
+
+[node name="FullscreenContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection"]
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/FullscreenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen:"
+vertical_alignment = 1
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/FullscreenContainer"]
+layout_mode = 2
+
+[node name="VSyncContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection"]
+layout_mode = 2
+
+[node name="VSyncLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/VSyncContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VSync:"
+vertical_alignment = 1
+
+[node name="VSyncCheckBox" type="CheckBox" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/VSyncContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+
+[node name="ControlsSection" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ControlsLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="MouseSensitivityContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection"]
+layout_mode = 2
+
+[node name="MouseSensitivityLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection/MouseSensitivityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mouse Sensitivity:"
+vertical_alignment = 1
+
+[node name="MouseSensitivitySlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection/MouseSensitivityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 1.0
+
+[node name="MouseSensitivityValue" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection/MouseSensitivityContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(40, 0)
+text = "1.0"
+vertical_alignment = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ApplyButton" type="Button" parent="Panel/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 45)
+text = "Apply"
+
+[node name="ResetButton" type="Button" parent="Panel/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(150, 45)
+text = "Reset to Default"
+
+[node name="BackButton" type="Button" parent="Panel/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 45)
+text = "Back"

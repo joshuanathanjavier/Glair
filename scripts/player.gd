@@ -39,6 +39,9 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera_default_position = camera.position
 	flashlight.visible = flashlight_on
+	
+	# Connect to settings changes
+	Events.settings_changed.connect(_on_settings_changed)
 
 # --- Mouse Look ---
 func _unhandled_input(event: InputEvent) -> void:
@@ -123,3 +126,8 @@ func _input(event):
 				pause_menu.close()
 			else:
 				pause_menu.open()
+
+func _on_settings_changed(settings_data: Dictionary):
+	# Update mouse sensitivity when settings change
+	if "mouse_sensitivity" in settings_data:
+		mouse_sensitivity = settings_data.mouse_sensitivity * 0.002

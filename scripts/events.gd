@@ -10,5 +10,6 @@ signal game_paused
 signal game_resumed
 signal interaction_started
 signal interaction_ended
+signal settings_changed(settings_data)
 
 # You can add more signals and event handling functions here as needed

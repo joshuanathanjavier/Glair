@@ -11,17 +11,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.1, 1)
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -577.0
-offset_top = -326.0
-offset_right = 575.0
-offset_bottom = 324.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -32,10 +35,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -51.0
-offset_top = -88.0
-offset_right = 51.0
-offset_bottom = 88.0
+offset_left = -150.0
+offset_top = -120.0
+offset_right = 150.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -56,15 +59,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StartButton" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Start Game"
 
 [node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Settings
-"
+text = "Settings"
 
 [node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Quit
-"
+text = "Quit"
