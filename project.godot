@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Glair"
-run/main_scene="res://main_menu.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Events="*res://events.gd"
+Events="*res://scripts/events.gd"
 
 [input]
 

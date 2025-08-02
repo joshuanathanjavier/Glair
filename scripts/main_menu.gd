@@ -10,7 +10,7 @@ func _ready():
 	quit_button.pressed.connect(_on_quit_pressed)
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://map1.tscn")  # Replace with your game scene
+	get_tree().change_scene_to_file("res://scenes/map1.tscn")  # Replace with your game scene
 
 func _on_settings_pressed():
 	# You can open a popup or navigate to a Settings scene
