@@ -333,6 +333,3558 @@ libraries = {
 }
 autoplay = "sway"
 
+[node name="Trees2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -55.2913)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees2/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees2/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees2/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees2/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees2/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees2/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees2"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees2/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees2/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees2/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees2/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees2/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees2/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees2/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees2/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees2/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees2/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees2/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees2/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees2/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees2/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees2/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees2/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees2/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees2/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees2/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees2/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees2/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees2/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees2/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees2/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees2/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees2/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees2/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees2/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees2/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees2/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees2/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees2/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees2/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 43.9131)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees3/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees3/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees3/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees3/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees3/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees3/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees3"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees3/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees3/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees3/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees3/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees3/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees3/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees3/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees3/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees3/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees3/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees3/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees3/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees3/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees3/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees3/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees3/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees3/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees3/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees3/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees3/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees3/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees3/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees3/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees3/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees3/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees3/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees3/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees3/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees3/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees3/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees3/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees3/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees3/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.5126, 0, 43.9131)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees4/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees4/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees4/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees4/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees4/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees4/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees4"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees4/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees4/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees4/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees4/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees4/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees4/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9532, 7.5, -1.28719)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees4/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9532, 7.5, -1.28719)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees4/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, 6.9532, 14, -1.28719)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees4/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees4/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees4/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees4/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees4/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees4/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees4/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees4/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees4/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees4/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees4/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees4/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees4/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees4/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees4/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees4/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees4/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees4/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees4/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees4/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees4/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees4/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees4/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees4/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees4/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.5126, 0, -50.0529)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees5/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees5/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees5/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees5/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees5/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees5/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees5"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees5/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees5/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees5/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees5/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees5/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees5/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees5/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees5/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees5/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees5/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees5/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees5/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees5/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees5/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees5/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees5/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees5/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees5/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees5/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees5/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees5/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees5/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees5/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees5/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees5/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees5/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees5/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees5/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees5/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees5/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees5/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees5/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees5/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees6" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.7286, 0, -66.5228)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees6/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees6/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees6/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees6/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees6/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees6/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees6"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees6/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees6/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees6/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees6/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees6/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees6/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees6/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees6/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees6/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees6/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees6/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees6/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees6/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees6/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees6/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees6/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees6/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees6/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees6/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees6/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees6/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees6/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees6/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees6/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees6/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees6/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees6/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees6/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees6/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees6/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees6/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees6/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees6/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees7" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.7295, 0, 47.3485)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees7/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees7/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees7/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees7/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees7/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees7/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees7"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees7/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7878, 6, -0.203011)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees7/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7878, 6, -0.203011)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees7/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, -19.7878, 9, -0.203003)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees7/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -21.2878, 11, -0.203011)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees7/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees7/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees7/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees7/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees7/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees7/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees7/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees7/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees7/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees7/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees7/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees7/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees7/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees7/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees7/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees7/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees7/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees7/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees7/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees7/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees7/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees7/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees7/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees7/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5062, 6, -85.5764)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees7/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, -44.5062, 6, -85.5764)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees7/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, -44.5062, 9, -85.5764)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees7/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, -42.5062, 7, -85.5764)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees7/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -46.0062, 6.5, -85.5764)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees7/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees8" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.104, 0, 1.19839)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees8/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees8/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees8/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees8/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees8/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees8/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees8"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees8/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees8/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees8/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees8/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees8/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees8/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees8/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees8/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees8/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees8/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees8/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees8/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees8/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees8/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees8/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees8/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees8/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees8/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees8/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees8/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees8/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees8/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees8/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees8/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees8/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees8/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees8/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees8/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees8/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees8/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees8/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees8/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees8/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees9" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.4387, 0, 1.19839)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees9/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees9/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees9/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees9/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees9/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees9/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees9"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees9/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees9/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees9/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees9/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees9/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees9/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees9/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees9/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees9/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees9/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees9/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees9/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees9/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees9/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees9/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees9/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees9/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees9/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees9/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees9/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees9/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees9/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees9/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees9/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees9/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees9/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees9/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees9/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees9/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees9/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees9/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees9/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees9/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees10" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67987, 0, -40.5449)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees10/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees10/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees10/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees10/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees10/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees10/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees10"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees10/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees10/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees10/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees10/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees10/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees10/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees10/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees10/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees10/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees10/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees10/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees10/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees10/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees10/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees10/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees10/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees10/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees10/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees10/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees10/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees10/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees10/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees10/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees10/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees10/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees10/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees10/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees10/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees10/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees10/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees10/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees10/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees10/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees11" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.047, 0, -58.5826)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees11/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees11/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees11/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees11/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees11/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees11/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees11"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees11/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees11/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees11/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees11/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees11/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees11/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees11/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees11/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees11/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees11/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees11/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees11/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees11/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees11/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees11/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees11/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees11/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees11/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees11/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees11/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees11/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees11/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees11/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees11/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees11/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees11/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees11/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees11/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees11/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees11/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees11/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees11/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees11/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees12" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.047, 0, 39.7475)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees12/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees12/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees12/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees12/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees12/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees12/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees12"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees12/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees12/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees12/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees12/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees12/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees12/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39448, 7.5, -19.3638)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees12/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39448, 7.5, -19.3638)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees12/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, 5.39448, 14, -19.3638)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees12/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees12/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees12/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees12/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees12/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees12/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees12/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees12/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees12/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees12/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees12/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees12/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees12/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees12/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees12/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees12/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees12/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees12/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees12/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees12/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees12/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees12/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees12/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees12/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees12/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees13" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6495, 0, 39.7475)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees13/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees13/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees13/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees13/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees13/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees13/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees13"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees13/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3056, 6, -89.2669)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees13/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3056, 6, -89.2669)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees13/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 35.3056, 9, -89.2668)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees13/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, 33.8056, 11, -89.2668)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees13/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees13/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees13/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees13/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees13/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees13/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees13/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees13/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees13/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees13/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees13/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees13/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees13/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees13/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees13/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees13/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees13/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees13/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees13/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees13/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees13/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees13/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees13/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees13/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7342, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees13/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, -32.7342, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees13/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, -32.7342, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees13/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, -30.7342, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees13/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -34.2342, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees13/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees14" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6495, 0, -62.9905)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees14/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees14/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees14/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees14/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees14/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees14/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees14"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees14/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0936, 6, -0.956402)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees14/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0936, 6, -0.956402)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees14/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, -17.0936, 9, -0.956394)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees14/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees14/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees14/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees14/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees14/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees14/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees14/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees14/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees14/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees14/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees14/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees14/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees14/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees14/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees14/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees14/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees14/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees14/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees14/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees14/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees14/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees14/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees14/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees14/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees14/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees14/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees14/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees14/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees14/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees14/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees15" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6495, 0, -24.0945)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees15/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees15/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees15/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees15/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees15/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees15/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees15"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees15/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.09837, 6, -19.8493)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees15/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.09837, 6, -19.8493)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees15/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, -6.09836, 9, -19.8493)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees15/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -7.59837, 11, -19.8493)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees15/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees15/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees15/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees15/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees15/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees15/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees15/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees15/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees15/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees15/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees15/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees15/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees15/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees15/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees15/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees15/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees15/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees15/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees15/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees15/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees15/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees15/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees15/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees15/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.65594, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees15/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, -6.65594, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees15/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, -6.65594, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees15/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, -4.65594, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees15/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -8.15594, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees15/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees16" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3667, 0, -66.9114)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees16/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees16/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees16/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees16/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 2, 8, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees16/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, -1.5, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees16/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees16"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees16/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees16/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees16/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 1, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees16/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, -0.5, 11, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees16/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees16/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees16/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees16/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -1, 14, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees16/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees16/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees16/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees16/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees16/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees16/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees16/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees16/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees16/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees16/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees16/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 0, 7, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees16/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 12, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees16/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 0, 10, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees16/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees16/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees16/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees16/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 0, 5, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees16/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees16/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees16/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees16/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0, 6, 0)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees16/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 0, 9, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees16/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 2, 7, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees16/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, -1.5, 6.5, 0)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees16/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="Trees17" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0453, -14.4904, 39.1112)
+
+[node name="DeadTree1" type="StaticBody3D" parent="Trees17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -30)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees17/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6403, 18.4362, -10.7282)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees17/DeadTree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6403, 18.4362, -10.7282)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees17/DeadTree1"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 11.6403, 22.4362, -10.7282)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Branch1" type="MeshInstance3D" parent="Trees17/DeadTree1"]
+transform = Transform3D(0.3, 0, 0.5, 0, 0.2, 0, -0.5, 0, 0.3, 13.6403, 20.4362, -10.7282)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Branch2" type="MeshInstance3D" parent="Trees17/DeadTree1"]
+transform = Transform3D(0.25, 0, -0.4, 0, 0.15, 0, 0.4, 0, 0.25, 10.1403, 19.4362, -10.7282)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees17/DeadTree1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="TwistedTree2" type="StaticBody3D" parent="Trees17"]
+transform = Transform3D(0.8, 0, 0.6, 0, 1, 0, -0.6, 0, 0.8, 40, 0, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees17/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8411, 19.7198, -1.41145)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees17/TwistedTree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8411, 19.7198, -1.41145)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees17/TwistedTree2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 15.8411, 22.7198, -1.41146)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees17/TwistedTree2"]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 0.6, 14.3411, 24.7198, -1.41145)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees17/TwistedTree2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="GnarledTree3" type="StaticBody3D" parent="Trees17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees17/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19901, 20.2079, -11.2335)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees17/GnarledTree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19901, 20.2079, -11.2335)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees17/GnarledTree3"]
+transform = Transform3D(0.8, 0, 0, 0, 1.5, 0, 0, 0, 0.8, -5.19901, 26.7079, -11.2335)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees17/GnarledTree3"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="SpookyTree4" type="StaticBody3D" parent="Trees17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -2, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees17/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4923, 22.0933, -12.5983)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees17/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4923, 22.0933, -12.5983)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees17/SpookyTree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4923, 26.5933, -12.5983)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees17/SpookyTree4"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="AncientTree5" type="StaticBody3D" parent="Trees17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees17/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.5361, -20.1814)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees17/AncientTree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.5361, -20.1814)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees17/AncientTree5"]
+transform = Transform3D(1.8, 0, 0, 0, 1.2, 0, 0, 0, 1.8, 0, 25.5361, -20.1814)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees17/AncientTree5"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="PineTree6" type="StaticBody3D" parent="Trees17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees17/PineTree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4923, 21.5933, -12.5983)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees17/PineTree6"]
+transform = Transform3D(0.6, 0, 0, 0, 1.2, 0, 0, 0, 0.6, 26.4923, 21.5933, -12.5983)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage1" type="MeshInstance3D" parent="Trees17/PineTree6"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 26.4923, 26.5933, -12.5983)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage2" type="MeshInstance3D" parent="Trees17/PineTree6"]
+transform = Transform3D(1.2, 0, 0, 0, 0.6, 0, 0, 0, 1.2, 26.4923, 24.5933, -12.5983)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Foliage3" type="MeshInstance3D" parent="Trees17/PineTree6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 26.4923, 22.5933, -12.5983)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees17/PineTree6"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="OakTree7" type="StaticBody3D" parent="Trees17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees17/OakTree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4923, 19.5933, -12.5983)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees17/OakTree7"]
+transform = Transform3D(1.2, 0, 0, 0, 0.8, 0, 0, 0, 1.2, 26.4923, 19.5933, -12.5983)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees17/OakTree7"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 26.4923, 22.5933, -12.5983)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees17/OakTree7"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
+[node name="WillowTree8" type="StaticBody3D" parent="Trees17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees17/WillowTree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4923, 20.5933, -12.5983)
+shape = SubResource("CylinderShape3D_tree")
+
+[node name="Trunk" type="MeshInstance3D" parent="Trees17/WillowTree8"]
+transform = Transform3D(0.8, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 26.4923, 20.5933, -12.5983)
+mesh = SubResource("CylinderMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_bark")
+
+[node name="Foliage" type="MeshInstance3D" parent="Trees17/WillowTree8"]
+transform = Transform3D(1.5, 0, 0, 0, 0.8, 0, 0, 0, 1.5, 26.4923, 23.5933, -12.5983)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage1" type="MeshInstance3D" parent="Trees17/WillowTree8"]
+transform = Transform3D(0.4, 0, 0, 0, 1.5, 0, 0, 0, 0.4, 28.4923, 21.5933, -12.5983)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="DropFoliage2" type="MeshInstance3D" parent="Trees17/WillowTree8"]
+transform = Transform3D(0.3, 0, 0, 0, 1.2, 0, 0, 0, 0.3, 24.9923, 21.0933, -12.5983)
+mesh = SubResource("SphereMesh_foliage")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trees17/WillowTree8"]
+libraries = {
+&"": SubResource("AnimationLibrary_sway")
+}
+autoplay = "sway"
+
 [node name="ForestDebris" type="Node3D" parent="."]
 
 [node name="MossyRock1" type="StaticBody3D" parent="ForestDebris"]
