@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://buvcsifrb12ac"]
+[gd_scene load_steps=22 format=3 uid="uid://buvcsifrb12ac"]
 
 [ext_resource type="PackedScene" uid="uid://bwulnxf4nwswc" path="res://scenes/pause_menu.tscn" id="1_bpebn"]
 [ext_resource type="PackedScene" uid="uid://c4pvfm215jx22" path="res://scenes/player.tscn" id="1_iuwxl"]
 [ext_resource type="PackedScene" uid="uid://bpoa77flfrywp" path="res://scenes/player_ui.tscn" id="2_ui"]
+[ext_resource type="PackedScene" path="res://scenes/map_wide_battery_spawner.tscn" id="4_x0ugi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(200, 1, 200)
@@ -4012,3 +4013,7 @@ offset_bottom = 40.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="PlayerUI" parent="." instance=ExtResource("2_ui")]
+
+[node name="MapWideBatterySpawner" parent="." instance=ExtResource("4_x0ugi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.582855, 0.5, 0.537357)
+spawn_count = 30

@@ -16,4 +16,14 @@ signal low_battery_warning
 signal stamina_updated(current_stamina, max_stamina)
 signal battery_updated(current_battery, max_battery)
 
+# New enhanced signals
+signal interaction_available(interaction_text)
+signal interaction_cleared
+signal fear_level_changed(fear_level)
+signal player_stress_changed(stress_level)
+
+# Battery pickup signals
+signal battery_pickup_collected(charge_amount)
+signal show_pickup_message(message_text)
+
 # You can add more signals and event handling functions here as needed

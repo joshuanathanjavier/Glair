@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4pvfm215jx22"]
+[gd_scene load_steps=12 format=3 uid="uid://c4pvfm215jx22"]
 
 [ext_resource type="Script" uid="uid://cdkwimmvo2moq" path="res://scripts/player.gd" id="1_pyntv"]
 
@@ -6,9 +6,50 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ue3wg"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_arudw"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_flashlight_body"]
+top_radius = 0.03
+bottom_radius = 0.025
+height = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flashlight_body"]
+albedo_color = Color(0.15, 0.15, 0.15, 1)
+metallic = 0.8
+roughness = 0.2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_flashlight_lens"]
+top_radius = 0.032
+bottom_radius = 0.032
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flashlight_lens"]
+transparency = 1
+albedo_color = Color(0.95, 0.95, 0.95, 0.9)
+metallic = 0.1
+roughness = 0.05
+emission_enabled = true
+emission = Color(1, 0.964706, 0.819608, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_flashlight_grip"]
+top_radius = 0.026
+bottom_radius = 0.026
+height = 0.06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flashlight_grip"]
+albedo_color = Color(0.05, 0.05, 0.05, 1)
+metallic = 0.3
+roughness = 0.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_flashlight_button"]
+radius = 0.005
+height = 0.003
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flashlight_button"]
+albedo_color = Color(0.8, 0.2, 0.2, 1)
+metallic = 0.6
+roughness = 0.4
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_pyntv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -19,6 +60,16 @@ mesh = SubResource("CapsuleMesh_ue3wg")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 
+[node name="AudioSystem" type="Node3D" parent="Camera3D"]
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="Camera3D/AudioSystem"]
+
+[node name="BreathingPlayer" type="AudioStreamPlayer3D" parent="Camera3D/AudioSystem"]
+volume_db = -10.0
+
+[node name="HeartbeatPlayer" type="AudioStreamPlayer3D" parent="Camera3D/AudioSystem"]
+volume_db = -15.0
+
 [node name="Flashlight" type="SpotLight3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.25, -1.025)
 light_color = Color(1, 0.964706, 0.819608, 1)
@@ -28,6 +79,24 @@ shadow_bias = 0.05
 spot_range = 20.0
 spot_angle = 30.0
 
-[node name="FlashlightMesh" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(0.05, 0, 0, 0, -3.49691e-09, -0.05, 0, 0.08, -2.18557e-09, 0.2, -0.2, -0.5)
-mesh = SubResource("CylinderMesh_arudw")
+[node name="FlashlightModel" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.15, -0.1, -0.3)
+
+[node name="FlashlightBody" type="MeshInstance3D" parent="Camera3D/FlashlightModel"]
+mesh = SubResource("CylinderMesh_flashlight_body")
+surface_material_override/0 = SubResource("StandardMaterial3D_flashlight_body")
+
+[node name="FlashlightLens" type="MeshInstance3D" parent="Camera3D/FlashlightModel"]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.0742459, 0.000572756)
+mesh = SubResource("CylinderMesh_flashlight_lens")
+surface_material_override/0 = SubResource("StandardMaterial3D_flashlight_lens")
+
+[node name="FlashlightGrip" type="MeshInstance3D" parent="Camera3D/FlashlightModel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.000151463)
+mesh = SubResource("CylinderMesh_flashlight_grip")
+surface_material_override/0 = SubResource("StandardMaterial3D_flashlight_grip")
+
+[node name="FlashlightButton" type="MeshInstance3D" parent="Camera3D/FlashlightModel"]
+transform = Transform3D(0.0549761, 0.861582, -0.504633, -0.997971, 0.0636789, 3.4954e-08, 0.0321345, 0.503609, 0.863334, -0.0188271, 0, -0.02)
+mesh = SubResource("SphereMesh_flashlight_button")
+surface_material_override/0 = SubResource("StandardMaterial3D_flashlight_button")

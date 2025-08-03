@@ -1,0 +1,43 @@
+[gd_resource type="Resource" format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flashlight_body"]
+resource_name = "FlashlightBody"
+albedo_color = Color(0.15, 0.15, 0.15, 1)
+metallic = 0.8
+roughness = 0.25
+emission_enabled = false
+normal_scale = 1.0
+rim_enabled = true
+rim_color = Color(0.3, 0.3, 0.3, 1)
+rim_tint = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flashlight_lens"]
+resource_name = "FlashlightLens"
+albedo_color = Color(0.95, 0.95, 0.95, 0.9)
+metallic = 0.1
+roughness = 0.05
+transparency = 1
+emission_enabled = true
+emission = Color(1, 0.964706, 0.819608, 0.3)
+emission_energy = 0.5
+refraction_enabled = true
+refraction_scale = 0.1
+rim_enabled = true
+rim_color = Color(1, 0.964706, 0.819608, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flashlight_grip"]
+resource_name = "FlashlightGrip"
+albedo_color = Color(0.05, 0.05, 0.05, 1)
+metallic = 0.3
+roughness = 0.8
+normal_scale = 1.2
+detail_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flashlight_button"]
+resource_name = "FlashlightButton"
+albedo_color = Color(0.8, 0.2, 0.2, 1)
+metallic = 0.6
+roughness = 0.4
+emission_enabled = false
+
+[resource]

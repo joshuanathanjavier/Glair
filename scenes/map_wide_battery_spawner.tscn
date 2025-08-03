@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwm8v4n7k2qax"]
+
+[ext_resource type="Script" path="res://scripts/battery_spawner.gd" id="1_spawner"]
+
+[node name="MapWideBatterySpawner" type="Node3D"]
+script = ExtResource("1_spawner")
+spawn_count = 20
+spawn_radius = 150.0
+min_distance_between_batteries = 12.0
+use_multiple_zones = true
+zone_count = 8
+zone_radius = 25.0
+min_zone_distance = 30.0
+enable_respawn = true
+respawn_delay = 15.0
+maintain_battery_count = true
+respawn_in_different_zone = true
+prefer_corners = true
+place_near_walls = true
+wall_detection_distance = 4.0
+max_raycast_distance = 25.0

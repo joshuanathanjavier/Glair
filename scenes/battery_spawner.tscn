@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr5v2x8oak1m7"]
+
+[ext_resource type="Script" path="res://scripts/battery_spawner.gd" id="1_spawner"]
+
+[node name="BatterySpawner" type="Node3D"]
+script = ExtResource("1_spawner")
+spawn_count = 15
+spawn_radius = 100.0
+min_distance_between_batteries = 8.0
+prefer_corners = true
+place_near_walls = true
