@@ -31,8 +31,6 @@ var max_flashlight_battery: float = 100.0
 @onready var camera: Camera3D = $Camera3D
 @onready var flashlight = $Camera3D/Flashlight
 @onready var pause_menu = $"../UI/PauseMenu"
-@onready var stamina_bar: ProgressBar = $UI/HUD/MarginContainer/VBoxContainer/StaminaBar
-@onready var flashlight_bar: ProgressBar = $UI/HUD/MarginContainer/VBoxContainer/FlashlightBar
 
 # --- Initialization ---
 func _ready() -> void:
@@ -56,11 +54,9 @@ func _physics_process(delta: float) -> void:
 	var forward = -transform.basis.z
 	var right = transform.basis.x
 	
-	# Update UI bars
-	if stamina_bar:
-		stamina_bar.value = stamina / max_stamina * 100.0
-	if flashlight_bar:
-		flashlight_bar.value = flashlight_battery / max_flashlight_battery * 100.0
+	# Update UI via signals
+	Events.stamina_updated.emit(stamina, max_stamina)
+	Events.battery_updated.emit(flashlight_battery, max_flashlight_battery)
 
 	# Flashlight Input
 	if Input.is_action_just_pressed("flashlight_toggle"):
