@@ -38,6 +38,12 @@ extends CharacterBody3D
 @export var fear_decay_rate: float = 5.0
 @export var stress_breathing_threshold: float = 60.0
 
+# --- Fog Settings ---
+@export var fog_follow_speed: float = 2.0
+@export var fog_max_distance: float = 3.0
+@export var fog_density_base: float = 0.15
+@export var fog_density_max: float = 0.25
+
 # --- State Variables ---
 var y_velocity: float = 0.0
 var stamina: float = max_stamina
@@ -47,6 +53,7 @@ var camera_default_position: Vector3
 var flashlight_on = false
 var flashlight_battery: float = 100.0
 var max_flashlight_battery: float = 100.0
+var fog_center: Vector3 = Vector3.ZERO
 
 # --- Advanced State Variables ---
 var bob_time: float = 0.0
@@ -64,6 +71,7 @@ var footstep_timer: float = 0.0
 @onready var camera: Camera3D = $Camera3D
 @onready var flashlight = $Camera3D/Flashlight
 @onready var flashlight_model = $Camera3D/FlashlightModel
+@onready var fog_environment = $PlayerFogEnvironment
 @onready var pause_menu = $"../UI/PauseMenu"
 
 # --- Audio References ---
@@ -78,6 +86,12 @@ func _ready() -> void:
 	flashlight.visible = flashlight_on
 	flashlight_model.visible = true  # Model is always visible
 	last_position = global_position
+	
+	# Initialize fog center to player position
+	fog_center = global_position
+	
+	# Check if there's already a WorldEnvironment in the scene
+	_setup_fog_environment()
 	
 	# Add player to group for interaction detection
 	add_to_group("player")
@@ -202,6 +216,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Store floor state for coyote time
 	was_on_floor = is_on_floor()
+	
+	# Update fog to follow player
+	_update_fog(delta)
 	
 	move_and_slide()
 	
@@ -442,12 +459,14 @@ func _update_flashlight_appearance():
 		lens_material.emission_enabled = true
 		
 		# Update flashlight light intensity based on battery
-		flashlight.light_energy = 5.0 * battery_percentage
+		flashlight.light_energy = 6.0 * battery_percentage
+		flashlight.light_volumetric_fog_energy = 8.0 * battery_percentage
 		
 		# Add flickering effect when battery is low
 		if battery_percentage < 0.2:
 			var flicker = sin(Time.get_ticks_msec() * 0.02) * 0.1 + 0.9
 			flashlight.light_energy *= flicker
+			flashlight.light_volumetric_fog_energy *= flicker
 			lens_material.emission *= flicker
 	else:
 		# No emission when off
@@ -467,3 +486,56 @@ func _update_flashlight_appearance():
 				# Red when off
 				button_material.albedo_color = Color(0.8, 0.2, 0.2, 1)
 				button_material.emission_enabled = false
+
+# --- Fog System ---
+func _setup_fog_environment():
+	# Check if there's already a WorldEnvironment in the scene tree
+	var existing_env = get_tree().get_first_node_in_group("world_environment")
+	if not existing_env:
+		# Look for any WorldEnvironment node in the scene
+		existing_env = _find_world_environment_in_scene()
+	
+	if existing_env and existing_env != fog_environment:
+		# There's already a WorldEnvironment, disable ours and use the existing one
+		if fog_environment:
+			fog_environment.queue_free()
+		fog_environment = existing_env
+		print("Using existing WorldEnvironment for fog")
+	else:
+		# No other WorldEnvironment found, use our own
+		print("Using player's own fog environment")
+
+func _find_world_environment_in_scene() -> WorldEnvironment:
+	# Search the scene tree for any WorldEnvironment node
+	var scene_root = get_tree().current_scene
+	return _search_for_world_environment(scene_root)
+
+func _search_for_world_environment(node: Node) -> WorldEnvironment:
+	if node is WorldEnvironment and node != fog_environment:
+		return node as WorldEnvironment
+	
+	for child in node.get_children():
+		var result = _search_for_world_environment(child)
+		if result:
+			return result
+	
+	return null
+
+func _update_fog(delta: float):
+	if not fog_environment or not fog_environment.environment:
+		return
+	
+	var env = fog_environment.environment
+	
+	# Make fog center smoothly follow the player (creating "nearsighted" effect)
+	var target_fog_center = global_position
+	fog_center = fog_center.lerp(target_fog_center, fog_follow_speed * delta)
+	
+	# Calculate distance from player for fog density adjustment
+	var distance_from_player = global_position.distance_to(fog_center)
+	
+	# Adjust fog density based on distance (closer = less dense, farther = more dense)
+	var fog_density_multiplier = clamp(distance_from_player / fog_max_distance, 0.5, 1.0)
+	env.fog_density = fog_density_base + (fog_density_max - fog_density_base) * fog_density_multiplier
+	
+	# Fog density stays constant - the flashlight should cut through it with volumetric lighting
