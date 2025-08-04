@@ -80,13 +80,13 @@ layout_mode = 2
 
 [node name="MasterVolumeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MasterVolumeContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(150, 0)
 text = "Master Volume:"
 vertical_alignment = 1
 
 [node name="MasterVolumeSlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MasterVolumeContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(200, 0)
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -103,13 +103,13 @@ layout_mode = 2
 
 [node name="MusicVolumeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MusicVolumeContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(150, 0)
 text = "Music Volume:"
 vertical_alignment = 1
 
 [node name="MusicVolumeSlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MusicVolumeContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(200, 0)
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -126,13 +126,13 @@ layout_mode = 2
 
 [node name="SFXVolumeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/SFXVolumeContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(150, 0)
 text = "SFX Volume:"
 vertical_alignment = 1
 
 [node name="SFXVolumeSlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/SFXVolumeContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(200, 0)
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -162,7 +162,7 @@ layout_mode = 2
 
 [node name="FullscreenLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/FullscreenContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(150, 0)
 text = "Fullscreen:"
 vertical_alignment = 1
 
@@ -174,11 +174,23 @@ layout_mode = 2
 
 [node name="VSyncLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/VSyncContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(150, 0)
 text = "VSync:"
 vertical_alignment = 1
 
 [node name="VSyncCheckBox" type="CheckBox" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/VSyncContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="CrosshairContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection"]
+layout_mode = 2
+
+[node name="CrosshairLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/CrosshairContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(150, 0)
+text = "Show Crosshair:"
+
+[node name="CrosshairCheckBox" type="CheckBox" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/CrosshairContainer"]
 layout_mode = 2
 button_pressed = true
 
@@ -200,13 +212,13 @@ layout_mode = 2
 
 [node name="MouseSensitivityLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection/MouseSensitivityContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(150, 0)
 text = "Mouse Sensitivity:"
 vertical_alignment = 1
 
 [node name="MouseSensitivitySlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection/MouseSensitivityContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(200, 0)
 min_value = 0.1
 max_value = 5.0
 step = 0.1

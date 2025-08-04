@@ -61,6 +61,11 @@ custom_minimum_size = Vector2(180, 45)
 layout_mode = 2
 text = "Restart"
 
+[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(180, 45)
+layout_mode = 2
+text = "Settings"
+
 [node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(180, 45)
 layout_mode = 2

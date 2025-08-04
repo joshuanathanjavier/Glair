@@ -5,6 +5,8 @@ extends CanvasLayer
 @onready var flashlight_bar: ProgressBar = $HUD/UIContainer/VBoxContainer/FlashlightContainer/FlashlightBar
 @onready var stamina_label: Label = $HUD/UIContainer/VBoxContainer/StaminaContainer/StaminaLabel
 @onready var flashlight_label: Label = $HUD/UIContainer/VBoxContainer/FlashlightContainer/FlashlightLabel
+@onready var crosshair: Control = $HUD/Crosshair
+@onready var crosshair_dot: Panel = $HUD/Crosshair/CrosshairDot
 
 # Theme resources
 var base_theme: Theme
@@ -27,6 +29,9 @@ var stamina_warning_sent = false
 var battery_warning_sent = false
 
 func _ready():
+	# Add to UI group for settings integration
+	add_to_group("ui")
+	
 	# Load base theme
 	base_theme = preload("res://themes/horror_ui_theme.tres")
 	
@@ -39,12 +44,17 @@ func _ready():
 	if flashlight_bar:
 		flashlight_bar.theme = battery_theme
 	
+	# Initialize crosshair
+	_setup_crosshair()
+	
 	# Connect to player state signals
 	Events.stamina_updated.connect(_on_stamina_updated)
 	Events.battery_updated.connect(_on_battery_updated)
 	# Connect to warning signals
 	Events.low_stamina_warning.connect(_on_low_stamina_warning)
 	Events.low_battery_warning.connect(_on_low_battery_warning)
+	# Connect to crosshair visibility signal
+	Events.crosshair_visibility_changed.connect(_on_crosshair_visibility_changed)
 
 func _create_custom_themes():
 	# Create stamina theme
@@ -222,6 +232,63 @@ func _on_low_battery_warning():
 
 func update_stamina(current_stamina: float, max_stamina: float):
 	_on_stamina_updated(current_stamina, max_stamina)
+
+func _setup_crosshair():
+	if crosshair_dot:
+		# Create a round crosshair dot style
+		var crosshair_style = StyleBoxFlat.new()
+		crosshair_style.bg_color = Color(1, 1, 1, 0.9)  # More opaque white
+		crosshair_style.corner_radius_top_left = 2
+		crosshair_style.corner_radius_top_right = 2
+		crosshair_style.corner_radius_bottom_left = 2
+		crosshair_style.corner_radius_bottom_right = 2
+		crosshair_style.border_width_left = 1
+		crosshair_style.border_width_top = 1
+		crosshair_style.border_width_right = 1
+		crosshair_style.border_width_bottom = 1
+		crosshair_style.border_color = Color(0, 0, 0, 0.7)  # More visible black border
+		
+		crosshair_dot.add_theme_stylebox_override("panel", crosshair_style)
+		
+	# Load crosshair visibility setting
+	_load_crosshair_setting()
+
+func _load_crosshair_setting():
+	# Default to enabled if no setting exists
+	var settings = load_settings_data()
+	var show_crosshair = settings.get("show_crosshair", true)
+	set_crosshair_visible(show_crosshair)
+
+func set_crosshair_visible(visible: bool):
+	if crosshair:
+		crosshair.visible = visible
+
+func _on_crosshair_visibility_changed(visible: bool):
+	set_crosshair_visible(visible)
+
+func load_settings_data() -> Dictionary:
+	# Try to load settings from file, return defaults if file doesn't exist
+	const SETTINGS_FILE_PATH = "user://settings.save"
+	if FileAccess.file_exists(SETTINGS_FILE_PATH):
+		var file = FileAccess.open(SETTINGS_FILE_PATH, FileAccess.READ)
+		if file:
+			var settings_text = file.get_as_text()
+			file.close()
+			var json = JSON.new()
+			var parse_result = json.parse(settings_text)
+			if parse_result == OK:
+				return json.data
+	
+	# Return default settings if file doesn't exist or parsing failed
+	return {
+		"master_volume": 100.0,
+		"music_volume": 100.0,
+		"sfx_volume": 100.0,
+		"fullscreen": false,
+		"vsync": true,
+		"mouse_sensitivity": 1.0,
+		"show_crosshair": true
+	}
 
 func update_flashlight(current_battery: float, max_battery: float):
 	_on_battery_updated(current_battery, max_battery)

@@ -1,5 +1,8 @@
 extends Control
 
+# Track where we came from to navigate back correctly
+var previous_scene: String = ""
+
 # UI References
 @onready var master_volume_slider = $Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MasterVolumeContainer/MasterVolumeSlider
 @onready var master_volume_value = $Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MasterVolumeContainer/MasterVolumeValue
@@ -10,6 +13,7 @@ extends Control
 
 @onready var fullscreen_checkbox = $Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/FullscreenContainer/FullscreenCheckBox
 @onready var vsync_checkbox = $Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/VSyncContainer/VSyncCheckBox
+@onready var crosshair_checkbox = $Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/CrosshairContainer/CrosshairCheckBox
 
 @onready var mouse_sensitivity_slider = $Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection/MouseSensitivityContainer/MouseSensitivitySlider
 @onready var mouse_sensitivity_value = $Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection/MouseSensitivityContainer/MouseSensitivityValue
@@ -25,7 +29,8 @@ var settings_data = {
 	"sfx_volume": 100.0,
 	"fullscreen": false,
 	"vsync": true,
-	"mouse_sensitivity": 1.0
+	"mouse_sensitivity": 1.0,
+	"show_crosshair": true
 }
 
 var default_settings = {
@@ -34,12 +39,19 @@ var default_settings = {
 	"sfx_volume": 100.0,
 	"fullscreen": false,
 	"vsync": true,
-	"mouse_sensitivity": 1.0
+	"mouse_sensitivity": 1.0,
+	"show_crosshair": true
 }
 
 const SETTINGS_FILE_PATH = "user://settings.save"
 
 func _ready():
+	# Check if we came from pause menu
+	if get_tree().has_meta("came_from_pause"):
+		previous_scene = "pause_menu"
+	else:
+		previous_scene = "main_menu"
+	
 	load_settings()
 	connect_signals()
 	update_ui()
@@ -53,6 +65,7 @@ func connect_signals():
 	# Graphics checkboxes
 	fullscreen_checkbox.toggled.connect(_on_fullscreen_toggled)
 	vsync_checkbox.toggled.connect(_on_vsync_toggled)
+	crosshair_checkbox.toggled.connect(_on_crosshair_toggled)
 	
 	# Controls
 	mouse_sensitivity_slider.value_changed.connect(_on_mouse_sensitivity_changed)
@@ -124,6 +137,7 @@ func apply_settings():
 	# Mouse sensitivity is typically handled by the player controller
 	# We'll emit a signal for other scripts to listen to
 	Events.settings_changed.emit(settings_data)
+	Events.crosshair_visibility_changed.emit(settings_data.show_crosshair)
 
 func update_ui():
 	# Update volume sliders and labels
@@ -139,6 +153,7 @@ func update_ui():
 	# Update graphics checkboxes
 	fullscreen_checkbox.button_pressed = settings_data.fullscreen
 	vsync_checkbox.button_pressed = settings_data.vsync
+	crosshair_checkbox.button_pressed = settings_data.show_crosshair
 	
 	# Update mouse sensitivity
 	mouse_sensitivity_slider.value = settings_data.mouse_sensitivity
@@ -163,6 +178,11 @@ func _on_fullscreen_toggled(pressed: bool):
 func _on_vsync_toggled(pressed: bool):
 	settings_data.vsync = pressed
 
+func _on_crosshair_toggled(pressed: bool):
+	settings_data.show_crosshair = pressed
+	# Update UI immediately to show the crosshair change
+	Events.crosshair_visibility_changed.emit(pressed)
+
 func _on_mouse_sensitivity_changed(value: float):
 	settings_data.mouse_sensitivity = value
 	mouse_sensitivity_value.text = str(value)
@@ -178,8 +198,17 @@ func _on_reset_pressed():
 	print("Settings reset to default values")
 
 func _on_back_pressed():
-	# Go back to main menu
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	if previous_scene == "pause_menu":
+		# Clear the metadata and return to the game scene
+		get_tree().remove_meta("came_from_pause")
+		# We need to reload the current game scene and then open pause menu
+		# For now, let's assume the game scene is map1.tscn
+		get_tree().change_scene_to_file("res://scenes/map1.tscn")
+		# Set a flag to open pause menu when the scene loads
+		get_tree().set_meta("open_pause_on_load", true)
+	else:
+		# Go back to main menu
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 # Handle ESC key to go back
 func _input(event):

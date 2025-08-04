@@ -86,19 +86,51 @@ mouse_filter = 2
 value = 100.0
 show_percentage = false
 
-[node name="EquippedContainer" type="VBoxContainer" parent="HUD/UIContainer"]
-layout_mode = 2
-offset_left = 773.0
-offset_top = 51.0
-offset_right = 953.0
-offset_bottom = 74.0
-scale = Vector2(2, 2)
+[node name="EquippedContainer" type="VBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -200.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
 
-[node name="Label" type="Label" parent="HUD/UIContainer/EquippedContainer"]
+[node name="Label" type="Label" parent="HUD/EquippedContainer"]
 layout_mode = 2
+theme = ExtResource("2_4j9m1")
 text = "Flashlight"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="Crosshair" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CrosshairDot" type="Panel" parent="HUD/Crosshair"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="InteractionUI" parent="." instance=ExtResource("3_interaction")]
 grow_horizontal = 2

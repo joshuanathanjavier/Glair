@@ -11,6 +11,7 @@ signal game_resumed
 signal interaction_started
 signal interaction_ended
 signal settings_changed(settings_data)
+signal crosshair_visibility_changed(visible)
 signal low_stamina_warning
 signal low_battery_warning
 signal stamina_updated(current_stamina, max_stamina)

@@ -104,6 +104,12 @@ func _ready() -> void:
 	
 	# Connect to settings changes
 	Events.settings_changed.connect(_on_settings_changed)
+	
+	# Check if we should open pause menu (returning from settings)
+	if get_tree().has_meta("open_pause_on_load"):
+		get_tree().remove_meta("open_pause_on_load")
+		# Use call_deferred to ensure the scene is fully loaded
+		call_deferred("_open_pause_menu_delayed")
 
 # --- Main Physics Logic ---
 func _physics_process(delta: float) -> void:
@@ -539,3 +545,8 @@ func _update_fog(delta: float):
 	env.fog_density = fog_density_base + (fog_density_max - fog_density_base) * fog_density_multiplier
 	
 	# Fog density stays constant - the flashlight should cut through it with volumetric lighting
+
+func _open_pause_menu_delayed():
+	# Open the pause menu after the scene has fully loaded
+	if pause_menu:
+		pause_menu.open()
