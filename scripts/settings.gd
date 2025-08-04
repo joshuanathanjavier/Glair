@@ -46,15 +46,23 @@ var default_settings = {
 const SETTINGS_FILE_PATH = "user://settings.save"
 
 func _ready():
-	# Check if we came from pause menu
-	if get_tree().has_meta("came_from_pause"):
+	# Check if we came from pause menu (from tree metadata or set directly)
+	if get_tree().has_meta("came_from_pause") or previous_scene == "pause_menu":
 		previous_scene = "pause_menu"
+		get_tree().remove_meta("came_from_pause")  # Clean up if it exists
 	else:
 		previous_scene = "main_menu"
+		# Emit menu opened signal if we're in a game scene (not from main menu)
+		if get_tree().current_scene.scene_file_path != "res://scenes/main_menu.tscn":
+			Events.menu_opened.emit()
 	
 	load_settings()
 	connect_signals()
 	update_ui()
+
+# Function to set the previous scene externally
+func set_previous_scene(scene_name: String):
+	previous_scene = scene_name
 
 func connect_signals():
 	# Volume sliders
@@ -199,15 +207,11 @@ func _on_reset_pressed():
 
 func _on_back_pressed():
 	if previous_scene == "pause_menu":
-		# Clear the metadata and return to the game scene
-		get_tree().remove_meta("came_from_pause")
-		# We need to reload the current game scene and then open pause menu
-		# For now, let's assume the game scene is map1.tscn
-		get_tree().change_scene_to_file("res://scenes/map1.tscn")
-		# Set a flag to open pause menu when the scene loads
-		get_tree().set_meta("open_pause_on_load", true)
+		# Emit signal to go back to pause menu instead of changing scenes
+		Events.settings_back_to_pause.emit()
 	else:
-		# Go back to main menu
+		# Going back to main menu - emit menu closed signal since we're leaving the game
+		Events.menu_closed.emit()
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 # Handle ESC key to go back

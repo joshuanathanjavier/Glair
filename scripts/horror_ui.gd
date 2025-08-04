@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 # Node references
+@onready var hud_container: Control = $HUD
 @onready var stamina_bar: ProgressBar = $HUD/UIContainer/VBoxContainer/StaminaContainer/StaminaBar
 @onready var flashlight_bar: ProgressBar = $HUD/UIContainer/VBoxContainer/FlashlightContainer/FlashlightBar
 @onready var stamina_label: Label = $HUD/UIContainer/VBoxContainer/StaminaContainer/StaminaLabel
@@ -32,6 +33,9 @@ func _ready():
 	# Add to UI group for settings integration
 	add_to_group("ui")
 	
+	# Ensure this CanvasLayer is behind menus (lower layer number)
+	layer = 0  # Player UI should be on a lower layer than menus
+	
 	# Load base theme
 	base_theme = preload("res://themes/horror_ui_theme.tres")
 	
@@ -55,6 +59,14 @@ func _ready():
 	Events.low_battery_warning.connect(_on_low_battery_warning)
 	# Connect to crosshair visibility signal
 	Events.crosshair_visibility_changed.connect(_on_crosshair_visibility_changed)
+	
+	# Connect to menu state signals to hide UI elements when menus are open
+	Events.menu_opened.connect(_on_menu_opened)
+	Events.menu_closed.connect(_on_menu_closed)
+
+# Store original visibility states
+var original_crosshair_visible: bool = true
+var menu_is_open: bool = false
 
 func _create_custom_themes():
 	# Create stamina theme
@@ -257,6 +269,7 @@ func _load_crosshair_setting():
 	# Default to enabled if no setting exists
 	var settings = load_settings_data()
 	var show_crosshair = settings.get("show_crosshair", true)
+	original_crosshair_visible = show_crosshair
 	set_crosshair_visible(show_crosshair)
 
 func set_crosshair_visible(visible: bool):
@@ -264,7 +277,26 @@ func set_crosshair_visible(visible: bool):
 		crosshair.visible = visible
 
 func _on_crosshair_visibility_changed(visible: bool):
-	set_crosshair_visible(visible)
+	original_crosshair_visible = visible
+	# Only apply crosshair setting if menu is not open (HUD is visible)
+	if not menu_is_open and hud_container and hud_container.visible:
+		set_crosshair_visible(visible)
+
+func _on_menu_opened():
+	menu_is_open = true
+	print("HorrorUI: Menu opened, hiding HUD")
+	# Hide entire HUD when menu is opened
+	if hud_container:
+		hud_container.visible = false
+
+func _on_menu_closed():
+	menu_is_open = false
+	print("HorrorUI: Menu closed, showing HUD")
+	# Show entire HUD when menu is closed
+	if hud_container:
+		hud_container.visible = true
+	# Restore crosshair visibility to its original state (in case it was disabled in settings)
+	set_crosshair_visible(original_crosshair_visible)
 
 func load_settings_data() -> Dictionary:
 	# Try to load settings from file, return defaults if file doesn't exist

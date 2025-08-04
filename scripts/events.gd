@@ -27,4 +27,11 @@ signal player_stress_changed(stress_level)
 signal battery_pickup_collected(charge_amount)
 signal show_pickup_message(message_text)
 
+# Settings navigation signals
+signal settings_back_to_pause
+
+# Menu state signals
+signal menu_opened
+signal menu_closed
+
 # You can add more signals and event handling functions here as needed
