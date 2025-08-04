@@ -1,37 +1,45 @@
 # Glair
 
-A 3D first-person horror game built with Godot 4.4.
+A 3D first-person horror game built with Godot 4.4, featuring advanced survival mechanics and atmospheric horror elements.
 
 ## 🎮 About
 
-Glair is an immersive first-person horror experience that combines atmospheric tension with realistic survival mechanics. Players must navigate through dark, terrifying environments while managing limited resources and facing unknown threats. The game emphasizes psychological horror through strategic use of lighting, sound, and resource scarcity.
+Glair is an immersive first-person horror experience that combines atmospheric tension with realistic survival mechanics. Players must navigate through dark, terrifying environments while managing limited resources and facing unknown threats. The game emphasizes psychological horror through strategic use of lighting, sound, and resource scarcity, with a robust battery collection system to keep your flashlight powered.
 
 ## ✨ Features
 
-### Survival Horror Mechanics
-- **Limited Visibility** - Navigate through dark environments
-- **Resource Management** - Conserve stamina and flashlight battery
-- **Stealth Elements** - Crouch to avoid detection
-- **Atmospheric Tension** - Immersive horror experience
+### 🔦 Advanced Flashlight System
+- **Realistic 3D Flashlight Model** - Detailed flashlight with lens, body, grip, and power button
+- **Dynamic Battery System** - Battery drains at 5 units per second when active
+- **Visual Battery Feedback** - Power button glows green when on, red when off
+- **Low Battery Effects** - Flickering light and reduced intensity when battery is low
+- **Volumetric Fog Lighting** - Atmospheric light beams through fog environment
 
-### Movement System
-- **WASD Movement** - Silent or loud movement affects stealth
-- **Sprint System** - Escape threats but drains stamina quickly
-- **Crouching** - Move quietly to avoid attracting attention
-- **Jumping** - Navigate obstacles while fleeing
-- **Mouse Look** - Smooth camera control for scanning threats
+### 🔋 Battery Collection & Management
+- **Collectible Batteries** - Find battery pickups scattered throughout the environment
+- **Smart Spawning System** - Batteries spawn intelligently near walls and corners
+- **Multiple Battery Types** - Different charge amounts (15%, 25%, 35%, 50%)
+- **Dynamic Respawn** - Batteries respawn in different zones after collection
+- **Visual Feedback** - Glowing batteries with hover effects and pickup notifications
 
-### Interactive Elements
-- **Flashlight** - Essential light source with limited battery life
-- **Interaction System** - Investigate objects and clues
-- **Pause Menu** - Safe space to catch your breath
-- **Settings Menu** - Adjust audio and visual settings for optimal horror experience
+### 🏃 Enhanced Movement System
+- **Realistic Physics** - Advanced character controller with coyote time and jump buffering
+- **Stamina Management** - Sprint drains stamina, affects breathing and movement
+- **Dynamic Camera Effects** - Head bobbing, breathing intensity, and fear-based camera shake
+- **Crouching Mechanics** - Reduced movement speed and audio for stealth
+- **Audio Feedback** - Footsteps, breathing, and heartbeat audio system
 
-### Horror Elements
-- **Stamina System** - Panic and exhaustion affect your ability to escape
-- **Flashlight Battery** - Darkness is your enemy - manage your light carefully
-- **Sound Design** - Audio cues are crucial for survival
-- **Atmospheric Lighting** - Limited visibility creates constant tension
+### 😰 Fear & Stress System
+- **Dynamic Fear Level** - Increases in darkness, decreases with light
+- **Breathing Intensity** - Affects camera stability and audio
+- **Stress-Based Effects** - Camera shake and movement impairment when stressed
+- **Environmental Response** - Fear level affects player's physical state
+
+### 🎭 Horror Atmosphere
+- **Fog Environment** - Dynamic fog system centered on player
+- **Atmospheric Lighting** - Moonlight beams and eerie environmental glow
+- **3D Spatial Audio** - Immersive audio system with distance-based effects
+- **UI Integration** - Horror-themed UI with battery and stamina indicators
 
 ## 🎯 Controls
 
@@ -42,10 +50,10 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 | Move Left | A | Sidestep dangers |
 | Move Right | D | Navigate around obstacles |
 | Jump | Space | Escape over barriers |
-| Sprint | Shift | **Run for your life** |
+| Sprint | Shift | **Run for your life** (drains stamina) |
 | Crouch | Ctrl | **Hide and move silently** |
 | Toggle Flashlight | F | **Illuminate or conserve battery** |
-| Interact | E | Investigate objects and clues |
+| Interact | E | **Collect batteries and investigate objects** |
 | Pause Menu | Escape | Take a breath in safety |
 
 ## 🛠️ Technical Details
@@ -61,22 +69,35 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 
 ```
 glair/
-├── scenes/          # Game scenes (.tscn files)
-│   ├── main_menu.tscn
-│   ├── map1.tscn
-│   ├── pause_menu.tscn
-│   ├── player_ui.tscn
-│   ├── player.tscn
-│   └── settings.tscn
-├── scripts/         # Game logic (.gd files)
-│   ├── events.gd    # Global event system
-│   ├── player.gd    # Player controller
-│   ├── main_menu.gd
-│   ├── pause_menu.gd
-│   └── settings.gd
-├── textures/        # Game textures and materials
-├── audio/           # Sound effects and music
-└── project.godot    # Godot project configuration
+├── scenes/                    # Game scenes (.tscn files)
+│   ├── main_menu.tscn        # Main menu interface
+│   ├── map1.tscn             # Primary horror environment
+│   ├── pause_menu.tscn       # In-game pause menu
+│   ├── player_ui.tscn        # HUD with stamina/battery indicators
+│   ├── player.tscn           # Player controller with advanced systems
+│   ├── settings.tscn         # Settings configuration menu
+│   ├── battery_pickup.tscn   # Collectible battery items
+│   ├── battery_spawner.tscn  # Battery spawning system
+│   ├── map_wide_battery_spawner.tscn  # Large-scale battery distribution
+│   └── interaction_ui.tscn   # Interaction prompt system
+├── scripts/                  # Game logic (.gd files)
+│   ├── events.gd            # Global event system with signals
+│   ├── player.gd            # Advanced player controller with fear system
+│   ├── horror_ui.gd         # UI management with horror theming
+│   ├── battery_pickup.gd    # Battery collection mechanics
+│   ├── battery_spawner.gd   # Intelligent battery spawning system
+│   ├── flashlight_config.gd # Flashlight appearance configuration
+│   ├── enhanced_player_config.gd  # Player system configuration
+│   ├── interaction_ui.gd    # Interaction system interface
+│   ├── main_menu.gd         # Main menu navigation
+│   ├── pause_menu.gd        # Pause menu functionality
+│   └── settings.gd          # Settings management
+├── themes/                  # UI and material themes
+│   ├── flashlight_materials.tres  # Flashlight visual materials
+│   └── horror_ui_theme.tres      # Horror-themed UI styling
+├── textures/                # Game textures and materials
+├── audio/                   # Sound effects and music
+└── project.godot           # Godot project configuration
 ```
 
 ## 🚀 Getting Started
@@ -91,44 +112,88 @@ glair/
    ```bash
    git clone https://github.com/joshuanathanjavier/Glair.git
    ```
-2. Open Godot Engine
+2. Open Godot Engine 4.4 or later
 3. Click "Import" and select the project folder
 4. Open `project.godot`
+5. **Recommended**: Use headphones for the full horror audio experience
 
 ### Running the Game
 1. Press F5 or click the play button in Godot
-2. Select the main scene when prompted
-3. **Adjust your audio settings** - sound is crucial for survival
-4. The game will start at the main menu
+2. Select the main scene when prompted (`scenes/main_menu.tscn`)
+3. **Adjust your audio settings** - spatial audio is crucial for immersion
+4. Navigate to Map1 from the main menu to begin the horror experience
 
-⚠️ **Warning**: This game contains horror elements including darkness, tension, and potentially frightening scenarios.
+⚠️ **Content Warning**: This game contains horror elements including darkness, tension, and potentially frightening scenarios.
+
+## 🎲 Game Mechanics
+
+### Battery Management
+- **Flashlight Battery**: Drains at 5 units per second when active
+- **Battery Collection**: Find batteries with 15%, 25%, 35%, or 50% charge
+- **Smart Spawning**: Batteries appear near walls, corners, and realistic locations
+- **Respawn System**: New batteries appear in different zones after collection
+- **Visual Indicators**: Power button changes color, lens emission varies with charge
+
+### Survival Systems
+- **Stamina System**: Sprint drains stamina, affects breathing and movement stability
+- **Fear Mechanics**: Darkness increases fear level, light reduces it
+- **Audio Feedback**: Footsteps, breathing intensity, and heartbeat respond to player state
+- **Environmental Interaction**: Use 'E' to collect batteries and interact with objects
+
+### Atmospheric Features
+- **Dynamic Fog**: Volumetric fog environment centered on player position
+- **Realistic Lighting**: Moonlight beams, environmental glow, and flashlight illumination
+- **Camera Effects**: Head bobbing, breathing-induced shake, and fear-based instability
+- **3D Audio**: Spatial audio system with distance-based sound attenuation
 
 ## 🔧 Development
 
 ### Current Status
-🚧 **In Active Development** - This project is currently being developed and features are being added regularly.
+🚧 **In Active Development** - This project is actively being developed with sophisticated horror mechanics and advanced systems.
+
+### Implemented Systems
+- ✅ **Advanced Player Controller** - Complete movement system with physics and audio
+- ✅ **Flashlight System** - 3D model, battery management, and visual effects
+- ✅ **Battery Collection** - Smart spawning, pickup mechanics, and UI integration
+- ✅ **Fear & Stress System** - Dynamic fear level affecting player state
+- ✅ **Audio System** - Footsteps, breathing, heartbeat with 3D spatial audio
+- ✅ **UI Framework** - Horror-themed interface with real-time status updates
+- ✅ **Event System** - Global signal management for game communication
+- ✅ **Settings System** - Configurable audio, visual, and control options
+- ✅ **Fog Environment** - Atmospheric fog system with volumetric lighting
+
+### Technical Architecture
+- **Events System**: Global event handling through `events.gd` autoload for horror triggers and UI updates
+- **Player Controller**: Sophisticated first-person movement with survival mechanics in `player.gd`
+- **Resource Management**: Battery and stamina systems with intelligent spawning and collection
+- **UI Management**: Component-based UI system with real-time status indicators
+- **Scene Management**: Modular scene structure for different horror environments
+- **Configuration System**: Resource-based configuration for easy tweaking of game parameters
 
 ### Contributing
-This appears to be a personal project. If you'd like to contribute, please fork the repository and submit pull requests.
-
-### Code Architecture
-- **Events System**: Global event handling through `events.gd` autoload for horror triggers
-- **Player Controller**: First-person movement with survival mechanics in `player.gd`
-- **UI Management**: Separate scripts for menu systems and HUD elements
-- **Scene Management**: Modular scene structure for different horror environments
-- **Resource Management**: Stamina and battery systems create tension and strategic gameplay
+This appears to be a personal project. If you'd like to contribute:
+1. Fork the repository
+2. Create a feature branch
+3. Submit pull requests with clear descriptions
+4. Follow the existing code structure and commenting conventions
 
 ## 📋 Roadmap
 
-- [ ] Complete horror atmosphere and lighting system
-- [ ] Implement enemy/threat AI and encounters
-- [ ] Add horror sound effects and ambient audio
-- [ ] Create additional terrifying levels/environments
-- [ ] Develop narrative elements and story progression
-- [ ] Add inventory system for key items
-- [ ] Implement multiple endings based on player choices
-- [ ] Optimize performance for smooth horror experience
-- [ ] Add accessibility options for different comfort levels
+### Upcoming Features
+- [ ] **Enemy/Threat AI** - Implement dynamic horror encounters and creature behavior
+- [ ] **Enhanced Audio** - Add more horror sound effects and dynamic ambient audio
+- [ ] **Additional Environments** - Create more terrifying levels and atmospheric locations
+- [ ] **Narrative Elements** - Develop story progression and environmental storytelling
+- [ ] **Inventory System** - Expand beyond batteries to include key items and tools
+- [ ] **Multiple Endings** - Add branching story paths based on player choices
+- [ ] **Save System** - Implement game state persistence
+- [ ] **Accessibility Options** - Add comfort settings for different horror tolerance levels
+
+### Performance & Polish
+- [ ] **Performance Optimization** - Optimize lighting and fog systems for smooth gameplay
+- [ ] **Visual Polish** - Enhance materials, textures, and lighting effects
+- [ ] **Audio Polish** - Refine 3D audio positioning and environmental sound design
+- [ ] **UI Improvements** - Add more visual feedback and polish to interface elements
 
 ## 🐛 Known Issues
 
