@@ -1,9 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://buvcsifrb12ac"]
+[gd_scene load_steps=23 format=3 uid="uid://buvcsifrb12ac"]
 
 [ext_resource type="PackedScene" uid="uid://bwulnxf4nwswc" path="res://scenes/pause_menu.tscn" id="1_bpebn"]
 [ext_resource type="PackedScene" uid="uid://c4pvfm215jx22" path="res://scenes/player.tscn" id="1_iuwxl"]
 [ext_resource type="PackedScene" uid="uid://bpoa77flfrywp" path="res://scenes/player_ui.tscn" id="2_ui"]
-[ext_resource type="PackedScene" path="res://scenes/map_wide_battery_spawner.tscn" id="4_x0ugi"]
+[ext_resource type="PackedScene" uid="uid://cwm8v4n7k2qax" path="res://scenes/map_wide_battery_spawner.tscn" id="4_x0ugi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(200, 1, 200)
@@ -16,8 +16,12 @@ diffuse_mode = 1
 albedo_color = Color(0.35, 0.25, 0.18, 1)
 roughness = 0.9
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_border_wall"]
+size = Vector3(210, 20, 10)
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tree"]
 height = 12.0
+radius = 1.2
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_trunk"]
 top_radius = 0.8
@@ -113,6 +117,32 @@ shape = SubResource("BoxShape3D_ground")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("PlaneMesh_ground")
 surface_material_override/0 = SubResource("StandardMaterial3D_forest_floor")
+
+[node name="WorldBorder" type="Node3D" parent="."]
+
+[node name="NorthWall" type="StaticBody3D" parent="WorldBorder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -105)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldBorder/NorthWall"]
+shape = SubResource("BoxShape3D_border_wall")
+
+[node name="SouthWall" type="StaticBody3D" parent="WorldBorder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 105)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldBorder/SouthWall"]
+shape = SubResource("BoxShape3D_border_wall")
+
+[node name="EastWall" type="StaticBody3D" parent="WorldBorder"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 105, 10, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldBorder/EastWall"]
+shape = SubResource("BoxShape3D_border_wall")
+
+[node name="WestWall" type="StaticBody3D" parent="WorldBorder"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -105, 10, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldBorder/WestWall"]
+shape = SubResource("BoxShape3D_border_wall")
 
 [node name="Trees" type="Node3D" parent="."]
 
