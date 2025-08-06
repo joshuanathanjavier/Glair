@@ -4,11 +4,7 @@ A 3D first-person horror game built with Godot 4.4, featuring advanced survival 
 
 ## 🎮 About
 
-Glair### Atmospheric Features
-- **Dynamic Fog**: Volumetric fog environment centered on player position with realistic 3D forest backdrop
-- **Realistic Lighting**: Moonlight beams, environmental glow, and flashlight illumination
-- **Camera Effects**: Head bobbing, breathing-induced shake, and fear-based instability
-- **3D Audio**: Spatial audio system with distance-based sound attenuationn immersive first-person horror experience that combines atmospheric tension with realistic survival mechanics. Players must navigate through dark, terrifying environments while managing limited resources and facing unknown threats. The game emphasizes psychological horror through strategic use of lighting, sound, and resource scarcity, with a robust battery collection system to keep your flashlight powered.
+Glair is an immersive first-person horror experience that combines atmospheric tension with realistic survival mechanics. Players must navigate through dark, terrifying environments while managing limited resources and facing unknown threats. The game emphasizes psychological horror through strategic use of lighting, sound, and resource scarcity, with a robust battery collection system to keep your flashlight powered. Face intelligent AI enemies that hunt you through the fog-covered forest, where survival depends on your ability to manage fear, health, and resources while avoiding or confronting deadly creatures.
 
 ## ✨ Features
 
@@ -45,6 +41,20 @@ Glair### Atmospheric Features
 - **Breathing Intensity** - Affects camera stability and audio
 - **Stress-Based Effects** - Camera shake and movement impairment when stressed
 - **Environmental Response** - Fear level affects player's physical state
+
+### 💀 Enemy AI & Threats
+- **Intelligent Monster AI** - Advanced enemy with multiple behavioral states (idle, patrol, chase, attack)
+- **Dynamic Detection System** - Monsters detect players within range and pursue relentlessly
+- **Patrol Behavior** - Enemies patrol predefined routes when not engaged
+- **Combat System** - Monsters can deal damage and increase player fear levels
+- **Fear Integration** - Enemy encounters dramatically increase stress and breathing intensity
+
+### 💖 Health & Survival System
+- **Health Management** - Player health system with damage from enemy attacks
+- **Health Regeneration** - Slow automatic healing when not at maximum health
+- **Death & Game Over** - Complete death system with game over screen and restart options
+- **Damage Feedback** - Visual screen flash effects and fear increase when taking damage
+- **Survival Mechanics** - Health, stamina, and battery management are crucial for survival
 
 ### 🎭 Horror Atmosphere
 - **Fog Environment** - Dynamic fog system centered on player
@@ -83,6 +93,11 @@ Glair### Atmospheric Features
 glair/
 ├── assets/                   # Game assets and 3D models
 │   └── models/              # 3D model assets
+│       ├── character/       # Character and creature models
+│       │   ├── creepy_monster.glb    # AI enemy 3D model with animations
+│       │   ├── creepy_monster_0.jpg  # Monster texture variant 1
+│       │   ├── creepy_monster_1.png  # Monster texture variant 2
+│       │   └── creepy_monster_2.png  # Monster texture variant 3
 │       └── trees/           # Pine tree model variants
 │           ├── pine_dense.glb    # Dense foliage pine model
 │           ├── pine_natural.glb  # Natural growth pine model
@@ -92,9 +107,11 @@ glair/
 │   ├── main_menu.tscn        # Main menu interface
 │   ├── map1.tscn             # Primary horror environment
 │   ├── pause_menu.tscn       # In-game pause menu
+│   ├── game_over.tscn        # Game over screen with restart options
 │   ├── player_ui.tscn        # HUD with stamina/battery indicators
 │   ├── player.tscn           # Player controller with advanced systems
 │   ├── settings.tscn         # Settings configuration menu
+│   ├── creepy_monster.tscn   # AI enemy with intelligent behavior
 │   ├── battery_pickup.tscn   # Collectible battery items
 │   ├── battery_spawner.tscn  # Battery spawning system
 │   ├── map_wide_battery_spawner.tscn  # Large-scale battery distribution
@@ -102,6 +119,8 @@ glair/
 ├── scripts/                  # Game logic (.gd files)
 │   ├── events.gd            # Global event system with signals
 │   ├── player.gd            # Advanced player controller with fear system
+│   ├── creepy_monster.gd    # AI enemy with intelligent behavior and combat
+│   ├── game_over.gd         # Game over screen management
 │   ├── horror_ui.gd         # UI management with horror theming
 │   ├── battery_pickup.gd    # Battery collection mechanics
 │   ├── battery_spawner.gd   # Intelligent battery spawning system
@@ -142,7 +161,7 @@ glair/
 3. **Adjust your audio settings** - spatial audio is crucial for immersion
 4. Navigate to Map1 from the main menu to begin the horror experience
 
-⚠️ **Content Warning**: This game contains horror elements including darkness, tension, and potentially frightening scenarios.
+⚠️ **Content Warning**: This game contains horror elements including darkness, tension, potentially frightening scenarios, and hostile AI enemies that actively hunt and attack the player.
 
 ## 🎲 Game Mechanics
 
@@ -155,15 +174,18 @@ glair/
 
 ### Survival Systems
 - **Stamina System**: Sprint drains stamina, affects breathing and movement stability
-- **Fear Mechanics**: Darkness increases fear level, light reduces it
+- **Fear Mechanics**: Darkness increases fear level, light reduces it; enemy encounters spike fear
+- **Health System**: Take damage from monster attacks, regenerate health slowly over time
 - **Audio Feedback**: Footsteps, breathing intensity, and heartbeat respond to player state
 - **Environmental Interaction**: Use 'E' to collect batteries and interact with objects
+- **Death System**: Die when health reaches zero, with game over screen and restart options
 
 ### Atmospheric Features
-- **Dynamic Fog**: Volumetric fog environment centered on player position
+- **Dynamic Fog**: Volumetric fog environment centered on player position with realistic 3D forest backdrop
 - **Realistic Lighting**: Moonlight beams, environmental glow, and flashlight illumination
 - **Camera Effects**: Head bobbing, breathing-induced shake, and fear-based instability
 - **3D Audio**: Spatial audio system with distance-based sound attenuation
+- **Monster Encounters**: Intelligent AI enemies that patrol, chase, and attack players
 
 ## 🔧 Development
 
@@ -181,6 +203,9 @@ glair/
 - ✅ **Settings System** - Configurable audio, visual, and control options
 - ✅ **Fog Environment** - Atmospheric fog system with volumetric lighting
 - ✅ **3D Environmental Assets** - Realistic pine forest with four distinct tree model variants
+- ✅ **Enemy AI System** - Intelligent monster with patrol, chase, and attack behaviors
+- ✅ **Health & Damage System** - Player health, enemy damage, and regeneration mechanics
+- ✅ **Game Over System** - Complete death handling with restart functionality
 
 ### Technical Architecture
 - **Events System**: Global event handling through `events.gd` autoload for horror triggers and UI updates
@@ -200,7 +225,7 @@ This appears to be a personal project. If you'd like to contribute:
 ## 📋 Roadmap
 
 ### Upcoming Features
-- [ ] **Enemy/Threat AI** - Implement dynamic horror encounters and creature behavior
+- [ ] **Enhanced Enemy AI** - Expand monster behaviors with more complex AI patterns and additional enemy types
 - [ ] **Enhanced Audio** - Add more horror sound effects and dynamic ambient audio
 - [ ] **Additional Environments** - Expand beyond the pine forest with more diverse terrifying locations
 - [ ] **Narrative Elements** - Develop story progression and environmental storytelling
