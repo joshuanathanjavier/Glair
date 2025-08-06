@@ -38,6 +38,11 @@ extends CharacterBody3D
 @export var fear_decay_rate: float = 5.0
 @export var stress_breathing_threshold: float = 60.0
 
+# --- Health System ---
+@export var max_health: float = 100.0
+@export var health_regen_rate: float = 2.0
+@export var damage_screen_flash_duration: float = 0.5
+
 # --- Fog Settings ---
 @export var fog_follow_speed: float = 2.0
 @export var fog_max_distance: float = 3.0
@@ -66,6 +71,9 @@ var horizontal_velocity: Vector3 = Vector3.ZERO
 var last_position: Vector3 = Vector3.ZERO
 var current_interactable = null
 var footstep_timer: float = 0.0
+var health: float
+var damage_flash_timer: float = 0.0
+var is_dead: bool = false
 
 # --- Node References ---
 @onready var camera: Camera3D = $Camera3D
@@ -86,6 +94,7 @@ func _ready() -> void:
 	flashlight.visible = flashlight_on
 	flashlight_model.visible = true  # Model is always visible
 	last_position = global_position
+	health = max_health
 	
 	# Initialize fog center to player position
 	fog_center = global_position
@@ -107,6 +116,10 @@ func _ready() -> void:
 
 # --- Main Physics Logic ---
 func _physics_process(delta: float) -> void:
+	# Exit early if player is dead
+	if is_dead:
+		return
+		
 	var direction = Vector3.ZERO
 	var forward = -transform.basis.z
 	var right = transform.basis.x
@@ -117,13 +130,14 @@ func _physics_process(delta: float) -> void:
 	# Update UI via signals
 	Events.stamina_updated.emit(stamina, max_stamina)
 	Events.battery_updated.emit(flashlight_battery, max_flashlight_battery)
+	Events.health_updated.emit(health, max_health)
 
 	# Flashlight Input
 	if Input.is_action_just_pressed("flashlight_toggle"):
 		flashlight_on = !flashlight_on
 		flashlight.visible = flashlight_on
 		_update_flashlight_appearance()
-
+	
 	# Flashlight battery drain
 	if flashlight_on:
 		flashlight_battery = max(0.0, flashlight_battery - delta * 5.0) # drains at 5 units per second
@@ -207,6 +221,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Update fear system
 	_update_fear_system(delta)
+	
+	# Update health system
+	_update_health_system(delta)
 	
 	# Update audio effects
 	_update_audio_effects(delta)
@@ -299,6 +316,20 @@ func get_breathing_intensity() -> float:
 
 func add_fear(amount: float):
 	fear_level = min(max_fear, fear_level + amount)
+	Events.fear_level_changed.emit(fear_level)
+
+func _update_health_system(delta: float) -> void:
+	if is_dead:
+		return
+	
+	# Regenerate health slowly when not at max
+	if health < max_health:
+		health = min(max_health, health + health_regen_rate * delta)
+	
+	# Update damage flash timer
+	if damage_flash_timer > 0.0:
+		damage_flash_timer -= delta
+		damage_flash_timer = max(0.0, damage_flash_timer)
 
 func is_highly_stressed() -> bool:
 	return breathing_intensity > stress_breathing_threshold / 100.0
@@ -539,3 +570,61 @@ func _update_fog(delta: float):
 	env.fog_density = fog_density_base + (fog_density_max - fog_density_base) * fog_density_multiplier
 	
 	# Fog density stays constant - the flashlight should cut through it with volumetric lighting
+
+# --- Health System ---
+func take_damage(amount: float) -> void:
+	if is_dead:
+		return
+	
+	health -= amount
+	health = max(0.0, health)
+	
+	# Add fear when taking damage
+	add_fear(amount * 0.5)
+	
+	# Flash screen red
+	damage_flash_timer = damage_screen_flash_duration
+	
+	# Emit damage event
+	Events.player_damaged.emit(amount)
+	
+	# Play damage sound or effect here if available
+	
+	# Check if player died
+	if health <= 0.0:
+		_die()
+
+func heal(amount: float) -> void:
+	if is_dead:
+		return
+	
+	health = min(max_health, health + amount)
+	Events.player_healed.emit(amount)
+
+func get_health() -> float:
+	return health
+
+func get_max_health() -> float:
+	return max_health
+
+func is_player_dead() -> bool:
+	return is_dead
+
+func _die() -> void:
+	is_dead = true
+	
+	# Stop player movement
+	set_physics_process(false)
+	
+	# Release mouse capture
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	# Emit death event
+	Events.player_died.emit()
+	
+	# Show game over screen immediately
+	_show_game_over_screen()
+
+func _show_game_over_screen() -> void:
+	# Show proper game over screen
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")

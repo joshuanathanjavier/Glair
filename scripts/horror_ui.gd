@@ -3,8 +3,10 @@ extends CanvasLayer
 # Node references
 @onready var hud_container: Control = $HUD
 @onready var stamina_bar: ProgressBar = $HUD/UIContainer/VBoxContainer/StaminaContainer/StaminaBar
+@onready var health_bar: ProgressBar = $HUD/UIContainer/VBoxContainer/HealthContainer/HealthBar
 @onready var flashlight_bar: ProgressBar = $HUD/UIContainer/VBoxContainer/FlashlightContainer/FlashlightBar
 @onready var stamina_label: Label = $HUD/UIContainer/VBoxContainer/StaminaContainer/StaminaLabel
+@onready var health_label: Label = $HUD/UIContainer/VBoxContainer/HealthContainer/HealthLabel
 @onready var flashlight_label: Label = $HUD/UIContainer/VBoxContainer/FlashlightContainer/FlashlightLabel
 @onready var crosshair: Control = $HUD/Crosshair
 @onready var crosshair_dot: Panel = $HUD/Crosshair/CrosshairDot
@@ -12,21 +14,26 @@ extends CanvasLayer
 # Theme resources
 var base_theme: Theme
 var stamina_theme: Theme
+var health_theme: Theme
 var battery_theme: Theme
 var stamina_warning_theme: Theme
+var health_warning_theme: Theme
 var battery_warning_theme: Theme
 
 # Warning thresholds
 const STAMINA_WARNING_THRESHOLD = 20.0
+const HEALTH_WARNING_THRESHOLD = 30.0
 const BATTERY_WARNING_THRESHOLD = 25.0
 
 # Animation variables
 var stamina_warning_active = false
+var health_warning_active = false
 var battery_warning_active = false
 var tween: Tween
 
 # Warning state tracking
 var stamina_warning_sent = false
+var health_warning_sent = false
 var battery_warning_sent = false
 
 func _ready():
@@ -45,6 +52,8 @@ func _ready():
 	# Apply initial themes
 	if stamina_bar:
 		stamina_bar.theme = stamina_theme
+	if health_bar:
+		health_bar.theme = health_theme
 	if flashlight_bar:
 		flashlight_bar.theme = battery_theme
 	
@@ -53,6 +62,7 @@ func _ready():
 	
 	# Connect to player state signals
 	Events.stamina_updated.connect(_on_stamina_updated)
+	Events.health_updated.connect(_on_health_updated)
 	Events.battery_updated.connect(_on_battery_updated)
 	# Connect to warning signals
 	Events.low_stamina_warning.connect(_on_low_stamina_warning)
@@ -97,6 +107,35 @@ func _create_custom_themes():
 	
 	stamina_theme.set_stylebox("background", "ProgressBar", stamina_bg)
 	stamina_theme.set_stylebox("fill", "ProgressBar", stamina_fill)
+	
+	# Create health theme
+	health_theme = Theme.new()
+	var health_bg = StyleBoxFlat.new()
+	health_bg.bg_color = Color(0.15, 0.08, 0.08, 0.9)
+	health_bg.border_width_left = 1
+	health_bg.border_width_top = 1
+	health_bg.border_width_right = 1
+	health_bg.border_width_bottom = 1
+	health_bg.border_color = Color(0.3, 0.15, 0.15, 1)
+	health_bg.corner_radius_top_left = 3
+	health_bg.corner_radius_top_right = 3
+	health_bg.corner_radius_bottom_right = 3
+	health_bg.corner_radius_bottom_left = 3
+	
+	var health_fill = StyleBoxFlat.new()
+	health_fill.bg_color = Color(0.8, 0.2, 0.2, 0.9)
+	health_fill.border_width_left = 1
+	health_fill.border_width_top = 1
+	health_fill.border_width_right = 1
+	health_fill.border_width_bottom = 1
+	health_fill.border_color = Color(0.9, 0.3, 0.3, 1)
+	health_fill.corner_radius_top_left = 3
+	health_fill.corner_radius_top_right = 3
+	health_fill.corner_radius_bottom_right = 3
+	health_fill.corner_radius_bottom_left = 3
+	
+	health_theme.set_stylebox("background", "ProgressBar", health_bg)
+	health_theme.set_stylebox("fill", "ProgressBar", health_fill)
 	
 	# Create battery theme
 	battery_theme = Theme.new()
@@ -144,6 +183,22 @@ func _create_custom_themes():
 	stamina_warning_theme.set_stylebox("background", "ProgressBar", stamina_bg)
 	stamina_warning_theme.set_stylebox("fill", "ProgressBar", stamina_warning_fill)
 	
+	health_warning_theme = Theme.new()
+	var health_warning_fill = StyleBoxFlat.new()
+	health_warning_fill.bg_color = Color(0.9, 0.1, 0.1, 0.95)
+	health_warning_fill.border_width_left = 1
+	health_warning_fill.border_width_top = 1
+	health_warning_fill.border_width_right = 1
+	health_warning_fill.border_width_bottom = 1
+	health_warning_fill.border_color = Color(1, 0.2, 0.2, 1)
+	health_warning_fill.corner_radius_top_left = 3
+	health_warning_fill.corner_radius_top_right = 3
+	health_warning_fill.corner_radius_bottom_right = 3
+	health_warning_fill.corner_radius_bottom_left = 3
+	
+	health_warning_theme.set_stylebox("background", "ProgressBar", health_bg)
+	health_warning_theme.set_stylebox("fill", "ProgressBar", health_warning_fill)
+	
 	battery_warning_theme = Theme.new()
 	var battery_warning_fill = StyleBoxFlat.new()
 	battery_warning_fill.bg_color = Color(0.9, 0.4, 0.1, 0.95)
@@ -173,6 +228,20 @@ func _on_stamina_updated(current_stamina: float, max_stamina: float):
 			stamina_warning_sent = false
 			if stamina_warning_active:
 				_stop_stamina_warning()
+
+func _on_health_updated(current_health: float, max_health: float):
+	if health_bar:
+		health_bar.value = (current_health / max_health) * 100.0
+		
+		# Check for warning state
+		var percentage = (current_health / max_health) * 100.0
+		if percentage <= HEALTH_WARNING_THRESHOLD and not health_warning_sent:
+			health_warning_sent = true
+			_start_health_warning()
+		elif percentage > HEALTH_WARNING_THRESHOLD:
+			health_warning_sent = false
+			if health_warning_active:
+				_stop_health_warning()
 
 func _on_battery_updated(current_battery: float, max_battery: float):
 	if flashlight_bar:
@@ -216,6 +285,20 @@ func _stop_battery_warning():
 		flashlight_bar.theme = battery_theme
 		flashlight_bar.modulate = Color.WHITE
 
+func _start_health_warning():
+	health_warning_active = true
+	if health_bar and health_warning_theme:
+		health_bar.theme = health_warning_theme
+	_pulse_health_bar()
+
+func _stop_health_warning():
+	health_warning_active = false
+	if tween:
+		tween.kill()
+	if health_bar and health_theme:
+		health_bar.theme = health_theme
+		health_bar.modulate = Color.WHITE
+
 func _pulse_stamina_bar():
 	if not stamina_warning_active or not stamina_bar:
 		return
@@ -235,6 +318,15 @@ func _flicker_flashlight_bar():
 	tween.tween_property(flashlight_bar, "modulate", Color(0.8, 0.7, 0.4, 1.0), 0.15)
 	tween.tween_property(flashlight_bar, "modulate", Color(1.1, 1.0, 0.6, 1.0), 0.1)
 	tween.tween_property(flashlight_bar, "modulate", Color.WHITE, 0.2)
+
+func _pulse_health_bar():
+	if not health_warning_active or not health_bar:
+		return
+		
+	tween = create_tween()
+	tween.set_loops()
+	tween.tween_property(health_bar, "modulate", Color(1.4, 0.6, 0.6, 1.0), 0.5)
+	tween.tween_property(health_bar, "modulate", Color.WHITE, 0.5)
 
 func _on_low_stamina_warning():
 	_start_stamina_warning()

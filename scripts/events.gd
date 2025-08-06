@@ -5,6 +5,8 @@ extends Node
 
 # Define signals for global events
 signal player_died
+signal player_damaged(damage_amount)
+signal player_healed(heal_amount)
 signal level_completed
 signal game_paused
 signal game_resumed
@@ -16,6 +18,7 @@ signal low_stamina_warning
 signal low_battery_warning
 signal stamina_updated(current_stamina, max_stamina)
 signal battery_updated(current_battery, max_battery)
+signal health_updated(current_health, max_health)
 
 # New enhanced signals
 signal interaction_available(interaction_text)

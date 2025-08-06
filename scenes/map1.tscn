@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://buvcsifrb12ac"]
+[gd_scene load_steps=28 format=3 uid="uid://buvcsifrb12ac"]
 
 [ext_resource type="PackedScene" uid="uid://bwulnxf4nwswc" path="res://scenes/pause_menu.tscn" id="1_bpebn"]
 [ext_resource type="PackedScene" uid="uid://c4pvfm215jx22" path="res://scenes/player.tscn" id="1_iuwxl"]
 [ext_resource type="PackedScene" uid="uid://bpoa77flfrywp" path="res://scenes/player_ui.tscn" id="2_ui"]
+[ext_resource type="PackedScene" uid="uid://b4k3r7n2x8qam" path="res://scenes/creepy_monster.tscn" id="3_monster"]
 [ext_resource type="PackedScene" uid="uid://cwm8v4n7k2qax" path="res://scenes/map_wide_battery_spawner.tscn" id="4_x0ugi"]
 [ext_resource type="PackedScene" uid="uid://jhqb8ae83cr3" path="res://assets/models/trees/pine_dense.glb" id="5_pine_dense"]
 [ext_resource type="PackedScene" uid="uid://dwjrn33ihgkmq" path="res://assets/models/trees/pine_natural.glb" id="6_pine_natural"]
@@ -413,7 +414,7 @@ shape = SubResource("CylinderShape3D_tree")
 transform = Transform3D(3.1, 0, 0, 0, 3.1, 0, 0, 0, 3.1, 40, 0, -20)
 
 [node name="PineModel" parent="Trees4/TwistedTree2" instance=ExtResource("5_pine_dense")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.78844, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trees4/TwistedTree2"]
 transform = Transform3D(0.32, 0, 0, 0, 0.32, 0, 0, 0, 0.32, 0, 1.92, 0)
@@ -3069,3 +3070,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="MapWideBatterySpawner" parent="." instance=ExtResource("4_x0ugi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.582855, 0.5, 0.537357)
 spawn_count = 30
+
+[node name="CreepyMonster" parent="." instance=ExtResource("3_monster")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 6.8966, 1.96551, 2.69511)
