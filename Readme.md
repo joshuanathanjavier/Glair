@@ -4,7 +4,11 @@ A 3D first-person horror game built with Godot 4.4, featuring advanced survival 
 
 ## 🎮 About
 
-Glair is an immersive first-person horror experience that combines atmospheric tension with realistic survival mechanics. Players must navigate through dark, terrifying environments while managing limited resources and facing unknown threats. The game emphasizes psychological horror through strategic use of lighting, sound, and resource scarcity, with a robust battery collection system to keep your flashlight powered.
+Glair### Atmospheric Features
+- **Dynamic Fog**: Volumetric fog environment centered on player position with realistic 3D forest backdrop
+- **Realistic Lighting**: Moonlight beams, environmental glow, and flashlight illumination
+- **Camera Effects**: Head bobbing, breathing-induced shake, and fear-based instability
+- **3D Audio**: Spatial audio system with distance-based sound attenuationn immersive first-person horror experience that combines atmospheric tension with realistic survival mechanics. Players must navigate through dark, terrifying environments while managing limited resources and facing unknown threats. The game emphasizes psychological horror through strategic use of lighting, sound, and resource scarcity, with a robust battery collection system to keep your flashlight powered.
 
 ## ✨ Features
 
@@ -28,6 +32,13 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 - **Dynamic Camera Effects** - Head bobbing, breathing intensity, and fear-based camera shake
 - **Crouching Mechanics** - Reduced movement speed and audio for stealth
 - **Audio Feedback** - Footsteps, breathing, and heartbeat audio system
+
+### 🌲 3D Environmental Assets
+- **Realistic Pine Forest** - Four distinct 3D pine tree models for varied forest atmosphere
+- **Pine Model Variants** - Dense, natural, sparse, and tall pine trees with unique characteristics
+- **Optimized 3D Models** - GLB format models with proper scaling and collision detection
+- **Environmental Immersion** - Transition from procedural to hand-crafted 3D forest environments
+- **Atmospheric Integration** - Trees interact naturally with fog and lighting systems
 
 ### 😰 Fear & Stress System
 - **Dynamic Fear Level** - Increases in darkness, decreases with light
@@ -62,6 +73,7 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 - **Genre**: First-Person Horror/Survival
 - **Platform**: Cross-platform (Windows, macOS, Linux)
 - **Rendering**: Forward Plus renderer (optimized for atmospheric lighting)
+- **3D Assets**: GLB format models with optimized meshes and collision shapes for environmental immersion
 - **Architecture**: Component-based with global event system
 - **Audio**: 3D spatial audio for immersive horror experience
 
@@ -69,6 +81,13 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 
 ```
 glair/
+├── assets/                   # Game assets and 3D models
+│   └── models/              # 3D model assets
+│       └── trees/           # Pine tree model variants
+│           ├── pine_dense.glb    # Dense foliage pine model
+│           ├── pine_natural.glb  # Natural growth pine model
+│           ├── pine_sparse.glb   # Sparse foliage pine model
+│           └── pine_tall.glb     # Tall variant pine model
 ├── scenes/                    # Game scenes (.tscn files)
 │   ├── main_menu.tscn        # Main menu interface
 │   ├── map1.tscn             # Primary horror environment
@@ -161,6 +180,7 @@ glair/
 - ✅ **Event System** - Global signal management for game communication
 - ✅ **Settings System** - Configurable audio, visual, and control options
 - ✅ **Fog Environment** - Atmospheric fog system with volumetric lighting
+- ✅ **3D Environmental Assets** - Realistic pine forest with four distinct tree model variants
 
 ### Technical Architecture
 - **Events System**: Global event handling through `events.gd` autoload for horror triggers and UI updates
@@ -182,7 +202,7 @@ This appears to be a personal project. If you'd like to contribute:
 ### Upcoming Features
 - [ ] **Enemy/Threat AI** - Implement dynamic horror encounters and creature behavior
 - [ ] **Enhanced Audio** - Add more horror sound effects and dynamic ambient audio
-- [ ] **Additional Environments** - Create more terrifying levels and atmospheric locations
+- [ ] **Additional Environments** - Expand beyond the pine forest with more diverse terrifying locations
 - [ ] **Narrative Elements** - Develop story progression and environmental storytelling
 - [ ] **Inventory System** - Expand beyond batteries to include key items and tools
 - [ ] **Multiple Endings** - Add branching story paths based on player choices
