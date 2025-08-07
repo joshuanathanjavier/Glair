@@ -117,6 +117,7 @@ fog_height_density = 0.6
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.541739, 0)
 shape = SubResource("BoxShape3D_ground")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
@@ -3072,4 +3073,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.582855, 0.5, 0.537357)
 spawn_count = 30
 
 [node name="CreepyMonster" parent="." instance=ExtResource("3_monster")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 6.8966, 1.96551, 2.69511)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40343, -0.0243718, 4.25601)

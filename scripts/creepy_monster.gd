@@ -29,6 +29,10 @@ var y_velocity: float = 0.0
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var detection_area: Area3D = $DetectionArea
 @onready var model: Node3D = $MonsterModel
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+# --- Animation State ---
+var current_animation: String = ""
 
 # --- Initialization ---
 func _ready() -> void:
@@ -55,6 +59,9 @@ func _ready() -> void:
 	
 	# Start patrolling
 	_change_state(AIState.PATROLLING)
+	
+	# Start with idle animation
+	_play_animation("idle")
 
 func _physics_process(delta: float) -> void:
 	# Skip processing if not properly in tree
@@ -115,10 +122,13 @@ func _update_ai_state(delta: float) -> void:
 			_handle_attack_state()
 
 func _handle_idle_state() -> void:
+	_play_animation("idle")
 	if state_timer > 2.0:
 		_change_state(AIState.PATROLLING)
 
 func _handle_patrol_state() -> void:
+	_play_animation("walk")
+	
 	if patrol_points.is_empty():
 		print("Monster: No patrol points!")
 		return
@@ -137,6 +147,8 @@ func _handle_patrol_state() -> void:
 		state_timer = 0.0
 
 func _handle_chase_state() -> void:
+	_play_animation("chase")
+	
 	if current_target and is_instance_valid(current_target):
 		var distance_to_player = global_position.distance_to(current_target.global_position)
 		
@@ -151,6 +163,8 @@ func _handle_chase_state() -> void:
 		_change_state(AIState.PATROLLING)
 
 func _handle_attack_state() -> void:
+	_play_animation("attack")
+	
 	if current_target and is_instance_valid(current_target):
 		var distance_to_player = global_position.distance_to(current_target.global_position)
 		
@@ -226,6 +240,9 @@ func _perform_attack() -> void:
 		var distance = global_position.distance_to(current_target.global_position)
 		print("Monster: Attacking player! Distance: ", distance, " Attack range: ", attack_range)
 		
+		# Play attack animation
+		animation_player.play("attack")
+		
 		# Damage player
 		if current_target.has_method("take_damage"):
 			current_target.take_damage(25.0)
@@ -240,6 +257,17 @@ func _change_state(new_state: AIState) -> void:
 	print("Monster changing state to: ", AIState.keys()[new_state])
 	current_state = new_state
 	state_timer = 0.0
+	
+	# Update animation based on state
+	match new_state:
+		AIState.IDLE:
+			_play_animation("idle")
+		AIState.PATROLLING:
+			_play_animation("walk")
+		AIState.CHASING:
+			_play_animation("chase")
+		AIState.ATTACKING:
+			_play_animation("attack")
 
 func _generate_default_patrol_points() -> void:
 	var center = global_position
@@ -260,3 +288,10 @@ func take_damage(amount: float) -> void:
 func _die() -> void:
 	print("Monster: Died")
 	queue_free()
+
+# --- Animation Functions ---
+func _play_animation(animation_name: String) -> void:
+	if animation_player and current_animation != animation_name:
+		current_animation = animation_name
+		animation_player.play(animation_name)
+		print("Monster: Playing animation - ", animation_name)

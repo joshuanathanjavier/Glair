@@ -1,24 +1,125 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4k3r7n2x8qam"]
+[gd_scene load_steps=11 format=3 uid="uid://b4k3r7n2x8qam"]
 
 [ext_resource type="Script" uid="uid://cjgx2nh8k4qm3" path="res://scripts/creepy_monster.gd" id="1_monster_script"]
 [ext_resource type="PackedScene" uid="uid://dl5toj5t523q3" path="res://assets/models/character/creepy_monster.glb" id="2_monster_model"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_monster_body"]
-radius = 0.4
-height = 1.5
+radius = 0.24
+height = 2.514
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_detection"]
 radius = 150.0
 
+[sub_resource type="Animation" id="Animation_RESET"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MonsterModel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MonsterModel")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_attack"]
+resource_name = "attack"
+length = 0.8
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MonsterModel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 0, -0.1, 0, 0.4, 1, 0, 0.15, 0, 0.6, 1, 0, -0.05, 0, 0.8, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MonsterModel")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.2, 1, 0, 0, -0.05, 0.9988, 0.4, 1, 0, 0, 0.1, 0.995, 0.6, 1, 0, 0, -0.03, 0.9996, 0.8, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_chase"]
+resource_name = "chase"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MonsterModel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.15, 1, 0, 0.08, 0, 0.3, 1, 0, 0, 0, 0.45, 1, 0, 0.08, 0, 0.6, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MonsterModel")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.15, 1, 0.015, 0, 0, 0.9999, 0.3, 1, 0, 0, 0, 1, 0.45, 1, -0.015, 0, 0, 0.9999, 0.6, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_idle"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MonsterModel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 0, 0.1, 0, 2, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MonsterModel")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0.02, 0, 0, 0.9998, 2, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_walk"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MonsterModel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.25, 1, 0, 0.05, 0, 0.5, 1, 0, 0, 0, 0.75, 1, 0, 0.05, 0, 1, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MonsterModel")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.25, 1, 0.01, 0, 0, 0.99995, 0.5, 1, 0, 0, 0, 1, 0.75, 1, -0.01, 0, 0, 0.99995, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_monster"]
+_data = {
+&"RESET": SubResource("Animation_RESET"),
+&"attack": SubResource("Animation_attack"),
+&"chase": SubResource("Animation_chase"),
+&"idle": SubResource("Animation_idle"),
+&"walk": SubResource("Animation_walk")
+}
+
 [node name="CreepyMonster" type="CharacterBody3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("1_monster_script")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18981, 0.0362495)
 shape = SubResource("CapsuleShape3D_monster_body")
 
 [node name="MonsterModel" parent="." instance=ExtResource("2_monster_model")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
@@ -27,3 +128,8 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
 shape = SubResource("SphereShape3D_detection")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_monster")
+}
