@@ -2,6 +2,8 @@
 
 A 3D first-person horror game built with Godot 4.4, featuring advanced survival mechanics and atmospheric horror elements.
 
+*Last updated: August 2025*
+
 ## 🎮 About
 
 Glair is an immersive first-person horror experience that combines atmospheric tension with realistic survival mechanics. Players must navigate through dark, terrifying environments while managing limited resources and facing unknown threats. The game emphasizes psychological horror through strategic use of lighting, sound, and resource scarcity, with a robust battery collection system to keep your flashlight powered. Face intelligent AI enemies that hunt you through the fog-covered forest, where survival depends on your ability to manage fear, health, and resources while avoiding or confronting deadly creatures.
@@ -32,9 +34,10 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 ### 🌲 3D Environmental Assets
 - **Realistic Pine Forest** - Four distinct 3D pine tree models for varied forest atmosphere
 - **Pine Model Variants** - Dense, natural, sparse, and tall pine trees with unique characteristics
+- **Ground Vegetation** - Realistic grass models for enhanced environmental detail
 - **Optimized 3D Models** - GLB format models with proper scaling and collision detection
 - **Environmental Immersion** - Transition from procedural to hand-crafted 3D forest environments
-- **Atmospheric Integration** - Trees interact naturally with fog and lighting systems
+- **Atmospheric Integration** - Trees and vegetation interact naturally with fog and lighting systems
 
 ### 😰 Fear & Stress System
 - **Dynamic Fear Level** - Increases in darkness, decreases with light
@@ -98,6 +101,9 @@ glair/
 │       │   ├── creepy_monster_0.jpg  # Monster texture variant 1
 │       │   ├── creepy_monster_1.png  # Monster texture variant 2
 │       │   └── creepy_monster_2.png  # Monster texture variant 3
+│       ├── grass/           # Ground vegetation models
+│       │   ├── grass.glb         # Realistic grass model for environment
+│       │   └── grass_Image_0.png # Grass texture and material
 │       └── trees/           # Pine tree model variants
 │           ├── pine_dense.glb    # Dense foliage pine model
 │           ├── pine_natural.glb  # Natural growth pine model
@@ -183,11 +189,17 @@ glair/
 ### Atmospheric Features
 - **Dynamic Fog**: Volumetric fog environment centered on player position with realistic 3D forest backdrop
 - **Realistic Lighting**: Moonlight beams, environmental glow, and flashlight illumination
+- **Enhanced Environment**: Detailed forest with pine trees and realistic grass vegetation
 - **Camera Effects**: Head bobbing, breathing-induced shake, and fear-based instability
 - **3D Audio**: Spatial audio system with distance-based sound attenuation
 - **Monster Encounters**: Intelligent AI enemies that patrol, chase, and attack players
 
 ## 🔧 Development
+
+### Recent Updates (August 2025)
+- ✅ **Enhanced Environmental Assets** - Added realistic grass models for improved ground vegetation
+- ✅ **Contributors Section** - Added community recognition with contributor graphics
+- ✅ **Documentation Updates** - Comprehensive README updates with latest project structure
 
 ### Current Status
 🚧 **In Active Development** - This project is actively being developed with sophisticated horror mechanics and advanced systems.
@@ -202,7 +214,7 @@ glair/
 - ✅ **Event System** - Global signal management for game communication
 - ✅ **Settings System** - Configurable audio, visual, and control options
 - ✅ **Fog Environment** - Atmospheric fog system with volumetric lighting
-- ✅ **3D Environmental Assets** - Realistic pine forest with four distinct tree model variants
+- ✅ **3D Environmental Assets** - Realistic pine forest with four distinct tree model variants and ground vegetation
 - ✅ **Enemy AI System** - Intelligent monster with patrol, chase, and attack behaviors
 - ✅ **Health & Damage System** - Player health, enemy damage, and regeneration mechanics
 - ✅ **Game Over System** - Complete death handling with restart functionality
@@ -251,7 +263,12 @@ This project's license is not specified. Please contact the repository owner for
 ## 👨‍💻 Author
 
 **Joshua Nathan Javier** - [GitHub Profile](https://github.com/joshuanathanjavier)
+## 💡 Contributors
+<a href="https://github.com/joshuanathanjavier/Glair/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=joshuanathanjavier/Glair" />
+</a>
 
 ---
 
 *Enter the darkness... if you dare. Built with ❤️ and 😱 using Godot Engine*
+
