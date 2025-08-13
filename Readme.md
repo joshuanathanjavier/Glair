@@ -45,6 +45,11 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 - **Stress-Based Effects** - Camera shake and movement impairment when stressed
 - **Environmental Response** - Fear level affects player's physical state
 
+### 🔑 Keys & Objective System
+- **Key Collection** - 10 keys spawn across multiple zones; pick them up to progress your main objective
+- **Objective Tracking** - Active, optional, and hidden objectives with progress updates and rewards
+- **Escape Objective** - After meeting key objectives, find the glowing exit to escape the forest
+
 ### 💀 Enemy AI & Threats
 - **Intelligent Monster AI** - Advanced enemy with multiple behavioral states (idle, patrol, chase, attack)
 - **Dynamic Detection System** - Monsters detect players within range and pursue relentlessly
@@ -65,6 +70,15 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 - **3D Spatial Audio** - Immersive audio system with distance-based effects
 - **UI Integration** - Horror-themed UI with battery and stamina indicators
 
+### 🧰 HUD & UI Enhancements
+- **Status Bars** - Stamina, Health, Battery with warning states (20%, 30%, 25% thresholds)
+- **Interaction Prompts** - Contextual "Press E" prompts and animated pickup messages
+- **Crosshair Toggle** - Visibility preference persisted via settings storage
+
+### ⏸️ Pause & Settings Flow
+- **Overlay Settings** - Open Settings from Pause without leaving the current scene
+- **Menu-Aware UI** - HUD and prompts auto-hide when menus are open
+
 ## 🎯 Controls
 
 | Action | Key | Horror Context |
@@ -77,7 +91,7 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 | Sprint | Shift | **Run for your life** (drains stamina) |
 | Crouch | Ctrl | **Hide and move silently** |
 | Toggle Flashlight | F | **Illuminate or conserve battery** |
-| Interact | E | **Collect batteries and investigate objects** |
+| Interact | E | **Collect items, interact with objects, and use the exit door** |
 | Pause Menu | Escape | Take a breath in safety |
 
 ## 🛠️ Technical Details
@@ -122,6 +136,13 @@ glair/
 │   ├── battery_spawner.tscn  # Battery spawning system
 │   ├── map_wide_battery_spawner.tscn  # Large-scale battery distribution
 │   └── interaction_ui.tscn   # Interaction prompt system
+│   ├── exit_door.tscn        # Escape door (glowing, interact to exit)
+│   ├── game_completed.tscn   # Post-escape completion scene
+│   ├── key_pickup.tscn       # Collectible key item
+│   ├── key_spawner.tscn      # Spawns keys across zones
+│   ├── objective_ui.tscn     # Displays objectives and progress
+│   ├── coordinate_display.tscn  # Developer/utility display
+│   └── door_spawner.tscn     # Spawns exit door(s)
 ├── scripts/                  # Game logic (.gd files)
 │   ├── events.gd            # Global event system with signals
 │   ├── player.gd            # Advanced player controller with fear system
@@ -130,6 +151,12 @@ glair/
 │   ├── horror_ui.gd         # UI management with horror theming
 │   ├── battery_pickup.gd    # Battery collection mechanics
 │   ├── battery_spawner.gd   # Intelligent battery spawning system
+│   ├── objective_manager.gd # Objective tracking and progress
+│   ├── exit_door.gd         # Exit interaction and scene transition
+│   ├── key_pickup.gd        # Key pickup mechanics
+│   ├── key_spawner.gd       # Key spawning logic
+│   ├── coordinate_display.gd  # Coordinate/utility display
+│   ├── door_spawner.gd      # Exit door spawner
 │   ├── flashlight_config.gd # Flashlight appearance configuration
 │   ├── enhanced_player_config.gd  # Player system configuration
 │   ├── interaction_ui.gd    # Interaction system interface
@@ -177,6 +204,8 @@ glair/
 - **Smart Spawning**: Batteries appear near walls, corners, and realistic locations
 - **Respawn System**: New batteries appear in different zones after collection
 - **Visual Indicators**: Power button changes color, lens emission varies with charge
+- **Respawn System**: New batteries can appear after pickups with in-world hint messaging
+- **HUD Warnings**: Battery bar enters warning state below 25%
 
 ### Survival Systems
 - **Stamina System**: Sprint drains stamina, affects breathing and movement stability
@@ -194,12 +223,24 @@ glair/
 - **3D Audio**: Spatial audio system with distance-based sound attenuation
 - **Monster Encounters**: Intelligent AI enemies that patrol, chase, and attack players
 
+### Keys and Escape
+- **Collect 10 Keys**: Keys are distributed across multiple zones; track progress via the objectives UI
+- **Find the Exit**: Locate the glowing door and press Interact to escape
+
+### Objectives
+- **Active Objectives**: Main tasks such as collecting keys
+- **Optional Challenges**: Time-based survival goals (e.g., 2 minutes, 5 minutes)
+- **Hidden Objectives**: Reveal as you progress, with reward messages on completion
+
 ## 🔧 Development
 
 ### Recent Updates (August 2025)
-- ✅ **Enhanced Environmental Assets** - Added realistic grass models for improved ground vegetation
-- ✅ **Contributors Section** - Added community recognition with contributor graphics
-- ✅ **Documentation Updates** - Comprehensive README updates with latest project structure
+- ✅ **Key System** - Collectible keys with zone-based spawning
+- ✅ **Objective System** - Active/optional/hidden objectives with progress updates
+- ✅ **Exit & Completion** - Glowing exit door and game completed scene
+- ✅ **HUD Enhancements** - Warning states for stamina/health/battery
+- ✅ **Crosshair Setting** - Visibility preference saved and restored
+- ✅ **Battery Loop** - Respawn behavior with in-world hint messaging
 
 ### Current Status
 🚧 **In Active Development** - This project is actively being developed with sophisticated horror mechanics and advanced systems.
@@ -218,6 +259,9 @@ glair/
 - ✅ **Enemy AI System** - Intelligent monster with patrol, chase, and attack behaviors
 - ✅ **Health & Damage System** - Player health, enemy damage, and regeneration mechanics
 - ✅ **Game Over System** - Complete death handling with restart functionality
+- ✅ **Objective System**
+- ✅ **Key Collection & Spawner**
+- ✅ **Exit Door & Game Completion Flow**
 
 ### Technical Architecture
 - **Events System**: Global event handling through `events.gd` autoload for horror triggers and UI updates
@@ -226,6 +270,9 @@ glair/
 - **UI Management**: Component-based UI system with real-time status indicators
 - **Scene Management**: Modular scene structure for different horror environments
 - **Configuration System**: Resource-based configuration for easy tweaking of game parameters
+- **Objective Manager**: Centralized objective tracking and events
+- **Key Spawner**: Multi-zone key distribution with placement heuristics
+- **Exit Door**: Interact-to-escape flow integrated with global events
 
 ### Contributing
 This appears to be a personal project. If you'd like to contribute:
