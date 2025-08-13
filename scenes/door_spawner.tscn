@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctfq8hahn3xap"]
+
+[ext_resource type="Script" uid="uid://dm6ddm6qqit58" path="res://scripts/door_spawner.gd" id="1_door_spawner"]
+
+[node name="DoorSpawner" type="Node3D"]
+script = ExtResource("1_door_spawner")

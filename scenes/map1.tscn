@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://buvcsifrb12ac"]
+[gd_scene load_steps=32 format=3 uid="uid://buvcsifrb12ac"]
 
 [ext_resource type="PackedScene" uid="uid://bwulnxf4nwswc" path="res://scenes/pause_menu.tscn" id="1_bpebn"]
 [ext_resource type="PackedScene" uid="uid://c4pvfm215jx22" path="res://scenes/player.tscn" id="1_iuwxl"]
@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b4k3r7n2x8qam" path="res://scenes/creepy_monster.tscn" id="3_monster"]
 [ext_resource type="PackedScene" uid="uid://cwm8v4n7k2qax" path="res://scenes/map_wide_battery_spawner.tscn" id="4_x0ugi"]
 [ext_resource type="PackedScene" uid="uid://wh1j5r35o2ak" path="res://assets/models/grass/grass.glb" id="5_5vo6v"]
+[ext_resource type="Script" uid="uid://c8m5lan2p4v7x" path="res://scripts/objective_manager.gd" id="5_objective_manager"]
 [ext_resource type="PackedScene" uid="uid://jhqb8ae83cr3" path="res://assets/models/trees/pine_dense.glb" id="5_pine_dense"]
+[ext_resource type="PackedScene" uid="uid://ctfq8hahn3xap" path="res://scenes/door_spawner.tscn" id="6_door_spawner"]
+[ext_resource type="PackedScene" uid="uid://cnak6n3p7v8y" path="res://scenes/key_spawner.tscn" id="6_key_spawner"]
 [ext_resource type="PackedScene" uid="uid://dwjrn33ihgkmq" path="res://assets/models/trees/pine_natural.glb" id="6_pine_natural"]
 [ext_resource type="PackedScene" uid="uid://nejnghph57lv" path="res://assets/models/trees/pine_sparse.glb" id="7_pine_sparse"]
 [ext_resource type="PackedScene" uid="uid://baog7kdlvd0wm" path="res://assets/models/trees/pine_tall.glb" id="8_pine_tall"]
@@ -16408,3 +16411,12 @@ spawn_count = 30
 
 [node name="CreepyMonster" parent="." instance=ExtResource("3_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40343, -0.0243718, 4.25601)
+
+[node name="ObjectiveManager" type="Node" parent="."]
+script = ExtResource("5_objective_manager")
+
+[node name="KeySpawner" parent="." instance=ExtResource("6_key_spawner")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="DoorSpawner" parent="." instance=ExtResource("6_door_spawner")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

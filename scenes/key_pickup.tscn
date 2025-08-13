@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://bk8m5n2p9v7x"]
+
+[ext_resource type="Script" path="res://scripts/key_pickup.gd" id="1_key"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_key_handle"]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_key"]
+albedo_color = Color(0.9, 0.7, 0.2, 1)
+metallic = 0.8
+roughness = 0.2
+emission_enabled = true
+emission = Color(1, 0.8, 0.3, 1)
+emission_energy = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_key_head"]
+size = Vector3(0.06, 0.03, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_key_teeth"]
+size = Vector3(0.02, 0.01, 0.015)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_key"]
+height = 0.08
+top_radius = 0.03
+bottom_radius = 0.03
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_interaction"]
+radius = 1.2
+
+[sub_resource type="AudioStream" id="AudioStream_key_pickup"]
+
+[node name="KeyPickup" type="RigidBody3D" groups=["key", "interactable"]]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_key")
+key_id = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+mesh = SubResource("CylinderMesh_key_handle")
+surface_material_override/0 = SubResource("StandardMaterial3D_key")
+
+[node name="KeyHead" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("BoxMesh_key_head")
+surface_material_override/0 = SubResource("StandardMaterial3D_key")
+
+[node name="KeyTeeth1" type="MeshInstance3D" parent="MeshInstance3D/KeyHead"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, -0.01, 0)
+mesh = SubResource("BoxMesh_key_teeth")
+surface_material_override/0 = SubResource("StandardMaterial3D_key")
+
+[node name="KeyTeeth2" type="MeshInstance3D" parent="MeshInstance3D/KeyHead"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015, -0.015, 0)
+mesh = SubResource("BoxMesh_key_teeth")
+surface_material_override/0 = SubResource("StandardMaterial3D_key")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+shape = SubResource("CylinderShape3D_key")
+
+[node name="InteractionArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="InteractionCollision" type="CollisionShape3D" parent="InteractionArea"]
+shape = SubResource("SphereShape3D_interaction")
+
+[node name="PickupAudio" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStream_key_pickup")
+volume_db = -3.0
+pitch_scale = 1.0
+bus = &"SFX"
+
+[node name="GlowLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+light_energy = 0.5
+light_color = Color(1, 0.8, 0.3, 1)
+omni_range = 1.0
+omni_attenuation = 2.0

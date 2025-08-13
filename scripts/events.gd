@@ -30,11 +30,25 @@ signal player_stress_changed(stress_level)
 signal battery_pickup_collected(charge_amount)
 signal show_pickup_message(message_text)
 
+# Key collection signals
+signal key_collected
+
+# Player escape signals
+signal player_escaped
+
 # Settings navigation signals
 signal settings_back_to_pause
 
 # Menu state signals
 signal menu_opened
 signal menu_closed
+
+# Objective system signals
+signal objective_added(title: String, description: String)
+signal objective_completed(title: String, reward_message: String)
+signal objective_failed(title: String)
+signal objective_revealed(title: String, description: String)
+signal objective_progress_updated(title: String, current: float, target: float)
+signal objectives_updated(objectives: Array)
 
 # You can add more signals and event handling functions here as needed

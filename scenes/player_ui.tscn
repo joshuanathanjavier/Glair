@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpoa77flfrywp"]
+[gd_scene load_steps=6 format=3 uid="uid://bpoa77flfrywp"]
 
 [ext_resource type="Script" uid="uid://mrmobapwyc7j" path="res://scripts/horror_ui.gd" id="1_5x8k7"]
 [ext_resource type="Theme" uid="uid://d3wliconembrx" path="res://themes/horror_ui_theme.tres" id="2_4j9m1"]
 [ext_resource type="PackedScene" uid="uid://bfxm7k8ran2p1" path="res://scenes/interaction_ui.tscn" id="3_interaction"]
+[ext_resource type="PackedScene" uid="uid://b4x2lap8v5n7m" path="res://scenes/objective_ui.tscn" id="4_objective"]
+[ext_resource type="PackedScene" uid="uid://bjkm8n5ht4xvp" path="res://scenes/coordinate_display.tscn" id="5_coordinates"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_5x8k7")
@@ -107,12 +109,11 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = 60.0
+offset_left = -280.0
+offset_top = 608.0
+offset_right = -100.0
+offset_bottom = 648.0
 grow_horizontal = 0
-grow_vertical = 0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="HUD/EquippedContainer"]
@@ -149,3 +150,8 @@ mouse_filter = 2
 [node name="InteractionUI" parent="." instance=ExtResource("3_interaction")]
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ObjectiveUI" parent="." instance=ExtResource("4_objective")]
+
+[node name="CoordinateDisplay" parent="." instance=ExtResource("5_coordinates")]
+visible = false

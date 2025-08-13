@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4x2lap8v5n7m"]
+
+[ext_resource type="Script" uid="uid://fcby6ps3x1g8" path="res://scripts/objective_ui.gd" id="1_objective_ui"]
+[ext_resource type="Theme" uid="uid://d3wliconembrx" path="res://themes/horror_ui_theme.tres" id="2_horror_theme"]
+
+[node name="ObjectiveUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_objective_ui")
+
+[node name="ObjectivesContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = 12.0
+offset_right = 102.0
+offset_bottom = 342.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="ObjectivesTitle" type="Label" parent="ObjectivesContainer"]
+layout_mode = 2
+theme = ExtResource("2_horror_theme")
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 16
+text = "OBJECTIVES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ObjectivesList" type="VBoxContainer" parent="ObjectivesContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("2_horror_theme")
+theme_override_constants/separation = 15
+
+[node name="CompletionNotification#CompletionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -30.0
+offset_right = 200.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_horror_theme")
+theme_override_colors/font_color = Color(0.4, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CompletionNotification#CompletionReward" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = 40.0
+offset_right = 145.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_horror_theme")
+theme_override_colors/font_color = Color(0.8, 0.9, 0.6, 1)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm9k6n3p7v8y"]
+
+[ext_resource type="Script" path="res://scripts/key_spawner.gd" id="1_key_spawner"]
+
+[node name="KeySpawner" type="Node3D"]
+script = ExtResource("1_key_spawner")
+spawn_count = 10
+spawn_radius = 80.0
+min_distance_between_keys = 15.0
+spawn_height_offset = 0.8
+use_multiple_zones = true
+zone_count = 5
+zone_radius = 25.0
+min_zone_distance = 30.0
+prefer_hidden_spots = true
+place_near_trees = true
