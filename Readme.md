@@ -49,13 +49,18 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 - **Key Collection** - 10 keys spawn across multiple zones; pick them up to progress your main objective
 - **Objective Tracking** - Active, optional, and hidden objectives with progress updates and rewards
 - **Escape Objective** - After meeting key objectives, find the glowing exit to escape the forest
+- **Dynamic Progress Display** - Real-time key collection progress with dynamic count updates
 
-### 💀 Enemy AI & Threats
-- **Intelligent Monster AI** - Advanced enemy with multiple behavioral states (idle, patrol, chase, attack)
-- **Dynamic Detection System** - Monsters detect players within range and pursue relentlessly
+### 💀 Enhanced Enemy AI & Threats
+- **Intelligent Monster AI** - Advanced enemy with multiple behavioral states (idle, patrol, chase, attack, investigating, stalking, alerted)
+- **Random Spawning System** - 5 monsters spawn across 3 zones with intelligent placement near trees and hidden spots
+- **Enhanced Detection System** - Monsters detect players through line of sight, sound, and environmental awareness
+- **Stealth Mechanics** - Crouching reduces visibility by 80%, flashlight off reduces visibility by 60%
+- **Memory System** - Monsters remember last known player position and investigate areas
 - **Patrol Behavior** - Enemies patrol predefined routes when not engaged
 - **Combat System** - Monsters can deal damage and increase player fear levels
 - **Fear Integration** - Enemy encounters dramatically increase stress and breathing intensity
+- **Escape Mechanics** - Player feedback when successfully escaping from monsters
 
 ### 💖 Health & Survival System
 - **Health Management** - Player health system with damage from enemy attacks
@@ -74,6 +79,7 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 - **Status Bars** - Stamina, Health, Battery with warning states (20%, 30%, 25% thresholds)
 - **Interaction Prompts** - Contextual "Press E" prompts and animated pickup messages
 - **Crosshair Toggle** - Visibility preference persisted via settings storage
+- **Game Start Notification** - Displays main objective with fade animations on game start
 
 ### ⏸️ Pause & Settings Flow
 - **Overlay Settings** - Open Settings from Pause without leaving the current scene
@@ -89,7 +95,7 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 | Move Right | D | Navigate around obstacles |
 | Jump | Space | Escape over barriers |
 | Sprint | Shift | **Run for your life** (drains stamina) |
-| Crouch | Ctrl | **Hide and move silently** |
+| Crouch | Ctrl | **Hide and move silently** (reduces visibility by 80%) |
 | Toggle Flashlight | F | **Illuminate or conserve battery** |
 | Interact | E | **Collect items, interact with objects, and use the exit door** |
 | Pause Menu | Escape | Take a breath in safety |
@@ -128,14 +134,16 @@ glair/
 │   ├── map1.tscn             # Primary horror environment
 │   ├── pause_menu.tscn       # In-game pause menu
 │   ├── game_over.tscn        # Game over screen with restart options
+│   ├── game_start_notification.tscn  # Game start objective display
 │   ├── player_ui.tscn        # HUD with stamina/battery indicators
 │   ├── player.tscn           # Player controller with advanced systems
 │   ├── settings.tscn         # Settings configuration menu
 │   ├── creepy_monster.tscn   # AI enemy with intelligent behavior
+│   ├── monster_spawner.tscn  # Random monster spawning system
 │   ├── battery_pickup.tscn   # Collectible battery items
 │   ├── battery_spawner.tscn  # Battery spawning system
 │   ├── map_wide_battery_spawner.tscn  # Large-scale battery distribution
-│   └── interaction_ui.tscn   # Interaction prompt system
+│   ├── interaction_ui.tscn   # Interaction prompt system
 │   ├── exit_door.tscn        # Escape door (glowing, interact to exit)
 │   ├── game_completed.tscn   # Post-escape completion scene
 │   ├── key_pickup.tscn       # Collectible key item
@@ -146,14 +154,16 @@ glair/
 ├── scripts/                  # Game logic (.gd files)
 │   ├── events.gd            # Global event system with signals
 │   ├── player.gd            # Advanced player controller with fear system
-│   ├── creepy_monster.gd    # AI enemy with intelligent behavior and combat
+│   ├── creepy_monster.gd    # Enhanced AI enemy with stealth mechanics
+│   ├── monster_spawner.gd   # Random monster spawning with zone management
+│   ├── game_start_notification.gd  # Game start objective display
 │   ├── game_over.gd         # Game over screen management
 │   ├── horror_ui.gd         # UI management with horror theming
 │   ├── battery_pickup.gd    # Battery collection mechanics
 │   ├── battery_spawner.gd   # Intelligent battery spawning system
 │   ├── objective_manager.gd # Objective tracking and progress
 │   ├── exit_door.gd         # Exit interaction and scene transition
-│   ├── key_pickup.gd        # Key pickup mechanics
+│   ├── key_pickup.gd        # Enhanced key pickup with dynamic progress
 │   ├── key_spawner.gd       # Key spawning logic
 │   ├── coordinate_display.gd  # Coordinate/utility display
 │   ├── door_spawner.gd      # Exit door spawner
@@ -215,32 +225,42 @@ glair/
 - **Environmental Interaction**: Use 'E' to collect batteries and interact with objects
 - **Death System**: Die when health reaches zero, with game over screen and restart options
 
+### Enhanced Stealth Mechanics
+- **Crouching Stealth**: Crouching reduces monster visibility by 80% and sound by 70%
+- **Flashlight Management**: Keeping flashlight off reduces monster visibility by 60%
+- **Environmental Awareness**: Monsters use line of sight, sound detection, and environmental factors
+- **Memory System**: Monsters remember last known player position and investigate areas
+- **Escape Opportunities**: Easier to escape when using stealth mechanics effectively
+
 ### Atmospheric Features
 - **Dynamic Fog**: Volumetric fog environment centered on player position with realistic 3D forest backdrop
 - **Realistic Lighting**: Moonlight beams, environmental glow, and flashlight illumination
 - **Enhanced Environment**: Detailed forest with pine trees and realistic grass vegetation
 - **Camera Effects**: Head bobbing, breathing-induced shake, and fear-based instability
 - **3D Audio**: Spatial audio system with distance-based sound attenuation
-- **Monster Encounters**: Intelligent AI enemies that patrol, chase, and attack players
+- **Enhanced Monster Encounters**: Intelligent AI enemies with multiple behavioral states
 
 ### Keys and Escape
 - **Collect 10 Keys**: Keys are distributed across multiple zones; track progress via the objectives UI
 - **Find the Exit**: Locate the glowing door and press Interact to escape
+- **Dynamic Progress**: Real-time updates show current key collection progress
 
 ### Objectives
 - **Active Objectives**: Main tasks such as collecting keys
 - **Optional Challenges**: Time-based survival goals (e.g., 2 minutes, 5 minutes)
 - **Hidden Objectives**: Reveal as you progress, with reward messages on completion
+- **Game Start Notification**: Clear objective display when starting the game
 
 ## 🔧 Development
 
 ### Recent Updates (August 2025)
-- ✅ **Key System** - Collectible keys with zone-based spawning
-- ✅ **Objective System** - Active/optional/hidden objectives with progress updates
-- ✅ **Exit & Completion** - Glowing exit door and game completed scene
-- ✅ **HUD Enhancements** - Warning states for stamina/health/battery
-- ✅ **Crosshair Setting** - Visibility preference saved and restored
-- ✅ **Battery Loop** - Respawn behavior with in-world hint messaging
+- ✅ **Enhanced Monster AI** - Random spawning system with 5 monsters across 3 zones
+- ✅ **Stealth Mechanics** - Crouching and flashlight management affect monster detection
+- ✅ **Advanced AI States** - New investigating, stalking, and alerted behaviors
+- ✅ **Memory System** - Monsters remember and investigate last known player positions
+- ✅ **Game Start Notification** - Objective display with fade animations
+- ✅ **Dynamic Key Progress** - Real-time key collection progress updates
+- ✅ **Enhanced Spawning** - Intelligent monster placement near trees and hidden spots
 
 ### Current Status
 🚧 **In Active Development** - This project is actively being developed with sophisticated horror mechanics and advanced systems.
@@ -256,12 +276,13 @@ glair/
 - ✅ **Settings System** - Configurable audio, visual, and control options
 - ✅ **Fog Environment** - Atmospheric fog system with volumetric lighting
 - ✅ **3D Environmental Assets** - Realistic pine forest with four distinct tree model variants and ground vegetation
-- ✅ **Enemy AI System** - Intelligent monster with patrol, chase, and attack behaviors
+- ✅ **Enhanced Enemy AI System** - Intelligent monsters with random spawning, stealth mechanics, and multiple behavioral states
 - ✅ **Health & Damage System** - Player health, enemy damage, and regeneration mechanics
 - ✅ **Game Over System** - Complete death handling with restart functionality
-- ✅ **Objective System**
-- ✅ **Key Collection & Spawner**
-- ✅ **Exit Door & Game Completion Flow**
+- ✅ **Objective System** - Active, optional, and hidden objectives with progress tracking
+- ✅ **Key Collection & Spawner** - Multi-zone key distribution with dynamic progress
+- ✅ **Exit Door & Game Completion Flow** - Escape mechanics with completion scene
+- ✅ **Game Start Notification** - Objective display system with animations
 
 ### Technical Architecture
 - **Events System**: Global event handling through `events.gd` autoload for horror triggers and UI updates
@@ -273,6 +294,8 @@ glair/
 - **Objective Manager**: Centralized objective tracking and events
 - **Key Spawner**: Multi-zone key distribution with placement heuristics
 - **Exit Door**: Interact-to-escape flow integrated with global events
+- **Monster Spawner**: Random spawning system with intelligent zone management and placement
+- **Enhanced AI**: Multiple behavioral states with stealth mechanics and memory system
 
 ### Contributing
 This appears to be a personal project. If you'd like to contribute:
@@ -284,7 +307,7 @@ This appears to be a personal project. If you'd like to contribute:
 ## 📋 Roadmap
 
 ### Upcoming Features
-- [ ] **Enhanced Enemy AI** - Expand monster behaviors with more complex AI patterns and additional enemy types
+- [ ] **Additional Enemy Types** - Expand beyond the current monster with different AI patterns
 - [ ] **Enhanced Audio** - Add more horror sound effects and dynamic ambient audio
 - [ ] **Additional Environments** - Expand beyond the pine forest with more diverse terrifying locations
 - [ ] **Narrative Elements** - Develop story progression and environmental storytelling
