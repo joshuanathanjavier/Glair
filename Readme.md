@@ -30,6 +30,7 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 - **Dynamic Camera Effects** - Head bobbing, breathing intensity, and fear-based camera shake
 - **Crouching Mechanics** - Reduced movement speed and audio for stealth
 - **Audio Feedback** - Footsteps, breathing, and heartbeat audio system
+- **Smart Footstep System** - Footsteps only play when actively pressing movement keys (WASD)
 
 ### 🌲 3D Environmental Assets
 - **Realistic Pine Forest** - Four distinct 3D pine tree models for varied forest atmosphere
@@ -61,6 +62,7 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 - **Combat System** - Monsters can deal damage and increase player fear levels
 - **Fear Integration** - Enemy encounters dramatically increase stress and breathing intensity
 - **Escape Mechanics** - Player feedback when successfully escaping from monsters
+- **Audio Feedback** - Monster growls when chasing, stalking, or attacking players
 
 ### 💖 Health & Survival System
 - **Health Management** - Player health system with damage from enemy attacks
@@ -74,6 +76,7 @@ Glair is an immersive first-person horror experience that combines atmospheric t
 - **Atmospheric Lighting** - Moonlight beams and eerie environmental glow
 - **3D Spatial Audio** - Immersive audio system with distance-based effects
 - **UI Integration** - Horror-themed UI with battery and stamina indicators
+- **Comprehensive Audio System** - Dynamic footstep, breathing, heartbeat, and ambient horror sounds
 
 ### 🧰 HUD & UI Enhancements
 - **Status Bars** - Stamina, Health, Battery with warning states (20%, 30%, 25% thresholds)
@@ -172,12 +175,26 @@ glair/
 │   ├── interaction_ui.gd    # Interaction system interface
 │   ├── main_menu.gd         # Main menu navigation
 │   ├── pause_menu.gd        # Pause menu functionality
-│   └── settings.gd          # Settings management
+│   ├── settings.gd          # Settings management
+│   ├── ambient_audio_manager.gd      # Ambient horror sound management
+│   ├── distant_footsteps_manager.gd  # Distant footstep atmosphere system
+│   └── random_monster_growls.gd      # Random monster growl atmosphere
 ├── themes/                  # UI and material themes
 │   ├── flashlight_materials.tres  # Flashlight visual materials
 │   └── horror_ui_theme.tres      # Horror-themed UI styling
+├── default_bus_layout.tres  # Audio bus configuration for mixing
 ├── textures/                # Game textures and materials
 ├── audio/                   # Sound effects and music
+│   ├── footsteps_grass.wav      # Player movement footstep sounds
+│   ├── heavy_breathing.wav      # Stress-based breathing audio
+│   ├── heartbeat.wav            # Fear-induced heartbeat sounds
+│   ├── flashlight_click.wav     # Flashlight toggle audio feedback
+│   ├── pickup_sound.wav         # Item collection sound effects
+│   ├── forest_ambient.wav       # Continuous forest background ambience
+│   ├── owls_hoot.wav            # Atmospheric owl hooting sounds
+│   ├── wolf_howl.wav            # Distant wolf howling effects
+│   ├── horror_ambient.ogg       # Eerie horror atmosphere audio
+│   └── monster_growl.wav        # Enemy monster vocalizations
 └── project.godot           # Godot project configuration
 ```
 
@@ -186,7 +203,7 @@ glair/
 ### Prerequisites
 - Godot Engine 4.4 or later
 - Git (for cloning the repository)
-- **Headphones recommended** for the full horror experience
+- **Headphones required** for the full horror audio experience
 
 ### Installation
 1. Clone the repository:
@@ -201,8 +218,9 @@ glair/
 ### Running the Game
 1. Press F5 or click the play button in Godot
 2. Select the main scene when prompted (`scenes/main_menu.tscn`)
-3. **Adjust your audio settings** - spatial audio is crucial for immersion
+3. **Use headphones** - 3D spatial audio is essential for the horror experience
 4. Navigate to Map1 from the main menu to begin the horror experience
+5. **Audio Controls**: Master volume affects all sounds, individual bus volumes for fine-tuning
 
 ⚠️ **Content Warning**: This game contains horror elements including darkness, tension, potentially frightening scenarios, and hostile AI enemies that actively hunt and attack the player.
 
@@ -221,7 +239,7 @@ glair/
 - **Stamina System**: Sprint drains stamina, affects breathing and movement stability
 - **Fear Mechanics**: Darkness increases fear level, light reduces it; enemy encounters spike fear
 - **Health System**: Take damage from monster attacks, regenerate health slowly over time
-- **Audio Feedback**: Footsteps, breathing intensity, and heartbeat respond to player state
+- **Audio Feedback**: Dynamic footsteps, breathing intensity, and heartbeat respond to player state
 - **Environmental Interaction**: Use 'E' to collect batteries and interact with objects
 - **Death System**: Die when health reaches zero, with game over screen and restart options
 
@@ -237,8 +255,10 @@ glair/
 - **Realistic Lighting**: Moonlight beams, environmental glow, and flashlight illumination
 - **Enhanced Environment**: Detailed forest with pine trees and realistic grass vegetation
 - **Camera Effects**: Head bobbing, breathing-induced shake, and fear-based instability
-- **3D Audio**: Spatial audio system with distance-based sound attenuation
+- **3D Audio**: Spatial audio system with distance-based sound attenuation and organized bus mixing
 - **Enhanced Monster Encounters**: Intelligent AI enemies with multiple behavioral states
+- **Ambient Horror Audio**: Random owl hoots, wolf howls, distant footsteps, and horror atmosphere
+- **Monster Audio**: Enemy vocalizations that respond to AI behavior states
 
 ### Keys and Escape
 - **Collect 10 Keys**: Keys are distributed across multiple zones; track progress via the objectives UI
@@ -261,6 +281,9 @@ glair/
 - ✅ **Game Start Notification** - Objective display with fade animations
 - ✅ **Dynamic Key Progress** - Real-time key collection progress updates
 - ✅ **Enhanced Spawning** - Intelligent monster placement near trees and hidden spots
+- ✅ **Comprehensive Audio System** - Complete horror audio implementation with dynamic footstep, breathing, heartbeat, and ambient sounds
+- ✅ **Audio Bus Configuration** - Professional audio mixing with organized bus layout
+- ✅ **Smart Footstep System** - Footsteps only trigger on active movement input
 
 ### Current Status
 🚧 **In Active Development** - This project is actively being developed with sophisticated horror mechanics and advanced systems.
@@ -270,7 +293,7 @@ glair/
 - ✅ **Flashlight System** - 3D model, battery management, and visual effects
 - ✅ **Battery Collection** - Smart spawning, pickup mechanics, and UI integration
 - ✅ **Fear & Stress System** - Dynamic fear level affecting player state
-- ✅ **Audio System** - Footsteps, breathing, heartbeat with 3D spatial audio
+- ✅ **Audio System** - Dynamic footstep, breathing, heartbeat, and ambient horror sounds with 3D spatial audio
 - ✅ **UI Framework** - Horror-themed interface with real-time status updates
 - ✅ **Event System** - Global signal management for game communication
 - ✅ **Settings System** - Configurable audio, visual, and control options
@@ -308,7 +331,6 @@ This appears to be a personal project. If you'd like to contribute:
 
 ### Upcoming Features
 - [ ] **Additional Enemy Types** - Expand beyond the current monster with different AI patterns
-- [ ] **Enhanced Audio** - Add more horror sound effects and dynamic ambient audio
 - [ ] **Additional Environments** - Expand beyond the pine forest with more diverse terrifying locations
 - [ ] **Narrative Elements** - Develop story progression and environmental storytelling
 - [ ] **Inventory System** - Expand beyond batteries to include key items and tools
@@ -319,7 +341,6 @@ This appears to be a personal project. If you'd like to contribute:
 ### Performance & Polish
 - [ ] **Performance Optimization** - Optimize lighting and fog systems for smooth gameplay
 - [ ] **Visual Polish** - Enhance materials, textures, and lighting effects
-- [ ] **Audio Polish** - Refine 3D audio positioning and environmental sound design
 - [ ] **UI Improvements** - Add more visual feedback and polish to interface elements
 
 ## 🐛 Known Issues
