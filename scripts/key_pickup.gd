@@ -81,7 +81,13 @@ func interact(player):
 	Events.key_collected.emit()
 	
 	# Show pickup message
-	Events.show_pickup_message.emit("Key collected: " + str(key_id) + "/10")
+	var key_spawner = get_tree().get_first_node_in_group("key_spawners")
+	if key_spawner:
+		var collected = key_spawner.get_keys_collected()
+		var total = key_spawner.spawn_count
+		Events.show_pickup_message.emit("Key collected: %d/%d" % [collected, total])
+	else:
+		Events.show_pickup_message.emit("Key collected!")
 	
 	# Clear interaction immediately
 	Events.interaction_cleared.emit()
