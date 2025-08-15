@@ -281,9 +281,11 @@ func _stop_battery_warning():
 	battery_warning_active = false
 	if tween:
 		tween.kill()
-	if flashlight_bar and battery_theme:
-		flashlight_bar.theme = battery_theme
+		tween = null
+	if flashlight_bar:
 		flashlight_bar.modulate = Color.WHITE
+		if battery_theme:
+			flashlight_bar.theme = battery_theme
 
 func _start_health_warning():
 	health_warning_active = true
@@ -312,8 +314,19 @@ func _flicker_flashlight_bar():
 	if not battery_warning_active or not flashlight_bar:
 		return
 		
+	# Kill any existing tween first
+	if tween:
+		tween.kill()
+		tween = null
+	
+	# Double-check that warning is still active after killing tween
+	if not battery_warning_active:
+		return
+	
 	tween = create_tween()
 	tween.set_loops()
+	
+	# Create a simpler, more reliable flicker pattern
 	tween.tween_property(flashlight_bar, "modulate", Color(1.2, 1.1, 0.7, 1.0), 0.15)
 	tween.tween_property(flashlight_bar, "modulate", Color(0.8, 0.7, 0.4, 1.0), 0.15)
 	tween.tween_property(flashlight_bar, "modulate", Color(1.1, 1.0, 0.6, 1.0), 0.1)
