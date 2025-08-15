@@ -1,6 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4pvfm215jx22"]
+[gd_scene load_steps=25 format=3 uid="uid://bq7wj5x4r8s2k"]
 
-[ext_resource type="Script" uid="uid://cdkwimmvo2moq" path="res://scripts/player.gd" id="1_pyntv"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_pyntv"]
+[ext_resource type="AudioStream" path="res://audio/footsteps_grass.wav" id="2_footsteps"]
+[ext_resource type="AudioStream" path="res://audio/heavy_breathing.wav" id="3_breathing"]
+[ext_resource type="AudioStream" path="res://audio/heartbeat.wav" id="4_heartbeat"]
+[ext_resource type="AudioStream" path="res://audio/flashlight_click.wav" id="5_flashlight"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yyv5r"]
 
@@ -76,12 +80,19 @@ mesh = SubResource("CapsuleMesh_ue3wg")
 [node name="AudioSystem" type="Node3D" parent="Camera3D"]
 
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="Camera3D/AudioSystem"]
+stream = ExtResource("2_footsteps")
 
 [node name="BreathingPlayer" type="AudioStreamPlayer3D" parent="Camera3D/AudioSystem"]
-volume_db = -10.0
+stream = ExtResource("3_breathing")
+volume_db = -25.0
 
 [node name="HeartbeatPlayer" type="AudioStreamPlayer3D" parent="Camera3D/AudioSystem"]
-volume_db = -15.0
+stream = ExtResource("4_heartbeat")
+volume_db = -30.0
+
+[node name="FlashlightAudio" type="AudioStreamPlayer3D" parent="Camera3D/AudioSystem"]
+stream = ExtResource("5_flashlight")
+volume_db = -8.0
 
 [node name="Flashlight" type="SpotLight3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.25, -1.025)

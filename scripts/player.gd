@@ -71,6 +71,7 @@ var horizontal_velocity: Vector3 = Vector3.ZERO
 var last_position: Vector3 = Vector3.ZERO
 var current_interactable = null
 var footstep_timer: float = 0.0
+var heartbeat_timer: float = 0.0
 var health: float
 var damage_flash_timer: float = 0.0
 var is_dead: bool = false
@@ -86,6 +87,7 @@ var is_dead: bool = false
 @onready var footstep_player = $Camera3D/AudioSystem/FootstepPlayer
 @onready var breathing_player = $Camera3D/AudioSystem/BreathingPlayer
 @onready var heartbeat_player = $Camera3D/AudioSystem/HeartbeatPlayer
+@onready var flashlight_audio = $Camera3D/AudioSystem/FlashlightAudio
 
 # --- Initialization ---
 func _ready() -> void:
@@ -140,6 +142,12 @@ func _physics_process(delta: float) -> void:
 		flashlight_on = !flashlight_on
 		flashlight.visible = flashlight_on
 		_update_flashlight_appearance()
+		
+		# Play flashlight click sound
+		if flashlight_audio:
+			flashlight_audio.pitch_scale = randf_range(0.9, 1.1)
+			flashlight_audio.play()
+		
 		# Emit flashlight toggle signal for monster AI
 		Events.flashlight_toggled.emit(flashlight_on)
 	
@@ -384,8 +392,11 @@ func _setup_input_map():
 
 # --- Audio System ---
 func _update_audio_effects(delta: float):
-	# Footstep sounds
-	if is_on_floor() and horizontal_velocity.length() > 0.1:
+	# Footstep sounds - only when movement keys are pressed
+	var is_moving = Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")
+	
+	# Only play footsteps when actively pressing movement keys and actually moving
+	if is_on_floor() and is_moving and horizontal_velocity.length() > 0.5:
 		footstep_timer += delta
 		var footstep_interval = 0.5 / (horizontal_velocity.length() / move_speed)
 		if is_sprinting:
@@ -396,23 +407,39 @@ func _update_audio_effects(delta: float):
 		if footstep_timer >= footstep_interval:
 			_play_footstep()
 			footstep_timer = 0.0
+	else:
+		# Reset footstep timer when not moving or not on floor
+		footstep_timer = 0.0
+		# Stop any currently playing footsteps
+		if footstep_player and footstep_player.playing:
+			footstep_player.stop()
+			print("Stopped footstep sound - not moving")
 	
 	# Breathing sounds based on stress
 	if breathing_intensity > 0.3:
 		if not breathing_player.playing:
-			breathing_player.volume_db = -20.0 + (breathing_intensity * 10.0)
+			breathing_player.volume_db = -35.0 + (breathing_intensity * 8.0)
 			breathing_player.pitch_scale = 0.8 + (breathing_intensity * 0.4)
-			# breathing_player.play()  # Uncomment when you have breathing audio
+			breathing_player.play()
 	else:
 		if breathing_player.playing:
 			breathing_player.stop()
 	
-	# Heartbeat when highly stressed
+	# Heartbeat when highly stressed (with longer pause when walking)
 	if breathing_intensity > 0.7:
-		if not heartbeat_player.playing:
-			heartbeat_player.volume_db = -25.0 + (breathing_intensity * 15.0)
+		heartbeat_timer -= delta
+		if heartbeat_timer <= 0.0 and not heartbeat_player.playing:
+			# Add longer pause when player is moving
+			var heartbeat_volume = -50.0 + (breathing_intensity * 10.0)
+			if horizontal_velocity.length() > 0.1:
+				heartbeat_volume -= 15.0  # Even quieter when walking
+				heartbeat_timer = 8.0  # Longer pause when walking
+			else:
+				heartbeat_timer = 3.0  # Normal pause when standing still
+			
+			heartbeat_player.volume_db = heartbeat_volume
 			heartbeat_player.pitch_scale = 0.9 + (breathing_intensity * 0.3)
-			# heartbeat_player.play()  # Uncomment when you have heartbeat audio
+			heartbeat_player.play()
 
 func _play_footstep():
 	if footstep_player:
@@ -424,7 +451,8 @@ func _play_footstep():
 		
 		footstep_player.volume_db = -5.0 + volume_modifier
 		footstep_player.pitch_scale = randf_range(0.8, 1.2)  # Random pitch variation
-		# footstep_player.play()  # Uncomment when you have footstep audio
+		footstep_player.play()
+		print("Playing footstep - velocity: ", horizontal_velocity.length(), " moving: ", Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"))
 
 # --- Interaction System ---
 func _check_interactions():

@@ -74,8 +74,11 @@ func interact(player):
 		
 		# Play pickup sound with random pitch
 		if pickup_audio:
+			print("Playing battery pickup sound...")
 			pickup_audio.pitch_scale = randf_range(1.0 - pickup_sound_pitch_variation, 1.0 + pickup_sound_pitch_variation)
 			pickup_audio.play()
+		else:
+			print("ERROR: battery pickup_audio is null!")
 		
 		# Create pickup effect
 		_create_pickup_effect()

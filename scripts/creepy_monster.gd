@@ -56,6 +56,7 @@ var current_investigation_index: int = 0
 @onready var detection_area: Area3D = $DetectionArea
 @onready var model: Node3D = $MonsterModel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var monster_audio: AudioStreamPlayer3D = $MonsterAudio
 
 # --- Animation State ---
 var current_animation: String = ""
@@ -371,6 +372,9 @@ func _on_detection_area_entered(body: Node3D) -> void:
 			memory_timer = memory_duration
 			_change_state(AIState.CHASING)
 			
+			# Play monster growl when starting chase
+			_play_monster_growl()
+			
 			# Add fear to player
 			if body.has_method("add_fear"):
 				body.add_fear(20.0)
@@ -379,6 +383,10 @@ func _on_detection_area_entered(body: Node3D) -> void:
 			last_known_player_position = body.global_position
 			memory_timer = memory_duration
 			_change_state(AIState.STALKING)
+			
+			# Play monster growl when stalking
+			_play_monster_growl()
+			
 			print("Monster: Player detected but not clearly visible - stalking mode")
 	else:
 		print("Monster: Not a player, ignoring")
@@ -396,6 +404,9 @@ func _perform_attack() -> void:
 		
 		# Play attack animation
 		animation_player.play("attack")
+		
+		# Play monster growl during attack
+		_play_monster_growl()
 		
 		# Damage player
 		if current_target.has_method("take_damage"):
@@ -459,6 +470,14 @@ func _die() -> void:
 
 # Death signal
 signal monster_died(monster: Node3D)
+
+# --- Audio Functions ---
+func _play_monster_growl() -> void:
+	if monster_audio and not monster_audio.playing:
+		monster_audio.pitch_scale = randf_range(0.8, 1.2)
+		monster_audio.volume_db = -8.0 + randf_range(-2.0, 2.0)
+		monster_audio.play()
+		print("Monster: Playing growl sound")
 
 # --- Animation Functions ---
 func _play_animation(animation_name: String) -> void:

@@ -1,6 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bk8m5n2p9v7x"]
 
 [ext_resource type="Script" path="res://scripts/key_pickup.gd" id="1_key"]
+[ext_resource type="AudioStream" path="res://audio/pickup_sound.wav" id="2_pickup"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_key_handle"]
 top_radius = 0.02
@@ -28,8 +29,6 @@ bottom_radius = 0.03
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_interaction"]
 radius = 1.2
-
-[sub_resource type="AudioStream" id="AudioStream_key_pickup"]
 
 [node name="KeyPickup" type="RigidBody3D" groups=["key", "interactable"]]
 collision_layer = 4
@@ -69,8 +68,8 @@ collision_mask = 2
 shape = SubResource("SphereShape3D_interaction")
 
 [node name="PickupAudio" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource("AudioStream_key_pickup")
-volume_db = -3.0
+stream = ExtResource("2_pickup")
+volume_db = -5.0
 pitch_scale = 1.0
 bus = &"SFX"
 

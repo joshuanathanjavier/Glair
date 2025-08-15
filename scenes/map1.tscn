@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://buvcsifrb12ac"]
+[gd_scene load_steps=43 format=3 uid="uid://buvcsifrb12ac"]
 
 [ext_resource type="PackedScene" uid="uid://bwulnxf4nwswc" path="res://scenes/pause_menu.tscn" id="1_bpebn"]
 [ext_resource type="PackedScene" uid="uid://c4pvfm215jx22" path="res://scenes/player.tscn" id="1_iuwxl"]
@@ -14,6 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://nejnghph57lv" path="res://assets/models/trees/pine_sparse.glb" id="7_pine_sparse"]
 [ext_resource type="PackedScene" uid="uid://baog7kdlvd0wm" path="res://assets/models/trees/pine_tall.glb" id="8_pine_tall"]
 [ext_resource type="PackedScene" uid="uid://bq8x7y21aw3v4" path="res://scenes/game_start_notification.tscn" id="game_start_notification"]
+[ext_resource type="AudioStream" path="res://audio/forest_ambient.wav" id="9_forest_ambient"]
+[ext_resource type="AudioStream" path="res://audio/owls_hoot.wav" id="10_owl_hoot"]
+[ext_resource type="AudioStream" path="res://audio/wolf_howl.wav" id="11_wolf_howl"]
+[ext_resource type="AudioStream" path="res://audio/horror_ambient.ogg" id="12_horror_ambient"]
+[ext_resource type="AudioStream" path="res://audio/monster_growl.wav" id="13_monster_growl"]
+[ext_resource type="AudioStream" path="res://audio/footsteps_grass.wav" id="14_footsteps"]
+[ext_resource type="Script" path="res://scripts/ambient_audio_manager.gd" id="15_ambient_manager"]
+[ext_resource type="Script" path="res://scripts/distant_footsteps_manager.gd" id="16_footsteps_manager"]
+[ext_resource type="Script" path="res://scripts/random_monster_growls.gd" id="17_growls_manager"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(200, 1, 200)
@@ -16371,27 +16380,42 @@ camera_attributes = SubResource("CameraAttributesPractical_cj3gt")
 
 [node name="ForestAmbient" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+stream = ExtResource("9_forest_ambient")
 volume_db = -8.0
+bus = &"Ambient"
+autoplay = true
 
 [node name="OwlHoots" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 8, -25)
+stream = ExtResource("10_owl_hoot")
 volume_db = -15.0
+bus = &"Ambient"
 
 [node name="WolfHowl" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 5, 40)
+stream = ExtResource("11_wolf_howl")
 volume_db = -18.0
+bus = &"Ambient"
 
 [node name="RustlingLeaves" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 10, -35)
+stream = ExtResource("12_horror_ambient")
 volume_db = -12.0
+bus = &"Ambient"
 
 [node name="CreakingBranches" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 12, 30)
-volume_db = -20.0
+stream = ExtResource("13_monster_growl")
+volume_db = -25.0
+bus = &"Ambient"
+autoplay = false
 
 [node name="DistantFootsteps" type="AudioStreamPlayer3D" parent="HorrorAmbience"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 1, -60)
-volume_db = -25.0
+stream = ExtResource("14_footsteps")
+volume_db = -35.0
+pitch_scale = 0.7
+bus = &"Ambient"
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -16421,6 +16445,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="ObjectiveManager" type="Node" parent="."]
 script = ExtResource("5_objective_manager")
+
+[node name="AmbientAudioManager" type="Node" parent="."]
+script = ExtResource("15_ambient_manager")
+
+[node name="DistantFootstepsManager" type="Node" parent="."]
+script = ExtResource("16_footsteps_manager")
+
+[node name="RandomMonsterGrowlsManager" type="Node" parent="."]
+script = ExtResource("17_growls_manager")
 
 [node name="KeySpawner" parent="." instance=ExtResource("6_key_spawner")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

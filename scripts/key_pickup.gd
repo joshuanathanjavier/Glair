@@ -71,8 +71,11 @@ func interact(player):
 	
 	# Play pickup sound
 	if pickup_audio:
+		print("Playing key pickup sound...")
 		pickup_audio.pitch_scale = randf_range(0.9, 1.1)
 		pickup_audio.play()
+	else:
+		print("ERROR: pickup_audio is null!")
 	
 	# Create pickup effect
 	_create_pickup_effect()
