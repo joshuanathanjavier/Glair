@@ -231,3 +231,7 @@ func clear_all_keys():
 			key.queue_free()
 	spawned_keys.clear()
 	keys_remaining = 0
+
+# Get spawn count for external access
+func get_spawn_count() -> int:
+	return spawn_count

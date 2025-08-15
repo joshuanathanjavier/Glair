@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://buvcsifrb12ac"]
+[gd_scene load_steps=33 format=3 uid="uid://buvcsifrb12ac"]
 
 [ext_resource type="PackedScene" uid="uid://bwulnxf4nwswc" path="res://scenes/pause_menu.tscn" id="1_bpebn"]
 [ext_resource type="PackedScene" uid="uid://c4pvfm215jx22" path="res://scenes/player.tscn" id="1_iuwxl"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dwjrn33ihgkmq" path="res://assets/models/trees/pine_natural.glb" id="6_pine_natural"]
 [ext_resource type="PackedScene" uid="uid://nejnghph57lv" path="res://assets/models/trees/pine_sparse.glb" id="7_pine_sparse"]
 [ext_resource type="PackedScene" uid="uid://baog7kdlvd0wm" path="res://assets/models/trees/pine_tall.glb" id="8_pine_tall"]
+[ext_resource type="PackedScene" uid="uid://bq8x7y21aw3v4" path="res://scenes/game_start_notification.tscn" id="game_start_notification"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(200, 1, 200)
@@ -16394,11 +16395,16 @@ volume_db = -25.0
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("1_bpebn")]
+
+[node name="GameStartNotification" parent="UI" instance=ExtResource("game_start_notification")]
 
 [node name="Player" parent="." instance=ExtResource("1_iuwxl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

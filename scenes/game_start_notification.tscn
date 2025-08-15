@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq8x7y21aw3v4"]
+
+[ext_resource type="Script" uid="uid://deix8ks2okpp5" path="res://scripts/game_start_notification.gd" id="1_game_start_notification"]
+[ext_resource type="Theme" uid="uid://d3wliconembrx" path="res://themes/horror_ui_theme.tres" id="2_horror_theme"]
+
+[node name="GameStartNotification" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_game_start_notification")
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -50.0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("2_horror_theme")
+
+[node name="NotificationLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -30.0
+offset_right = 280.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("2_horror_theme")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "Collect 10 Keys and Escape the Forest"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
