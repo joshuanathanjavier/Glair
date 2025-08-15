@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq8x7y21aw3v5"]
+
+[ext_resource type="Script" path="res://scripts/monster_spawner.gd" id="1_spawner"]
+
+[node name="MonsterSpawner" type="Node3D"]
+script = ExtResource("1_spawner")
+spawn_count = 5
+spawn_radius = 120.0
+min_distance_from_player = 30.0
+max_distance_from_player = 100.0
+spawn_height_offset = 1.0
+max_spawn_attempts = 100
+use_multiple_zones = true
+zone_count = 3
+zone_radius = 40.0
+min_zone_distance = 50.0
+prefer_hidden_spots = true
+avoid_open_areas = true
+place_near_trees = true
+tree_detection_distance = 8.0
+max_raycast_distance = 25.0
+avoid_player_start_area = true
+player_start_safe_radius = 20.0

@@ -51,4 +51,11 @@ signal objective_revealed(title: String, description: String)
 signal objective_progress_updated(title: String, current: float, target: float)
 signal objectives_updated(objectives: Array)
 
+# Enhanced monster AI signals
+signal player_movement_detected(position: Vector3, intensity: float)
+signal flashlight_toggled(is_on: bool)
+signal player_interaction_started(interaction_type: String)
+signal player_escaped_from_monster  # New signal for successful escape
+signal random_spawning_complete  # Signal when random spawning is finished
+
 # You can add more signals and event handling functions here as needed

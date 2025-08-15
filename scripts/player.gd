@@ -113,6 +113,9 @@ func _ready() -> void:
 	
 	# Connect to settings changes
 	Events.settings_changed.connect(_on_settings_changed)
+	
+	# Connect to monster escape events
+	Events.player_escaped_from_monster.connect(_on_escaped_from_monster)
 
 # --- Main Physics Logic ---
 func _physics_process(delta: float) -> void:
@@ -137,6 +140,8 @@ func _physics_process(delta: float) -> void:
 		flashlight_on = !flashlight_on
 		flashlight.visible = flashlight_on
 		_update_flashlight_appearance()
+		# Emit flashlight toggle signal for monster AI
+		Events.flashlight_toggled.emit(flashlight_on)
 	
 	# Flashlight battery drain
 	if flashlight_on:
@@ -219,6 +224,11 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.y = y_velocity
 	
+	# Emit movement detection signal for monster AI
+	var movement_intensity = Vector2(velocity.x, velocity.z).length()
+	if movement_intensity > 0.1:
+		Events.player_movement_detected.emit(global_position, movement_intensity)
+	
 	# Update fear system
 	_update_fear_system(delta)
 	
@@ -254,6 +264,11 @@ func _on_settings_changed(settings_data: Dictionary):
 	# Update mouse sensitivity when settings change
 	if "mouse_sensitivity" in settings_data:
 		mouse_sensitivity = settings_data.mouse_sensitivity * 0.002
+
+func _on_escaped_from_monster():
+	# Provide feedback when player successfully escapes
+	Events.show_pickup_message.emit("You escaped from the monster!")
+	print("Player: Successfully escaped from monster!")
 
 # --- Enhanced Movement Functions ---
 func _update_timers(delta: float):
@@ -440,6 +455,12 @@ func _clear_interaction():
 
 func _interact_with_object(interactable):
 	if interactable and interactable.has_method("interact"):
+		# Emit interaction signal for monster AI
+		var interaction_type = "general"
+		if interactable.has_method("get_interaction_text"):
+			interaction_type = interactable.get_interaction_text()
+		Events.player_interaction_started.emit(interaction_type)
+		
 		interactable.interact(self)
 
 # --- Enhanced Mouse Look with Stress Effects ---
