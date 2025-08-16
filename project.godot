@@ -21,7 +21,7 @@ Events="*res://scripts/events.gd"
 
 [audio]
 
-buses/default_bus_layout="res://default_bus_layout.tres"
+buses/default_bus_layout="res://audio/default_bus_layout.tres"
 
 [input]
 
