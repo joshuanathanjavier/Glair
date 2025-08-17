@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b85v6rxivlux2"]
+[gd_scene load_steps=7 format=3 uid="uid://b85v6rxivlux2"]
 
 [ext_resource type="Script" uid="uid://cs5oskbx5evxt" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bt4r3okena4u2" path="res://assets/images/menu_background.jpg" id="2_abcd1"]
+[ext_resource type="Texture2D" uid="uid://b3hys6b4lha17" path="res://assets/images/glair_title.png" id="3_efgh2"]
+[ext_resource type="AudioStream" uid="uid://d0l4m8n0p2q4" path="res://audio/main_menu.wav" id="4_ijkl3"]
+[ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="5_mnop4"]
+[ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="6_qrst5"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,16 +16,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.1, 0.1, 0.1, 1)
+texture = ExtResource("2_abcd1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MenuAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ijkl3")
+volume_db = -10.0
+
+[node name="HoverAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_mnop4")
+volume_db = -15.0
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qrst5")
+volume_db = -12.0
 
 [node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,19 +64,12 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="TitleImage" type="TextureRect" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Glair"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "A Horror Game"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("3_efgh2")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="StartButton" type="Button" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)

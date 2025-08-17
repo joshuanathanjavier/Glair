@@ -15,13 +15,13 @@ run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Events="*res://scripts/events.gd"
-
 [audio]
 
 buses/default_bus_layout="res://audio/default_bus_layout.tres"
+
+[autoload]
+
+Events="*res://scripts/events.gd"
 
 [input]
 

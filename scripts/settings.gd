@@ -21,6 +21,8 @@ var previous_scene: String = ""
 @onready var apply_button = $Panel/VBoxContainer/ButtonsContainer/ApplyButton
 @onready var reset_button = $Panel/VBoxContainer/ButtonsContainer/ResetButton
 @onready var back_button = $Panel/VBoxContainer/ButtonsContainer/BackButton
+@onready var hover_audio = $HoverAudio
+@onready var click_audio = $ClickAudio
 
 # Settings data
 var settings_data = {
@@ -82,6 +84,11 @@ func connect_signals():
 	apply_button.pressed.connect(_on_apply_pressed)
 	reset_button.pressed.connect(_on_reset_pressed)
 	back_button.pressed.connect(_on_back_pressed)
+	
+	# Connect hover signals for audio feedback
+	apply_button.mouse_entered.connect(_on_button_hover)
+	reset_button.mouse_entered.connect(_on_button_hover)
+	back_button.mouse_entered.connect(_on_button_hover)
 
 func load_settings():
 	if FileAccess.file_exists(SETTINGS_FILE_PATH):
@@ -196,16 +203,28 @@ func _on_mouse_sensitivity_changed(value: float):
 	mouse_sensitivity_value.text = str(value)
 
 func _on_apply_pressed():
+	# Play click sound
+	if click_audio and click_audio.stream:
+		click_audio.play()
+	
 	apply_settings()
 	save_settings()
 	print("Settings applied and saved!")
 
 func _on_reset_pressed():
+	# Play click sound
+	if click_audio and click_audio.stream:
+		click_audio.play()
+	
 	settings_data = default_settings.duplicate()
 	update_ui()
 	print("Settings reset to default values")
 
 func _on_back_pressed():
+	# Play click sound
+	if click_audio and click_audio.stream:
+		click_audio.play()
+	
 	if previous_scene == "pause_menu":
 		# Emit signal to go back to pause menu instead of changing scenes
 		Events.settings_back_to_pause.emit()
@@ -218,3 +237,8 @@ func _on_back_pressed():
 func _input(event):
 	if event.is_action_pressed("esc"):
 		_on_back_pressed()
+
+func _on_button_hover():
+	# Play hover sound when mouse enters buttons
+	if hover_audio and hover_audio.stream:
+		hover_audio.play()

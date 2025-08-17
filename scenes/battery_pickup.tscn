@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq7wj5x4r8s2k"]
+[gd_scene load_steps=10 format=3 uid="uid://c8x9k6m7n9p2q4"]
 
 [ext_resource type="Script" path="res://scripts/battery_pickup.gd" id="1_battery"]
 [ext_resource type="AudioStream" path="res://audio/pickup_sound.wav" id="2_pickup"]

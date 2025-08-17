@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkjg8r2v3n1m5"]
+[gd_scene load_steps=4 format=3 uid="uid://bkjg8r2v3n1m5"]
 
 [ext_resource type="Script" uid="uid://c0mg8h1ykfred" path="res://scripts/settings.gd" id="1_settings"]
+[ext_resource type="AudioStreamWAV" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="2_hover"]
+[ext_resource type="AudioStreamWAV" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="3_click"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -10,6 +12,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_settings")
+
+[node name="HoverAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hover")
+volume_db = -15.0
+autoplay = false
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_click")
+volume_db = -12.0
+autoplay = false
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1

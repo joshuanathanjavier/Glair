@@ -430,10 +430,10 @@ func _update_audio_effects(delta: float):
 		heartbeat_timer -= delta
 		if heartbeat_timer <= 0.0 and not heartbeat_player.playing:
 			# Add longer pause when player is moving
-			var heartbeat_volume = -50.0 + (breathing_intensity * 10.0)
+			var heartbeat_volume = -40.0 + (breathing_intensity * 12.0)
 			if horizontal_velocity.length() > 0.1:
-				heartbeat_volume -= 15.0  # Even quieter when walking
-				heartbeat_timer = 8.0  # Longer pause when walking
+				heartbeat_volume -= 5.0  # Even quieter when walking
+				heartbeat_timer = 5.0  # Longer pause when walking
 			else:
 				heartbeat_timer = 3.0  # Normal pause when standing still
 			
