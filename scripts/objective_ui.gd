@@ -93,7 +93,7 @@ func _on_objectives_updated(objectives: Array):
 	
 	# Create UI for each objective
 	for obj in objectives:
-		if obj.status == 0:  # ObjectiveStatus.ACTIVE
+		if obj.status == ObjectiveManager.ObjectiveStatus.ACTIVE:  # ObjectiveStatus.ACTIVE
 			_create_objective_display(obj)
 
 func _create_objective_display(objective):
