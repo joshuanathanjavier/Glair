@@ -2,7 +2,7 @@ extends Node3D
 class_name KeySpawner
 
 # Configuration for spawning keys throughout the forest
-@export var key_scene: PackedScene = preload("res://scenes/key_pickup.tscn")
+@export var key_scene: PackedScene = preload("res://scenes/pickup/key_pickup.tscn")
 @export var spawn_count: int = 10
 @export var spawn_radius: float = 80.0
 @export var min_distance_between_keys: float = 15.0

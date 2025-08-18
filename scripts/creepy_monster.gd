@@ -491,7 +491,11 @@ func _check_line_of_sight_to_player() -> bool:
 	if not current_target or not is_instance_valid(current_target):
 		return false
 	
-	var space_state = get_world_3d().direct_space_state
+	var world = get_world_3d()
+	if not world:
+		return false
+	
+	var space_state = world.direct_space_state
 	var monster_position = global_position + Vector3(0, 1.5, 0)  # Monster eye level
 	var player_position = current_target.global_position + Vector3(0, 1.0, 0)  # Player chest level
 	var distance = monster_position.distance_to(player_position)
@@ -561,7 +565,11 @@ func _check_for_cover_between_monster_and_player() -> bool:
 	if not current_target or not is_instance_valid(current_target):
 		return false
 	
-	var space_state = get_world_3d().direct_space_state
+	var world = get_world_3d()
+	if not world:
+		return false
+	
+	var space_state = world.direct_space_state
 	var monster_position = global_position + Vector3(0, 1.5, 0)
 	var player_position = current_target.global_position + Vector3(0, 1.0, 0)
 	

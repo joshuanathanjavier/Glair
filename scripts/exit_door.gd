@@ -13,7 +13,7 @@ class_name ExitDoor
 signal player_near_exit_door(is_near: bool)
 
 var is_active: bool = true
-var game_completed_scene: PackedScene = preload("res://scenes/game_completed.tscn")
+var game_completed_scene: PackedScene = preload("res://scenes/ui/game_completed.tscn")
 var player_near: bool = false
 
 func _ready():

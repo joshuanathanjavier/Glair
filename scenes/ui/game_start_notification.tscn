@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bq8x7y21aw3v4"]
 
-[ext_resource type="Script" uid="uid://deix8ks2okpp5" path="res://scripts/game_start_notification.gd" id="1_game_start_notification"]
-[ext_resource type="Theme" uid="uid://d3wliconembrx" path="res://themes/horror_ui_theme.tres" id="2_horror_theme"]
+[ext_resource type="Script" uid="uid://deix8ks2okpp5" path="res://scripts/game_start_notification.gd" id="1_7vgdt"]
+[ext_resource type="Theme" uid="uid://d3wliconembrx" path="res://themes/horror_ui_theme.tres" id="2_3peub"]
 
 [node name="GameStartNotification" type="Control"]
 layout_mode = 3
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("1_game_start_notification")
+script = ExtResource("1_7vgdt")
 
 [node name="BackgroundPanel" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0.392157)
@@ -28,7 +28,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme = ExtResource("2_horror_theme")
+theme = ExtResource("2_3peub")
 
 [node name="NotificationLabel" type="Label" parent="."]
 layout_mode = 1
@@ -44,7 +44,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme = ExtResource("2_horror_theme")
+theme = ExtResource("2_3peub")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 28
 text = "Collect 10 Keys and Escape the Forest"

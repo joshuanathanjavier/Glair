@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://b85v6rxivlux2"]
 
-[ext_resource type="Script" uid="uid://cs5oskbx5evxt" path="res://scripts/main_menu.gd" id="1_l6cm7"]
-[ext_resource type="Texture2D" uid="uid://bt4r3okena4u2" path="res://assets/images/menu/menu_background.jpg" id="2_abcd1"]
-[ext_resource type="Texture2D" uid="uid://b3hys6b4lha17" path="res://assets/images/menu/glair_title.png" id="3_efgh2"]
-[ext_resource type="AudioStream" uid="uid://d0l4m8n0p2q4" path="res://audio/main_menu.wav" id="4_ijkl3"]
-[ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="5_mnop4"]
-[ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="6_qrst5"]
-[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/menu/button.png" id="7_oa1go"]
-[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/menu/hover_button.png" id="8_tbmy8"]
+[ext_resource type="Script" uid="uid://cs5oskbx5evxt" path="res://scripts/main_menu.gd" id="1_wb0q5"]
+[ext_resource type="Texture2D" uid="uid://bt4r3okena4u2" path="res://assets/images/menu/menu_background.jpg" id="2_q85j6"]
+[ext_resource type="AudioStream" uid="uid://d0l4m8n0p2q4" path="res://audio/main_menu.wav" id="3_8g5eo"]
+[ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="4_7suek"]
+[ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="5_otr3d"]
+[ext_resource type="Texture2D" uid="uid://b3hys6b4lha17" path="res://assets/images/menu/glair_title.png" id="6_8ekit"]
+[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/menu/button.png" id="7_n4uci"]
+[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/menu/hover_button.png" id="8_877pj"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_l6cm7")
+script = ExtResource("1_wb0q5")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -25,20 +25,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_abcd1")
+texture = ExtResource("2_q85j6")
 expand_mode = 1
 stretch_mode = 6
 
 [node name="MenuAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ijkl3")
+stream = ExtResource("3_8g5eo")
 volume_db = -10.0
 
 [node name="HoverAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_mnop4")
+stream = ExtResource("4_7suek")
 volume_db = -15.0
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_qrst5")
+stream = ExtResource("5_otr3d")
 volume_db = -12.0
 
 [node name="Panel" type="Panel" parent="."]
@@ -73,7 +73,7 @@ alignment = 1
 [node name="TitleImage" type="TextureRect" parent="Panel/MenuContainer/TitleContainer"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
-texture = ExtResource("3_efgh2")
+texture = ExtResource("6_8ekit")
 expand_mode = 1
 stretch_mode = 5
 
@@ -86,9 +86,9 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("7_oa1go")
-texture_pressed = ExtResource("7_oa1go")
-texture_hover = ExtResource("8_tbmy8")
+texture_normal = ExtResource("7_n4uci")
+texture_pressed = ExtResource("7_n4uci")
+texture_hover = ExtResource("8_877pj")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Panel/MenuContainer/ButtonGroup/StartButton"]
@@ -112,9 +112,9 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("7_oa1go")
-texture_pressed = ExtResource("7_oa1go")
-texture_hover = ExtResource("8_tbmy8")
+texture_normal = ExtResource("7_n4uci")
+texture_pressed = ExtResource("7_n4uci")
+texture_hover = ExtResource("8_877pj")
 
 [node name="Label" type="Label" parent="Panel/MenuContainer/ButtonGroup/SettingsButton"]
 layout_mode = 1
@@ -136,9 +136,9 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("7_oa1go")
-texture_pressed = ExtResource("7_oa1go")
-texture_hover = ExtResource("8_tbmy8")
+texture_normal = ExtResource("7_n4uci")
+texture_pressed = ExtResource("7_n4uci")
+texture_hover = ExtResource("8_877pj")
 
 [node name="Label" type="Label" parent="Panel/MenuContainer/ButtonGroup/QuitButton"]
 layout_mode = 1

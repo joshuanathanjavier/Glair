@@ -2,7 +2,7 @@ extends Node3D
 class_name BatterySpawner
 
 # Configuration for spawning batteries realistically around the environment
-@export var battery_scene: PackedScene = preload("res://scenes/battery_pickup.tscn")
+@export var battery_scene: PackedScene = preload("res://scenes/pickup/battery_pickup.tscn")
 @export var spawn_count: int = 15
 @export var spawn_radius: float = 100.0
 @export var min_distance_between_batteries: float = 8.0

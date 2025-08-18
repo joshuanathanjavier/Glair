@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxkq8f5hn2xvp"]
 
-[ext_resource type="Script" uid="uid://bwyioqwukpj1b" path="res://scripts/exit_door.gd" id="1_door_script"]
+[ext_resource type="Script" uid="uid://bwyioqwukpj1b" path="res://scripts/exit_door.gd" id="1_0kl4o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(2, 3, 0.5)
@@ -9,7 +9,7 @@ size = Vector3(2, 3, 0.5)
 size = Vector3(2, 3, 0.2)
 
 [node name="ExitDoor" type="Area3D"]
-script = ExtResource("1_door_script")
+script = ExtResource("1_0kl4o")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

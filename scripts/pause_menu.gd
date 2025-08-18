@@ -66,7 +66,7 @@ func _on_settings_pressed():
 		click_audio.play()
 	
 	# Load settings as an overlay instead of changing scene
-	var settings_scene_resource = preload("res://scenes/settings.tscn")
+	var settings_scene_resource = preload("res://scenes/ui/settings.tscn")
 	settings_scene = settings_scene_resource.instantiate()
 	
 	# Hide pause menu panel but keep the canvas layer
@@ -86,7 +86,7 @@ func _on_main_menu_pressed():
 		click_audio.play()
 	
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 func _on_settings_back():
 	# Remove settings overlay and show pause menu again

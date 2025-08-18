@@ -27,11 +27,11 @@ func _ready():
 
 func _on_play_again_pressed():
 	# Restart the current level
-	get_tree().change_scene_to_file("res://scenes/map1.tscn")
+	get_tree().change_scene_to_file("res://scenes/map/map1.tscn")
 
 func _on_main_menu_pressed():
 	# Go to main menu
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 func _on_quit_pressed():
 	# Quit the game

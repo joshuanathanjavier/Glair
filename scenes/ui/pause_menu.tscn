@@ -1,22 +1,22 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwulnxf4nwswc"]
 
-[ext_resource type="Script" uid="uid://c15ofe3nm1mds" path="res://scripts/pause_menu.gd" id="1_dh766"]
-[ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="2_hover"]
-[ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="3_click"]
-[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/menu/button.png" id="4_5d2l8"]
-[ext_resource type="Texture2D" uid="uid://be7ewyycrb2jt" path="res://assets/images/menu/paused_title.png" id="4_v4r4p"]
-[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/menu/hover_button.png" id="5_7l7mv"]
+[ext_resource type="Script" uid="uid://c15ofe3nm1mds" path="res://scripts/pause_menu.gd" id="1_4inpj"]
+[ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="2_8fwbo"]
+[ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="3_2rlsb"]
+[ext_resource type="Texture2D" uid="uid://be7ewyycrb2jt" path="res://assets/images/menu/paused_title.png" id="4_coo1x"]
+[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/menu/button.png" id="5_2jkta"]
+[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/menu/hover_button.png" id="6_ht4ye"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 2
-script = ExtResource("1_dh766")
+script = ExtResource("1_4inpj")
 
 [node name="HoverAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_hover")
+stream = ExtResource("2_8fwbo")
 volume_db = -15.0
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_click")
+stream = ExtResource("3_2rlsb")
 volume_db = -12.0
 
 [node name="Background" type="ColorRect" parent="."]
@@ -59,14 +59,14 @@ alignment = 1
 
 [node name="Label" type="TextureRect" parent="Panel/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("4_v4r4p")
+texture = ExtResource("4_coo1x")
 
 [node name="ResumeButton" type="TextureButton" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(180, 45)
 layout_mode = 2
-texture_normal = ExtResource("4_5d2l8")
-texture_pressed = ExtResource("4_5d2l8")
-texture_hover = ExtResource("5_7l7mv")
+texture_normal = ExtResource("5_2jkta")
+texture_pressed = ExtResource("5_2jkta")
+texture_hover = ExtResource("6_ht4ye")
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/ResumeButton"]
 layout_mode = 1
@@ -86,9 +86,9 @@ text = "Resume"
 [node name="RestartButton" type="TextureButton" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(180, 45)
 layout_mode = 2
-texture_normal = ExtResource("4_5d2l8")
-texture_pressed = ExtResource("4_5d2l8")
-texture_hover = ExtResource("5_7l7mv")
+texture_normal = ExtResource("5_2jkta")
+texture_pressed = ExtResource("5_2jkta")
+texture_hover = ExtResource("6_ht4ye")
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/RestartButton"]
 layout_mode = 1
@@ -108,9 +108,9 @@ text = "Restart"
 [node name="SettingsButton" type="TextureButton" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(180, 45)
 layout_mode = 2
-texture_normal = ExtResource("4_5d2l8")
-texture_pressed = ExtResource("4_5d2l8")
-texture_hover = ExtResource("5_7l7mv")
+texture_normal = ExtResource("5_2jkta")
+texture_pressed = ExtResource("5_2jkta")
+texture_hover = ExtResource("6_ht4ye")
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/SettingsButton"]
 layout_mode = 1
@@ -130,9 +130,9 @@ text = "Settings"
 [node name="MainMenuButton" type="TextureButton" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(180, 45)
 layout_mode = 2
-texture_normal = ExtResource("4_5d2l8")
-texture_pressed = ExtResource("4_5d2l8")
-texture_hover = ExtResource("5_7l7mv")
+texture_normal = ExtResource("5_2jkta")
+texture_pressed = ExtResource("5_2jkta")
+texture_hover = ExtResource("6_ht4ye")
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/MainMenuButton"]
 layout_mode = 1

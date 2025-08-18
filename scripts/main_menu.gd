@@ -33,7 +33,7 @@ func _on_start_pressed():
 	# Stop menu audio before transitioning
 	if menu_audio and menu_audio.playing:
 		menu_audio.stop()
-	get_tree().change_scene_to_file("res://scenes/map1.tscn")
+	get_tree().change_scene_to_file("res://scenes/map/map1.tscn")
 
 func _on_settings_pressed():
 	# Play click sound
@@ -43,7 +43,7 @@ func _on_settings_pressed():
 	# Stop menu audio before transitioning
 	if menu_audio and menu_audio.playing:
 		menu_audio.stop()
-	get_tree().change_scene_to_file("res://scenes/settings.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/settings.tscn")
 
 func _on_quit_pressed():
 	# Play click sound

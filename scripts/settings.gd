@@ -231,7 +231,7 @@ func _on_back_pressed():
 	else:
 		# Going back to main menu - emit menu closed signal since we're leaving the game
 		Events.menu_closed.emit()
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 # Handle ESC key to go back
 func _input(event):

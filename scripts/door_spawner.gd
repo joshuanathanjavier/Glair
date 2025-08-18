@@ -3,7 +3,7 @@ class_name DoorSpawner
 
 # Spawns an exit door when all keys are collected
 
-@export var door_scene: PackedScene = preload("res://scenes/exit_door.tscn")
+@export var door_scene: PackedScene = preload("res://scenes/map/exit_door.tscn")
 @export var spawn_radius: float = 60.0
 @export var min_distance_from_player: float = 20.0
 @export var max_spawn_attempts: int = 30

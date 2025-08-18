@@ -2,7 +2,7 @@ extends Node3D
 class_name MonsterSpawner
 
 # Configuration for spawning monsters randomly throughout the forest
-@export var monster_scene: PackedScene = preload("res://scenes/creepy_monster.tscn")
+@export var monster_scene: PackedScene = preload("res://scenes/character/creepy_monster.tscn")
 @export var spawn_count: int = 5  # Spawn 5 monsters
 @export var spawn_radius: float = 120.0  # Large radius to spread across map
 @export var min_distance_from_player: float = 30.0  # Don't spawn too close to player

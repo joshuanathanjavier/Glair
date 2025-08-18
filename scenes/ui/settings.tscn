@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://bkjg8r2v3n1m5"]
 
-[ext_resource type="Script" uid="uid://c0mg8h1ykfred" path="res://scripts/settings.gd" id="1_settings"]
-[ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="2_hover"]
-[ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="3_click"]
-[ext_resource type="Texture2D" uid="uid://cqk50lv4mgqng" path="res://assets/images/settings/setting_background.png" id="4_f4mfi"]
-[ext_resource type="Texture2D" uid="uid://dvqmny6ubi5w8" path="res://assets/images/settings/setting_title.png" id="5_83j8s"]
-[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/menu/button.png" id="5_es4n0"]
-[ext_resource type="Texture2D" uid="uid://dbdiwa3ml5b6h" path="res://assets/images/settings/audio_title.png" id="6_4ppmf"]
-[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/menu/hover_button.png" id="6_gis3k"]
-[ext_resource type="Texture2D" uid="uid://dn8u4qxt4epsc" path="res://assets/images/settings/graphics_title.png" id="7_uhhto"]
-[ext_resource type="Texture2D" uid="uid://canfj8qtkeihx" path="res://assets/images/settings/controls_title.png" id="8_1g033"]
+[ext_resource type="Script" uid="uid://c0mg8h1ykfred" path="res://scripts/settings.gd" id="1_mn4ci"]
+[ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="2_2vpyc"]
+[ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="3_n58ha"]
+[ext_resource type="Texture2D" uid="uid://cqk50lv4mgqng" path="res://assets/images/settings/setting_background.png" id="4_ofdip"]
+[ext_resource type="Texture2D" uid="uid://dvqmny6ubi5w8" path="res://assets/images/settings/setting_title.png" id="5_b0ygv"]
+[ext_resource type="Texture2D" uid="uid://dbdiwa3ml5b6h" path="res://assets/images/settings/audio_title.png" id="6_7d8i4"]
+[ext_resource type="Texture2D" uid="uid://dn8u4qxt4epsc" path="res://assets/images/settings/graphics_title.png" id="7_sft54"]
+[ext_resource type="Texture2D" uid="uid://canfj8qtkeihx" path="res://assets/images/settings/controls_title.png" id="8_jmdun"]
+[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/menu/button.png" id="9_0lxx6"]
+[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/menu/hover_button.png" id="10_qc1h2"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -18,14 +18,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_settings")
+script = ExtResource("1_mn4ci")
 
 [node name="HoverAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_hover")
+stream = ExtResource("2_2vpyc")
 volume_db = -15.0
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_click")
+stream = ExtResource("3_n58ha")
 volume_db = -12.0
 
 [node name="Background" type="ColorRect" parent="."]
@@ -57,7 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_f4mfi")
+texture = ExtResource("4_ofdip")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
@@ -75,7 +75,7 @@ theme_override_constants/separation = 15
 
 [node name="TitleLabel" type="TextureRect" parent="Panel/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_83j8s")
+texture = ExtResource("5_b0ygv")
 
 [node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -96,7 +96,7 @@ theme_override_constants/separation = 10
 
 [node name="AudioLabel" type="TextureRect" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection"]
 layout_mode = 2
-texture = ExtResource("6_4ppmf")
+texture = ExtResource("6_7d8i4")
 
 [node name="MasterVolumeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection"]
 layout_mode = 2
@@ -167,7 +167,7 @@ theme_override_constants/separation = 10
 
 [node name="GraphicsLabel" type="TextureRect" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection"]
 layout_mode = 2
-texture = ExtResource("7_uhhto")
+texture = ExtResource("7_sft54")
 
 [node name="FullscreenContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection"]
 layout_mode = 2
@@ -215,7 +215,7 @@ theme_override_constants/separation = 10
 
 [node name="ControlsLabel" type="TextureRect" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection"]
 layout_mode = 2
-texture = ExtResource("8_1g033")
+texture = ExtResource("8_jmdun")
 
 [node name="MouseSensitivityContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection"]
 layout_mode = 2
@@ -248,9 +248,9 @@ alignment = 1
 [node name="ApplyButton" type="TextureButton" parent="Panel/VBoxContainer/ButtonsContainer"]
 custom_minimum_size = Vector2(120, 45)
 layout_mode = 2
-texture_normal = ExtResource("5_es4n0")
-texture_pressed = ExtResource("5_es4n0")
-texture_hover = ExtResource("6_gis3k")
+texture_normal = ExtResource("9_0lxx6")
+texture_pressed = ExtResource("9_0lxx6")
+texture_hover = ExtResource("10_qc1h2")
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/ButtonsContainer/ApplyButton"]
 layout_mode = 1
@@ -270,9 +270,9 @@ text = "Apply"
 [node name="ResetButton" type="TextureButton" parent="Panel/VBoxContainer/ButtonsContainer"]
 custom_minimum_size = Vector2(150, 45)
 layout_mode = 2
-texture_normal = ExtResource("5_es4n0")
-texture_pressed = ExtResource("5_es4n0")
-texture_hover = ExtResource("6_gis3k")
+texture_normal = ExtResource("9_0lxx6")
+texture_pressed = ExtResource("9_0lxx6")
+texture_hover = ExtResource("10_qc1h2")
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/ButtonsContainer/ResetButton"]
 layout_mode = 1
@@ -292,9 +292,9 @@ text = "Reset to defaults"
 [node name="BackButton" type="TextureButton" parent="Panel/VBoxContainer/ButtonsContainer"]
 custom_minimum_size = Vector2(100, 45)
 layout_mode = 2
-texture_normal = ExtResource("5_es4n0")
-texture_pressed = ExtResource("5_es4n0")
-texture_hover = ExtResource("6_gis3k")
+texture_normal = ExtResource("9_0lxx6")
+texture_pressed = ExtResource("9_0lxx6")
+texture_hover = ExtResource("10_qc1h2")
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/ButtonsContainer/BackButton"]
 layout_mode = 1
