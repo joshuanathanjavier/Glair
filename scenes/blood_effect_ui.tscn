@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhnu2tyom35kv"]
+
+[ext_resource type="Script" uid="uid://cf2xdr7a1s1od" path="res://scripts/blood_effect_manager.gd" id="1_blood_manager"]
+
+[node name="BloodEffectUI" type="CanvasLayer"]
+script = ExtResource("1_blood_manager")
+
+[node name="DamageOverlay" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PersistentOverlay" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5

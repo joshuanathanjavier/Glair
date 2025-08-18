@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://scripts/ambient_audio_manager.gd" id="15_ambient_manager"]
 [ext_resource type="Script" path="res://scripts/distant_footsteps_manager.gd" id="16_footsteps_manager"]
 [ext_resource type="Script" path="res://scripts/random_monster_growls.gd" id="17_growls_manager"]
+[ext_resource type="PackedScene" path="res://scenes/blood_effect_ui.tscn" id="blood_effect_ui"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(200, 1, 200)
@@ -16435,6 +16436,8 @@ layout_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="PlayerUI" parent="." instance=ExtResource("2_ui")]
+
+[node name="BloodEffectUI" parent="." instance=ExtResource("blood_effect_ui")]
 
 [node name="MapWideBatterySpawner" parent="." instance=ExtResource("4_x0ugi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.582855, 0.5, 0.537357)
