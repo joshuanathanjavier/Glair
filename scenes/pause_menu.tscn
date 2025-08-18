@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwulnxf4nwswc"]
+[gd_scene load_steps=7 format=3 uid="uid://bwulnxf4nwswc"]
 
 [ext_resource type="Script" uid="uid://c15ofe3nm1mds" path="res://scripts/pause_menu.gd" id="1_dh766"]
 [ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="2_hover"]
 [ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="3_click"]
+[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/button.png" id="4_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://be7ewyycrb2jt" path="res://assets/images/paused_title.png" id="4_v4r4p"]
+[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/hover_button.png" id="5_7l7mv"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 2
@@ -25,7 +28,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.7)
 
 [node name="Panel" type="Panel" parent="."]
-self_modulate = Color(1, 1, 1, 0.9)
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -54,29 +57,94 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label" type="TextureRect" parent="Panel/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "PAUSED"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("4_v4r4p")
 
-[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="ResumeButton" type="TextureButton" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(180, 45)
 layout_mode = 2
+texture_normal = ExtResource("4_5d2l8")
+texture_pressed = ExtResource("4_5d2l8")
+texture_hover = ExtResource("5_7l7mv")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/ResumeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Resume"
 
-[node name="RestartButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="RestartButton" type="TextureButton" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(180, 45)
 layout_mode = 2
+texture_normal = ExtResource("4_5d2l8")
+texture_pressed = ExtResource("4_5d2l8")
+texture_hover = ExtResource("5_7l7mv")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/RestartButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Restart"
 
-[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="SettingsButton" type="TextureButton" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(180, 45)
 layout_mode = 2
+texture_normal = ExtResource("4_5d2l8")
+texture_pressed = ExtResource("4_5d2l8")
+texture_hover = ExtResource("5_7l7mv")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/SettingsButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Settings"
 
-[node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="MainMenuButton" type="TextureButton" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(180, 45)
 layout_mode = 2
+texture_normal = ExtResource("4_5d2l8")
+texture_pressed = ExtResource("4_5d2l8")
+texture_hover = ExtResource("5_7l7mv")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MainMenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Main Menu"

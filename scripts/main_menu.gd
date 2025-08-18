@@ -1,8 +1,8 @@
 extends Control
 
-@onready var start_button = $Panel/VBoxContainer/StartButton
-@onready var settings_button = $Panel/VBoxContainer/SettingsButton
-@onready var quit_button = $Panel/VBoxContainer/QuitButton
+@onready var start_button = $Panel/MenuContainer/ButtonGroup/StartButton
+@onready var settings_button = $Panel/MenuContainer/ButtonGroup/SettingsButton
+@onready var quit_button = $Panel/MenuContainer/ButtonGroup/QuitButton
 @onready var menu_audio = $MenuAudio
 @onready var hover_audio = $HoverAudio
 @onready var click_audio = $ClickAudio

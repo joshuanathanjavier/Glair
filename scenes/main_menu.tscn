@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b85v6rxivlux2"]
+[gd_scene load_steps=9 format=3 uid="uid://b85v6rxivlux2"]
 
 [ext_resource type="Script" uid="uid://cs5oskbx5evxt" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://bt4r3okena4u2" path="res://assets/images/menu_background.jpg" id="2_abcd1"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://d0l4m8n0p2q4" path="res://audio/main_menu.wav" id="4_ijkl3"]
 [ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="5_mnop4"]
 [ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="6_qrst5"]
+[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/button.png" id="7_oa1go"]
+[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/hover_button.png" id="8_tbmy8"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -48,7 +50,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="MenuContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -56,32 +58,100 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -120.0
+offset_top = -156.0
 offset_right = 150.0
-offset_bottom = 120.0
+offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
+
+[node name="TitleContainer" type="VBoxContainer" parent="Panel/MenuContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="TitleImage" type="TextureRect" parent="Panel/VBoxContainer"]
+[node name="TitleImage" type="TextureRect" parent="Panel/MenuContainer/TitleContainer"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 texture = ExtResource("3_efgh2")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
-[node name="StartButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="ButtonGroup" type="VBoxContainer" parent="Panel/MenuContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="TextureButton" parent="Panel/MenuContainer/ButtonGroup"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_oa1go")
+texture_pressed = ExtResource("7_oa1go")
+texture_hover = ExtResource("8_tbmy8")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/MenuContainer/ButtonGroup/StartButton"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Start Game"
 
-[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="SettingsButton" type="TextureButton" parent="Panel/MenuContainer/ButtonGroup"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_oa1go")
+texture_pressed = ExtResource("7_oa1go")
+texture_hover = ExtResource("8_tbmy8")
+
+[node name="Label" type="Label" parent="Panel/MenuContainer/ButtonGroup/SettingsButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="Panel/MenuContainer/ButtonGroup"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_oa1go")
+texture_pressed = ExtResource("7_oa1go")
+texture_hover = ExtResource("8_tbmy8")
+
+[node name="Label" type="Label" parent="Panel/MenuContainer/ButtonGroup/QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.01338)
 text = "Quit"

@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkjg8r2v3n1m5"]
+[gd_scene load_steps=11 format=3 uid="uid://bkjg8r2v3n1m5"]
 
 [ext_resource type="Script" uid="uid://c0mg8h1ykfred" path="res://scripts/settings.gd" id="1_settings"]
-[ext_resource type="AudioStreamWAV" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="2_hover"]
-[ext_resource type="AudioStreamWAV" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="3_click"]
+[ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="2_hover"]
+[ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="3_click"]
+[ext_resource type="Texture2D" uid="uid://cqk50lv4mgqng" path="res://assets/images/setting_background.png" id="4_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://dvqmny6ubi5w8" path="res://assets/images/setting_title.png" id="5_83j8s"]
+[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/button.png" id="5_es4n0"]
+[ext_resource type="Texture2D" uid="uid://dbdiwa3ml5b6h" path="res://assets/images/audio_title.png" id="6_4ppmf"]
+[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/hover_button.png" id="6_gis3k"]
+[ext_resource type="Texture2D" uid="uid://dn8u4qxt4epsc" path="res://assets/images/graphics_title.png" id="7_uhhto"]
+[ext_resource type="Texture2D" uid="uid://canfj8qtkeihx" path="res://assets/images/controls_title.png" id="8_1g033"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -16,12 +23,10 @@ script = ExtResource("1_settings")
 [node name="HoverAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_hover")
 volume_db = -15.0
-autoplay = false
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_click")
 volume_db = -12.0
-autoplay = false
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -30,9 +35,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.15, 0.15, 0.15, 1)
+color = Color(0.174663, 0.0080183, 6.01634e-09, 1)
 
 [node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,6 +49,16 @@ offset_right = -50.0
 offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_f4mfi")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -57,12 +73,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 
-[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+[node name="TitleLabel" type="TextureRect" parent="Panel/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "SETTINGS"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("5_83j8s")
 
 [node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -81,32 +94,27 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="AudioLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection"]
+[node name="AudioLabel" type="TextureRect" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Audio"
-horizontal_alignment = 1
+texture = ExtResource("6_4ppmf")
 
 [node name="MasterVolumeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection"]
 layout_mode = 2
 
 [node name="MasterVolumeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MasterVolumeContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 text = "Master Volume:"
 vertical_alignment = 1
 
 [node name="MasterVolumeSlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MasterVolumeContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(200, 0)
-min_value = 0.0
-max_value = 100.0
-step = 1.0
+layout_mode = 2
 value = 100.0
 
 [node name="MasterVolumeValue" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MasterVolumeContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
 text = "100%"
 vertical_alignment = 1
 
@@ -114,22 +122,19 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="MusicVolumeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MusicVolumeContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 text = "Music Volume:"
 vertical_alignment = 1
 
 [node name="MusicVolumeSlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MusicVolumeContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(200, 0)
-min_value = 0.0
-max_value = 100.0
-step = 1.0
+layout_mode = 2
 value = 100.0
 
 [node name="MusicVolumeValue" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/MusicVolumeContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
 text = "100%"
 vertical_alignment = 1
 
@@ -137,22 +142,19 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="SFXVolumeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/SFXVolumeContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 text = "SFX Volume:"
 vertical_alignment = 1
 
 [node name="SFXVolumeSlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/SFXVolumeContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(200, 0)
-min_value = 0.0
-max_value = 100.0
-step = 1.0
+layout_mode = 2
 value = 100.0
 
 [node name="SFXVolumeValue" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/AudioSection/SFXVolumeContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
 text = "100%"
 vertical_alignment = 1
 
@@ -163,18 +165,16 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="GraphicsLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection"]
+[node name="GraphicsLabel" type="TextureRect" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Graphics"
-horizontal_alignment = 1
+texture = ExtResource("7_uhhto")
 
 [node name="FullscreenContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection"]
 layout_mode = 2
 
 [node name="FullscreenLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/FullscreenContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 text = "Fullscreen:"
 vertical_alignment = 1
 
@@ -185,8 +185,8 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="VSyncLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/VSyncContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 text = "VSync:"
 vertical_alignment = 1
 
@@ -198,8 +198,8 @@ button_pressed = true
 layout_mode = 2
 
 [node name="CrosshairLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/CrosshairContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 text = "Show Crosshair:"
 
 [node name="CrosshairCheckBox" type="CheckBox" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/GraphicsSection/CrosshairContainer"]
@@ -213,32 +213,30 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ControlsLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection"]
+[node name="ControlsLabel" type="TextureRect" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Controls"
-horizontal_alignment = 1
+texture = ExtResource("8_1g033")
 
 [node name="MouseSensitivityContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection"]
 layout_mode = 2
 
 [node name="MouseSensitivityLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection/MouseSensitivityContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 text = "Mouse Sensitivity:"
 vertical_alignment = 1
 
 [node name="MouseSensitivitySlider" type="HSlider" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection/MouseSensitivityContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 min_value = 0.1
 max_value = 5.0
 step = 0.1
 value = 1.0
 
 [node name="MouseSensitivityValue" type="Label" parent="Panel/VBoxContainer/ScrollContainer/SettingsVBox/ControlsSection/MouseSensitivityContainer"]
-layout_mode = 2
 custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
 text = "1.0"
 vertical_alignment = 1
 
@@ -247,17 +245,68 @@ layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ApplyButton" type="Button" parent="Panel/VBoxContainer/ButtonsContainer"]
-layout_mode = 2
+[node name="ApplyButton" type="TextureButton" parent="Panel/VBoxContainer/ButtonsContainer"]
 custom_minimum_size = Vector2(120, 45)
+layout_mode = 2
+texture_normal = ExtResource("5_es4n0")
+texture_pressed = ExtResource("5_es4n0")
+texture_hover = ExtResource("6_gis3k")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/ButtonsContainer/ApplyButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Apply"
 
-[node name="ResetButton" type="Button" parent="Panel/VBoxContainer/ButtonsContainer"]
-layout_mode = 2
+[node name="ResetButton" type="TextureButton" parent="Panel/VBoxContainer/ButtonsContainer"]
 custom_minimum_size = Vector2(150, 45)
-text = "Reset to Default"
-
-[node name="BackButton" type="Button" parent="Panel/VBoxContainer/ButtonsContainer"]
 layout_mode = 2
+texture_normal = ExtResource("5_es4n0")
+texture_pressed = ExtResource("5_es4n0")
+texture_hover = ExtResource("6_gis3k")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/ButtonsContainer/ResetButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Reset to defaults"
+
+[node name="BackButton" type="TextureButton" parent="Panel/VBoxContainer/ButtonsContainer"]
 custom_minimum_size = Vector2(100, 45)
+layout_mode = 2
+texture_normal = ExtResource("5_es4n0")
+texture_pressed = ExtResource("5_es4n0")
+texture_hover = ExtResource("6_gis3k")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/ButtonsContainer/BackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Back"
