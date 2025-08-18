@@ -258,11 +258,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _input(event):
-	if event.is_action_pressed("esc"):  # default is Escape key
-		if get_tree().paused:
-			pause_menu.close()
-		else:
-			pause_menu.open()
+	if event.is_action_pressed("esc") and not pause_menu.visible:  # Only handle ESC when pause menu is not visible
+		pause_menu.open()
+		get_viewport().set_input_as_handled()  # Consume the input to prevent other scripts from handling it
+		return
 	
 	# Interaction input
 	if event.is_action_pressed("interact") and current_interactable:
@@ -676,4 +675,4 @@ func _die() -> void:
 
 func _show_game_over_screen() -> void:
 	# Show proper game over screen
-	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")

@@ -101,3 +101,15 @@ func _on_button_hover():
 	# Play hover sound when mouse enters buttons
 	if hover_audio and hover_audio.stream:
 		hover_audio.play()
+
+func _input(event):
+	# Handle ESC key - only when pause menu is visible
+	if event.is_action_pressed("esc") and visible:
+		# If settings overlay is active, go back to pause menu
+		if settings_scene:
+			_on_settings_back()
+		else:
+			# Otherwise close the pause menu
+			close()
+		get_viewport().set_input_as_handled()  # Consume the input to prevent other scripts from handling it
+		return
