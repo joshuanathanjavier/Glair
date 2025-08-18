@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3hys6b4lha17"
-path="res://.godot/imported/glair_title.png-35dd818ed65db39d9b531da6c70e43d5.ctex"
+uid="uid://canfj8qtkeihx"
+path="res://.godot/imported/controls_title.png-23e64c1d7b0d68e443ac1592ccbdf6ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/glair_title.png"
-dest_files=["res://.godot/imported/glair_title.png-35dd818ed65db39d9b531da6c70e43d5.ctex"]
+source_file="res://assets/images/settings/controls_title.png"
+dest_files=["res://.godot/imported/controls_title.png-23e64c1d7b0d68e443ac1592ccbdf6ea.ctex"]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

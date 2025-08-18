@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://c15ofe3nm1mds" path="res://scripts/pause_menu.gd" id="1_dh766"]
 [ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="2_hover"]
 [ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="3_click"]
-[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/button.png" id="4_5d2l8"]
-[ext_resource type="Texture2D" uid="uid://be7ewyycrb2jt" path="res://assets/images/paused_title.png" id="4_v4r4p"]
-[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/hover_button.png" id="5_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/menu/button.png" id="4_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://be7ewyycrb2jt" path="res://assets/images/menu/paused_title.png" id="4_v4r4p"]
+[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/menu/hover_button.png" id="5_7l7mv"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 2

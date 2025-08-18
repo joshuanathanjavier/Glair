@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn385u1xdvkh0"
-path="res://.godot/imported/hover_button.png-74abe51531129ffe96a9cd5bc4c31df2.ctex"
+uid="uid://b3hys6b4lha17"
+path="res://.godot/imported/glair_title.png-34f98fe8a3b6478eaf670dc9134b0245.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/hover_button.png"
-dest_files=["res://.godot/imported/hover_button.png-74abe51531129ffe96a9cd5bc4c31df2.ctex"]
+source_file="res://assets/images/menu/glair_title.png"
+dest_files=["res://.godot/imported/glair_title.png-34f98fe8a3b6478eaf670dc9134b0245.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

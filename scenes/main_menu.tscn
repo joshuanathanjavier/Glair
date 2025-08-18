@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://b85v6rxivlux2"]
 
 [ext_resource type="Script" uid="uid://cs5oskbx5evxt" path="res://scripts/main_menu.gd" id="1_l6cm7"]
-[ext_resource type="Texture2D" uid="uid://bt4r3okena4u2" path="res://assets/images/menu_background.jpg" id="2_abcd1"]
-[ext_resource type="Texture2D" uid="uid://b3hys6b4lha17" path="res://assets/images/glair_title.png" id="3_efgh2"]
+[ext_resource type="Texture2D" uid="uid://bt4r3okena4u2" path="res://assets/images/menu/menu_background.jpg" id="2_abcd1"]
+[ext_resource type="Texture2D" uid="uid://b3hys6b4lha17" path="res://assets/images/menu/glair_title.png" id="3_efgh2"]
 [ext_resource type="AudioStream" uid="uid://d0l4m8n0p2q4" path="res://audio/main_menu.wav" id="4_ijkl3"]
 [ext_resource type="AudioStream" uid="uid://dd8ojcpllseq1" path="res://audio/menu_select.wav" id="5_mnop4"]
 [ext_resource type="AudioStream" uid="uid://bla4pahtm14ec" path="res://audio/menu_selected.wav" id="6_qrst5"]
-[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/button.png" id="7_oa1go"]
-[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/hover_button.png" id="8_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://b7pd2rk1tq2os" path="res://assets/images/menu/button.png" id="7_oa1go"]
+[ext_resource type="Texture2D" uid="uid://dn385u1xdvkh0" path="res://assets/images/menu/hover_button.png" id="8_tbmy8"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

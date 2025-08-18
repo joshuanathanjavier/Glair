@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt4r3okena4u2"
-path="res://.godot/imported/menu_background.jpg-beaa9b99e818ef9288c192adedc1e731.ctex"
+uid="uid://dvqmny6ubi5w8"
+path="res://.godot/imported/setting_title.png-3a3ff203a16939ea723931f09a71a0c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/menu_background.jpg"
-dest_files=["res://.godot/imported/menu_background.jpg-beaa9b99e818ef9288c192adedc1e731.ctex"]
+source_file="res://assets/images/settings/setting_title.png"
+dest_files=["res://.godot/imported/setting_title.png-3a3ff203a16939ea723931f09a71a0c4.ctex"]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
