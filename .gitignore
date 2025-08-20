@@ -1,3 +1,68 @@
 # Godot 4+ specific ignores
 .godot/
+*.import
+*.translation
+*.uid
+
+# Build and export artifacts
+builds/
+export_presets.cfg
+*.pck
+*.zip
+*.apk
+*.aab
+*.ipa
+*.app
+
+# Platform-specific
 /android/
+/ios/
+/macos/
+/linux/
+/windows/
+/web/
+
+# Generated files
+*.generated.*
+*.gen.*
+*.cache
+*.tmp
+*.temp
+
+# Audio processing
+*.ogg.import
+*.wav.import
+*.mp3.import
+
+# Shader cache
+shader_cache/
+
+# Editor-specific
+editor/
+*.editor_*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs and debugging
+*.log
+*.log.*
+debug.log
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Temporary files
+temp/
+tmp/
