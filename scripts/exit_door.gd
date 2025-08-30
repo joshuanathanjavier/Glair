@@ -82,5 +82,32 @@ func _escape_game():
 	print("Player escaped! Game completed! (Scene transition)")
 	# Emit escape event
 	Events.player_escaped.emit()
+	
+	# Get the completion time before switching scenes
+	var completion_time = 0.0
+	var objective_manager = get_node("../ObjectiveManager")
+	
+	# If the relative path doesn't work, try to find it in the scene tree
+	if not objective_manager:
+		var scene_tree = get_tree()
+		if scene_tree:
+			# Search through all nodes in the scene tree
+			var all_nodes = scene_tree.get_nodes_in_group("")
+			for node in all_nodes:
+				if node.get_class() == "ObjectiveManager":
+					objective_manager = node
+					break
+	
+	if objective_manager:
+		var completion_stats = objective_manager.get_completion_stats()
+		completion_time = completion_stats.get("survival_time", 0.0)
+		print("Game completed in: ", completion_time, " seconds")
+	else:
+		print("WARNING: Could not find ObjectiveManager to get completion time")
+	
+	# Store the completion time in a global variable or pass it somehow
+	# For now, we'll use a simple approach by storing it in the Events autoload
+	Events.game_completion_time = completion_time
+	
 	# Instantly switch to preloaded scene
 	get_tree().change_scene_to_packed(game_completed_scene)

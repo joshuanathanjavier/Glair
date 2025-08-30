@@ -36,6 +36,9 @@ signal key_collected
 # Player escape signals
 signal player_escaped
 
+# Game completion data
+var game_completion_time: float = 0.0
+
 # Settings navigation signals
 signal settings_back_to_pause
 
